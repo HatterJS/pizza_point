@@ -5,21 +5,19 @@ function App() {
     <div className="App">
       <header>
         <div className="cover">
-          <div className="header">
+          <div className="header unselectable">
             <div className="header__social">
               <p>Приєднуйтесь</p>
               <img src="/img/social/instagram.svg" alt="instagram" />
               <img src="/img/social/telegram.svg" alt="telegramm" />
             </div>
-            <div className="header__about">
-              <ul>
-                <li>Про нас</li>
-                <li>Доставка</li>
-                <li>Вакансії</li>
-              </ul>
-            </div>
+            <ul className="header__about">
+              <li>Про нас</li>
+              <li>Доставка</li>
+              <li>Вакансії</li>
+            </ul>
             <div className="header__account">
-              <p></p>
+              <p>UserName</p>
               <img src="/img/userAvatar.png" alt="user" />
             </div>
           </div>
@@ -27,7 +25,7 @@ function App() {
       </header>
       <div className="information">
         <div className="information__logo">
-          <img src="/img/logo.png" alt="" />
+          <img src="/img/logo.png" alt="logo" />
         </div>
         <div className="information__contacts">
           <div className="information__phones">
@@ -62,42 +60,37 @@ function App() {
       </div>
       <nav>
         <div className="cover">
-          {/* <div className="category__pizza"></div>
-              <div className="category__drink"></div>
-              <div className="category__additional"></div>
-              <div className="category__dessert"></div>
-              <div className="category__discounts"></div> */}
-          <ul className="nav__category">
+          <ul className="nav__category unselectable">
             <li>
               <img src="/img/nav/pizza.png" alt="icon" />
-              <p>Піцца</p>
+              <h3>Піцца</h3>
             </li>
             <li>
               <img src="/img/nav/drink.png" alt="icon" />
-              <p>Напої</p>
+              <h3>Напої</h3>
             </li>
             <li>
               <img src="/img/nav/cake.png" alt="icon" />
-              <p>Десерти</p>
+              <h3>Десерти</h3>
             </li>
             <li>
               <img src="/img/nav/additional.png" alt="icon" />
-              <p>Доповнення</p>
+              <h3>Доповнення</h3>
             </li>
             <li>
               <img src="/img/nav/Union.png" alt="icon" />
-              <p>Акції</p>
+              <h3>Акції</h3>
             </li>
           </ul>
-          <div className="nav__search">
-            <img src="/img/lens.svg" alt="lens" />
-            <input type="text" placeholder="Пошук" />
+          <input type="search" placeholder="пошук" />
+          <div className="nav_sort">
+            Сортувати
+            <ul>
+              <li>популярні</li>
+              <li>ціна</li>
+              <li>назва</li>
+            </ul>
           </div>
-          <ul className="nav_sort">
-            <li>Популярні</li>
-            <li>Ціна</li>
-            <li>Назва</li>
-          </ul>
         </div>
       </nav>
       <div className="banner"></div>
@@ -109,32 +102,135 @@ function App() {
         </div>
         <div className="goods__itemBlock">
           <div className="goods__item">
-            <img src="" alt="goods" />
+            <img src="/img/goods/pizza/pizza_margarita.png" alt="goods" />
             <div className="goods__name">
-              <h4>Пепероні</h4>
-              <p>description</p>
+              <h2>Маргаріта</h2>
+              <p>моцарела, помідори, рукола</p>
             </div>
             <div className="goods__size">
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
+              <input type="radio" name="size" label="26 см" />
+              <input type="radio" name="size" label="30 см" />
+              <input type="radio" name="size" label="40 см" />
             </div>
-            <div className="goods__cost">
-              <h3>250 uah</h3>
-              <button className="acceptButton">add to cart</button>
+            <div className="goods__cost unselectable">
+              <h3>250 грн.</h3>
+              <button className="acceptButton">В кошик</button>
+            </div>
+          </div>
+          <div className="goods__item">
+            <img src="/img/goods/pizza/pizza_pepperoni.png" alt="goods" />
+            <div className="goods__name">
+              <h2>Пепероні</h2>
+              <p>салямі, моцарела, чедер</p>
+            </div>
+            <div className="goods__size">
+              <input type="radio" name="size" label="26 см" />
+              <input type="radio" name="size" label="30 см" />
+              <input type="radio" name="size" label="40 см" />
+            </div>
+            <div className="goods__cost unselectable">
+              <h3>250 грн.</h3>
+              <button className="acceptButton" disabled>
+                В кошик
+              </button>
+            </div>
+          </div>
+          <div className="goods__item">
+            <img src="/img/goods/pizza/pizza_pepperoni.png" alt="goods" />
+            <div className="goods__name">
+              <h2>Пепероні</h2>
+              <p>салямі, моцарела, чедер</p>
+            </div>
+            <div className="goods__size">
+              <input type="radio" name="size" label="26 см" />
+              <input type="radio" name="size" label="30 см" />
+              <input type="radio" name="size" label="40 см" />
+            </div>
+            <div className="goods__cost unselectable">
+              <h3>250 грн.</h3>
+              <button className="acceptButton" disabled>
+                В кошик
+              </button>
+            </div>
+          </div>
+          <div className="goods__item">
+            <img src="/img/goods/pizza/pizza_pepperoni.png" alt="goods" />
+            <div className="goods__name">
+              <h2>Пепероні</h2>
+              <p>салямі, моцарела, чедер</p>
+            </div>
+            <div className="goods__size">
+              <input type="radio" name="size" label="26 см" />
+              <input type="radio" name="size" label="30 см" />
+              <input type="radio" name="size" label="40 см" />
+            </div>
+            <div className="goods__cost unselectable">
+              <h3>250 грн.</h3>
+              <button className="acceptButton" disabled>
+                В кошик
+              </button>
+            </div>
+          </div>
+          <div className="goods__item">
+            <img src="/img/goods/pizza/pizza_pepperoni.png" alt="goods" />
+            <div className="goods__name">
+              <h2>Пепероні</h2>
+              <p>салямі, моцарела, чедер</p>
+            </div>
+            <div className="goods__size">
+              <input type="radio" name="size" label="26 см" />
+              <input type="radio" name="size" label="30 см" />
+              <input type="radio" name="size" label="40 см" />
+            </div>
+            <div className="goods__cost unselectable">
+              <h3>250 грн.</h3>
+              <button className="acceptButton" disabled>
+                В кошик
+              </button>
+            </div>
+          </div>
+          <div className="goods__item">
+            <img src="/img/goods/pizza/pizza_pepperoni.png" alt="goods" />
+            <div className="goods__name">
+              <h2>Пепероні</h2>
+              <p>салямі, моцарела, чедер</p>
+            </div>
+            <div className="goods__size">
+              <input type="radio" name="size" label="26 см" />
+              <input type="radio" name="size" label="30 см" />
+              <input type="radio" name="size" label="40 см" />
+            </div>
+            <div className="goods__cost unselectable">
+              <h3>250 грн.</h3>
+              <button className="acceptButton" disabled>
+                В кошик
+              </button>
+            </div>
+          </div>
+          <div className="goods__item">
+            <img src="/img/goods/pizza/pizza_pepperoni.png" alt="goods" />
+            <div className="goods__name">
+              <h2>Пепероні</h2>
+              <p>салямі, моцарела, чедер</p>
+            </div>
+            <div className="goods__size">
+              <input type="radio" name="size" label="26 см" />
+              <input type="radio" name="size" label="30 см" />
+              <input type="radio" name="size" label="40 см" />
+            </div>
+            <div className="goods__cost unselectable">
+              <h3>250 грн.</h3>
+              <button className="acceptButton" disabled>
+                В кошик
+              </button>
             </div>
           </div>
         </div>
         <div className="goods__pages">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
+          <input type="radio" name="page" label="1" defaultChecked />
+          <input type="radio" name="page" label="2" />
+          <input type="radio" name="page" label="3" />
+          <input type="radio" name="page" label="4" />
         </div>
       </div>
       <div className="popular">
