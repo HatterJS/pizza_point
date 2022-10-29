@@ -1,0 +1,46 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+$transition:  all 0.2s ease-in-out;
+
+//FAVORITES
+.favorites, .favorites-show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition;
+    z-index: 19;
+    .favorites__shadow {
+        height: 100vh;
+        width: 100%;
+    }
+    .favorites__block {
+        position: absolute;
+        top: 0;
+        left: -300px;
+        max-width: 400px;
+        height: 100%;
+        box-sizing: border-box;
+        background-color: white;
+        box-shadow: 2px 2px 4px black;
+        border-radius: 0 20px 20px 0;
+        transition: all 0.5s ease-in-out;
+        z-index: 29;
+        .favorites__title {
+            padding: 10px;
+            border-bottom: $borderBar;
+        }
+    }
+}
+.favorites-show {
+    opacity: 100;
+    visibility: visible;
+    .favorites__block {
+        left: 0;
+        visibility: visible;
+        opacity: 100;
+    }
+}

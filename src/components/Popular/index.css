@@ -1,0 +1,26 @@
+.popular {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.popular .popular__tittle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+}
+.popular .popular__tittle div {
+  height: 0;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.2);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 0 20px;
+}
+.popular .popular__goods {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}

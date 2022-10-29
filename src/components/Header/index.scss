@@ -1,0 +1,35 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+
+//HEADER
+header {
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    border-top: $borderBar;
+    border-bottom: $borderBar;
+    height: 40px;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        .header__social, .header__account, .header__about {
+            display: flex;
+            p {
+                margin-right: 5px;
+                align-self: center;
+            }
+            img {
+                margin: 0 5px;
+                cursor: pointer;
+            }
+        }
+        ul {
+            flex: 1 1 auto;
+            max-width: 500px;
+            justify-content: space-evenly;
+            li {
+                cursor: pointer;
+            }
+        }
+    }
+}

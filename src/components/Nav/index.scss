@@ -1,0 +1,99 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+$textColor: rgb(64, 64, 64);
+$textColorWhite: rgb(240, 240, 240);
+$transition:  all 0.2s ease-in-out;
+
+//NAVIGATION BAR
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top: $borderBar;
+    border-bottom: $borderBar;
+    height: 40px;
+    z-index: 9;
+    .cover {
+        display: flex;
+    }
+    .nav__category {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: space-between;
+        li {
+            display: flex;
+            flex: 1 1 auto;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: $transition;
+            img {
+                height: 100%;
+                margin-right: 10px;
+            }
+            h3 {
+                color: $textColorWhite;
+            }
+            &:hover {
+                background-color: rgba(255, 170, 43, 0.2);
+            }
+        }
+        .nav__category-selected {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 170, 43, 0.2);
+        }
+    }
+    input {
+        background: url(../../assets/img/lens.svg) no-repeat left white;
+        padding-left: 30px;
+        padding-right: 10px;
+        border: none;
+        border-radius: 10px;
+        height: 30px;
+        font-size: 14px;
+        color: $textColor;
+        align-self: center;
+        margin: 0 10px;
+    }
+    .nav_sort {
+        display: flex;
+        position: relative;
+        align-items: center;
+        color: $textColorWhite;
+        font-weight: 600;
+        font-size: 1.2em;
+        padding: 0 10px;
+        cursor: pointer;
+        z-index: 9;
+        ul {
+            position: absolute;
+            top: calc(100% + 1px);
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: $transition;
+            li {
+                color: $textColorWhite;
+                font-weight: 400;
+                padding: 10px;
+                border-top: 1px solid white;
+                transition: $transition;
+                &:hover {
+                    background-color: rgba(255, 170, 43, 0.4);
+                }
+            }
+        }
+        &:hover {
+            background-color: rgba(255, 170, 43, 0.4);
+            ul {
+                visibility: visible;
+                opacity: 100;
+            }
+        }
+    }
+}

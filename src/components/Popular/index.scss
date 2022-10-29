@@ -1,0 +1,23 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+$transition:  all 0.2s ease-in-out;
+$maxWidth: 1200px;
+
+//POPULAR
+.popular {
+    max-width: $maxWidth;
+    margin: 0 auto;
+    .popular__tittle {
+        display: flex;
+        align-items: center;
+        padding: 5px 0;
+        div {
+            height: 0;
+            border-bottom: $borderBar;
+            flex: 1 1 auto;
+            margin: 0 20px;
+        }
+    }
+    .popular__goods {
+        display: flex;
+    }
+}
