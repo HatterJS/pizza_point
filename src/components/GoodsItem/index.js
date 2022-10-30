@@ -37,7 +37,9 @@ function GoodsItem({
     !isFavorite
       ? setLocalFavorites((prev) => [...prev, favoriteItem])
       : setLocalFavorites(
-          JSON.parse(localStorage.getItem('favorites')).filter((item) => item.id !== id),
+          JSON.parse(localStorage.getItem('favorites')).filter(
+            (item) => item.goodsTitle !== goodsTitle,
+          ),
         );
     setIsFavorite(!isFavorite);
   }
@@ -46,7 +48,9 @@ function GoodsItem({
     <div className={className}>
       <div
         className={
-          !favorites.find((item) => item.id === id) ? 'goods__favorite' : 'goods__favorite-checked'
+          !favorites.find((item) => item.goodsTitle === goodsTitle)
+            ? 'goods__favorite'
+            : 'goods__favorite-checked'
         }
         onClick={() => handleFavorite()}>
         {favoriteSVG}

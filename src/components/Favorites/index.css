@@ -1,47 +1,61 @@
-.favorites, .favorites-show {
+.favorites {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 19;
+  -webkit-animation: appearence 0.3s ease-out 1 forwards;
+          animation: appearence 0.3s ease-out 1 forwards;
+}
+@-webkit-keyframes appearence {
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes appearence {
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.favorites .favorites__shadow {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  z-index: 19;
 }
-.favorites .favorites__shadow, .favorites-show .favorites__shadow {
-  height: 100vh;
-  width: 100%;
-}
-.favorites .favorites__block, .favorites-show .favorites__block {
+.favorites .favorites__block {
   position: absolute;
   top: 0;
-  left: -300px;
+  left: 0;
   max-width: 400px;
   height: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  overflow: auto;
   background-color: white;
   -webkit-box-shadow: 2px 2px 4px black;
           box-shadow: 2px 2px 4px black;
   border-radius: 0 20px 20px 0;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
   z-index: 29;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-animation: favoritesBlock 0.4s ease-out 1 forwards 0.2s;
+          animation: favoritesBlock 0.4s ease-out 1 forwards 0.2s;
 }
-.favorites .favorites__block .favorites__title, .favorites-show .favorites__block .favorites__title {
+@-webkit-keyframes favoritesBlock {
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes favoritesBlock {
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+.favorites .favorites__block .favorites__title {
   padding: 10px;
   border-bottom: 1px solid rgba(64, 64, 64, 0.2);
-}
-
-.favorites-show {
-  opacity: 100;
-  visibility: visible;
-}
-.favorites-show .favorites__block {
-  left: 0;
-  visibility: visible;
-  opacity: 100;
 }

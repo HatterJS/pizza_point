@@ -22,9 +22,18 @@ $transition:  all 0.2s ease-in-out;
     img {
         width: 100%;
     }
+    .goodsItem__description {
+        display: flex;
+        flex-direction: column;
+    }
 }
 .goods__item {
     max-width: 280px;
+    .goodsItem__description {
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+    }
 }
 .goods__item-added {
     flex-direction: row;
@@ -32,8 +41,6 @@ $transition:  all 0.2s ease-in-out;
         width: 40%;
     }
     .goodsItem__description {
-        display: flex;
-        flex-direction: column;
         width: 60%;
         min-width: 70px;
     }
@@ -56,17 +63,18 @@ svg {
 }
 .goods__name {
     text-align: center;
-    height: 70px;
+    // height: 70px;
 }
 .goods__size {
     display: flex;
+    // flex-wrap: wrap;
     input {
         display: flex;
         justify-content: center;
         align-items: center;
         appearance: none;
         border: $borderBar;
-        width: 70px;
+        width: 100%;
         min-width: fit-content;
         height: 35px;
         margin: 5px;

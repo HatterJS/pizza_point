@@ -31,9 +31,25 @@
 .goods__item img, .goods__item-added img {
   width: 100%;
 }
+.goods__item .goodsItem__description, .goods__item-added .goodsItem__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 
 .goods__item {
   max-width: 280px;
+}
+.goods__item .goodsItem__description {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
 .goods__item-added {
@@ -46,13 +62,6 @@
   width: 40%;
 }
 .goods__item-added .goodsItem__description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   width: 60%;
   min-width: 70px;
 }
@@ -74,7 +83,6 @@ svg {
 
 .goods__name {
   text-align: center;
-  height: 70px;
 }
 
 .goods__size {
@@ -96,7 +104,7 @@ svg {
      -moz-appearance: none;
           appearance: none;
   border: 1px solid rgba(64, 64, 64, 0.2);
-  width: 70px;
+  width: 100%;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;

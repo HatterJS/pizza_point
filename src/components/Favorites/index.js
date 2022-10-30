@@ -3,7 +3,7 @@ import GoodsItem from '../GoodsItem';
 
 function Favorites(props) {
   return (
-    <div className={props.showFavorite ? 'favorites-show' : 'favorites'}>
+    <div className="favorites">
       <div className="favorites__shadow" onClick={() => props.setShowFavorite(false)}></div>
       <div className="favorites__block">
         <div className="favorites__title">
