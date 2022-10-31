@@ -23,6 +23,8 @@ $transition:  all 0.2s ease-in-out;
         background-color: rgba(0, 0, 0, 0.5);
     }
     .favorites__block {
+        display: flex;
+        flex-direction: column;
         position: absolute;
         top: 0;
         left: 0;
@@ -46,6 +48,11 @@ $transition:  all 0.2s ease-in-out;
         .favorites__title {
             padding: 10px;
             border-bottom: $borderBar;
+        }
+        .favorites__goods {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
         }
     }
 }
