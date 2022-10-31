@@ -5,6 +5,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px;
@@ -12,6 +13,7 @@
 }
 .information .information__logo {
   cursor: pointer;
+  height: 100%;
 }
 .information .information__logo img {
   height: 100%;

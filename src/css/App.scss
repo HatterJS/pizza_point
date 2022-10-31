@@ -11,58 +11,14 @@ $maxWidth: 1200px;
     margin: 0 auto;
     height: 100%;
 }
-
-//GOODS BLOCK
-.goods {
-    max-width: $maxWidth;
-    margin: 0 auto;
-    .goods__tittle {
-        display: flex;
-        align-items: center;
-        padding: 5px 0;
-        div {
-            height: 0;
-            border-bottom: $borderBar;
-            flex: 1 1 auto;
-            margin: 0 20px;
-        }
-    }
-    .goods__itemBlock {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .goods__pages {
-        display: flex;
-        justify-content: center;
-        max-width: $maxWidth;
-        margin: 0 auto;
-        margin: 10px;
-        input {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: $borderBar;
-            border-radius: 10px;
-            width: 35px;
-            height: 35px;
-            margin: 0 5px;
-            line-height: 1;
-            appearance: none;
-            cursor: pointer;
-            transition: $transition;
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 1px 1px 2px gray;
-            }
-            &:checked {
-                background-color: rgb(255, 245, 190);
-                transform: translateY(0);
-                box-shadow: 1px 1px 2px gray inset;
-            }
-            &::before {
-                content: attr(label);
-            }
-        }
-    }
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
 }

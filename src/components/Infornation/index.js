@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './index.css';
 
 import logoImg from '../../assets/img/logo.png';
@@ -9,9 +10,11 @@ import cartImg from '../../assets/img/cart.png';
 function Information({ counter, setShowFavorite }) {
   return (
     <div className="information">
-      <div className="information__logo">
-        <img src={logoImg} alt="logo" />
-      </div>
+      <Link className="information__logo-link" to={'/'}>
+        <div className="information__logo">
+          <img src={logoImg} alt="logo" />
+        </div>
+      </Link>
       <div className="information__contacts">
         <div className="information__phones">
           <img src={phonesImg} alt="phone" />
@@ -35,12 +38,14 @@ function Information({ counter, setShowFavorite }) {
             <p>{counter}</p>
           </div>
         </div>
-        <div className="information__cart">
-          <img src={cartImg} alt="cart" />
-          <div className="information__counter">
-            <p>0</p>
+        <Link to={'/order'}>
+          <div className="information__cart">
+            <img src={cartImg} alt="cart" />
+            <div className="information__counter">
+              <p>0</p>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

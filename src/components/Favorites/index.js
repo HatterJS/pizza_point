@@ -13,7 +13,7 @@ function Favorites(props) {
           {props.localFavorites.map((obj) => (
             <GoodsItem
               className="goods__item-added"
-              key={obj.id}
+              key={obj.goodsTitle + obj.id}
               {...obj}
               setLocalFavorites={props.setLocalFavorites}
               favorites={props.favorites}

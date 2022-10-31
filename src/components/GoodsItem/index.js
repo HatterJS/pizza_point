@@ -22,7 +22,9 @@ function GoodsItem({
   setLocalFavorites,
   favorites,
 }) {
-  const [isFavorite, setIsFavorite] = React.useState(favorites.find((item) => item.id === id));
+  const [isFavorite, setIsFavorite] = React.useState(
+    favorites.find((item) => item.goodsTitle === goodsTitle),
+  );
   const [checkSize, setCheckSize] = React.useState(1);
 
   function handleFavorite() {
@@ -45,7 +47,7 @@ function GoodsItem({
   }
 
   return (
-    <div className={className}>
+    <div className={className + ' unselectable'}>
       <div
         className={
           !favorites.find((item) => item.goodsTitle === goodsTitle)
