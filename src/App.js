@@ -20,6 +20,8 @@ function App() {
   const [localFavorites, setLocalFavorites] = React.useState(
     JSON.parse(localStorage.getItem('favorites')) || [],
   );
+  //get data from localstorage(cart) or set empty array
+  const [localCart, setLocalCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);
   //change favorite state of items
   const [showFavorite, setShowFavorite] = React.useState(false);
   //set goods category
@@ -44,11 +46,19 @@ function App() {
   React.useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(localFavorites));
   }, [localFavorites]);
+  //set data at localstorage(cart) when clicked on buy button
+  React.useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(localCart));
+  }, [localCart]);
 
   return (
     <div className="App">
       <Header />
-      <Information counter={localFavorites.length} setShowFavorite={setShowFavorite} />
+      <Information
+        cartCounter={localCart.length}
+        favoriteCounter={localFavorites.length}
+        setShowFavorite={setShowFavorite}
+      />
       <Routes>
         <Route
           path="/"
@@ -58,20 +68,31 @@ function App() {
               isLoading={isLoading}
               setLocalFavorites={setLocalFavorites}
               localFavorites={localFavorites}
+              setLocalCart={setLocalCart}
               goodsCategory={goodsCategory}
               setGoodsCategory={setGoodsCategory}
             />
           }
         />
-        <Route path="/order" element={<Order />} />
+        <Route
+          path="/order"
+          element={
+            <Order
+              localCart={localCart}
+              setLocalCart={setLocalCart}
+              localFavorites={localFavorites}
+              setLocalFavorites={setLocalFavorites}
+            />
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {showFavorite && (
         <Favorites
+          setLocalCart={setLocalCart}
           setShowFavorite={setShowFavorite}
           localFavorites={localFavorites}
           setLocalFavorites={setLocalFavorites}
-          favorites={localFavorites}
         />
       )}
       {/* <Popular /> */}

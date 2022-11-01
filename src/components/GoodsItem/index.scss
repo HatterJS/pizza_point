@@ -2,7 +2,7 @@ $borderBar: 1px solid rgba(64, 64, 64, 0.2);
 $transition:  all 0.2s ease-in-out;
 
 //GOODS ITEM
-.goods__item, .goods__item-added {
+.goods__item, .goods__item-favorite, .goods__item-cart {
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -12,6 +12,7 @@ $transition:  all 0.2s ease-in-out;
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
+    min-width: 300px;
     box-shadow: 1px 1px 2px rgb(187, 187, 187);
     transition: $transition;
     &:hover {
@@ -26,16 +27,26 @@ $transition:  all 0.2s ease-in-out;
         display: flex;
         flex-direction: column;
     }
+    svg {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+    }
 }
 .goods__item {
     max-width: 280px;
+    img {
+        min-height: 258px;
+        min-width: 258px;
+    }
     .goodsItem__description {
         justify-content: space-between;
         width: 100%;
         height: 100%;
     }
 }
-.goods__item-added {
+.goods__item-favorite, .goods__item-cart {
     flex-direction: row;
     img {
         width: 40%;
@@ -45,11 +56,11 @@ $transition:  all 0.2s ease-in-out;
         min-width: 70px;
     }
 }
-svg {
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
+.goods__item-cart {
+    margin: 0 10px 10px 0;
+    button {
+        display: none;
+    }
 }
 .goods__favorite {
     svg {
@@ -112,5 +123,50 @@ svg {
     button {
         width: 100%;
         min-width: fit-content;
+    }
+}
+.goods__item-favorite-counterBlock, .goods__item-counterBlock {
+    display: none;
+}
+.goods__itemBlock {
+    display: flex;
+    .goods__item-cart-counterBlock {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+        .order__goodsDelete {
+            font-size: 0;
+            border-radius: 10px;
+            transition: $transition;
+            cursor: pointer;
+            &:hover {
+                box-shadow: 1px 1px 1px gray;
+                transform: translateY(-2px);
+            }
+        }
+        .order__goodsCounter {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: $borderBar;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+            height: 90px;
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: rgb(120, 120, 120);
+            }
+            div:first-child, div:last-child {
+                background-color: rgb(245, 245, 245);
+                height: 30%;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgb(240, 240, 240);
+                }
+            }
+        }
     }
 }

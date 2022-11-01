@@ -46,8 +46,24 @@ $transition:  all 0.2s ease-in-out;
             }
         }
         .favorites__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
             border-bottom: $borderBar;
+            div {
+                font-size: 0;
+            }
+            svg {
+                position: relative;
+                border-radius: 10px;
+                transition: $transition;
+                cursor: pointer;
+                &:hover {
+                    box-shadow: 1px 1px 1px gray;
+                    transform: translateY(-1px);
+                }
+            }
         }
         .favorites__goods {
             display: flex;

@@ -6,6 +6,7 @@ function Home({
   goodsData,
   isLoading,
   setLocalFavorites,
+  setLocalCart,
   localFavorites,
   goodsCategory,
   setGoodsCategory,
@@ -17,8 +18,9 @@ function Home({
       <Goods
         goodsData={goodsData}
         isLoading={isLoading}
+        setLocalCart={setLocalCart}
         setLocalFavorites={setLocalFavorites}
-        favorites={localFavorites}
+        localFavorites={localFavorites}
       />
     </React.Fragment>
   );

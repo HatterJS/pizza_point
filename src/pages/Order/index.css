@@ -2,14 +2,149 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  border-top: 1px solid rgba(64, 64, 64, 0.2);
+  width: 100%;
+  max-width: 1200px;
+}
+.order .order__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.order .order__title div {
+  height: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.2);
+  margin: 0 20px;
+}
+.order .order__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.order .order__content .order__goodsBlock {
+  width: 40%;
+  min-width: 350px;
+  margin-right: 40px;
+}
+.order .order__content .order__goodsBlock .order__goods {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 800px;
+  margin-top: 10px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.2);
+  overflow: auto;
+}
+.order .order__content .order__goodsBlock .order__totalPrice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+}
+.order .order__content .order__goodsBlock button {
+  width: 100%;
+}
+.order .order__content .order__customerBlock {
+  width: 60%;
+}
+.order .order__content .order__customerBlock input {
+  border: 1px solid rgba(64, 64, 64, 0.2);
+  height: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 5px 5px;
+  border-radius: 15px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+.order .order__content .order__customerBlock input::-webkit-input-placeholder {
+  color: rgb(180, 180, 180);
+}
+.order .order__content .order__customerBlock input::-moz-placeholder {
+  color: rgb(180, 180, 180);
+}
+.order .order__content .order__customerBlock input:-ms-input-placeholder {
+  color: rgb(180, 180, 180);
+}
+.order .order__content .order__customerBlock input::-ms-input-placeholder {
+  color: rgb(180, 180, 180);
+}
+.order .order__content .order__customerBlock input::placeholder {
+  color: rgb(180, 180, 180);
+}
+.order .order__content .order__customerBlock .m-tb-20 {
+  margin: 20px 0;
+}
+.order .order__content .order__customerBlock .order__customerContacts, .order .order__content .order__customerBlock .order__customerAdress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.order .order__content .order__customerBlock .order__customerDelivery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.order .order__content .order__customerBlock .order__customerDelivery input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 120px;
+  color: rgb(90, 90, 90);
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+.order .order__content .order__customerBlock .order__customerDelivery input::before {
+  content: attr(label);
+}
+.order .order__content .order__customerBlock .order__customerDelivery input:hover {
+  -webkit-box-shadow: 1px 1px 2px gray inset;
+          box-shadow: 1px 1px 2px gray inset;
+}
+.order .order__content .order__customerBlock .order__customerDelivery input:checked {
+  background-color: rgb(255, 249, 213);
+  -webkit-box-shadow: 1px 1px 2px gray inset;
+          box-shadow: 1px 1px 2px gray inset;
+}
+.order .order__content .order__customerBlock .order__pizzaPointAdress p {
+  margin: 10px;
 }

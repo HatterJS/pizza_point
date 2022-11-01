@@ -7,7 +7,7 @@ import timeImg from '../../assets/img/time_img.png';
 import favoriteSvg from '../../assets/img/favorite.svg';
 import cartImg from '../../assets/img/cart.png';
 
-function Information({ counter, setShowFavorite }) {
+function Information({ cartCounter, favoriteCounter, setShowFavorite }) {
   return (
     <div className="information">
       <Link className="information__logo-link" to={'/'}>
@@ -35,14 +35,14 @@ function Information({ counter, setShowFavorite }) {
         <div className="information__favorite" onClick={() => setShowFavorite(true)}>
           <img src={favoriteSvg} alt="favorite" />
           <div className="information__counter">
-            <p>{counter}</p>
+            <p>{favoriteCounter}</p>
           </div>
         </div>
         <Link to={'/order'}>
           <div className="information__cart">
             <img src={cartImg} alt="cart" />
             <div className="information__counter">
-              <p>0</p>
+              <p>{cartCounter}</p>
             </div>
           </div>
         </Link>

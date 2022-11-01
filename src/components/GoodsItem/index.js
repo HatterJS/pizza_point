@@ -10,6 +10,17 @@ const favoriteSVG = (
     />
   </svg>
 );
+const deleteSVG = (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+    <rect width="40" height="40" rx="10" fill="none" fillOpacity="0.25" />
+    <rect x="0.5" y="0.5" width="39" height="39" rx="10" stroke="black" strokeOpacity="0.2" />
+    <path
+      d="M23.2504 26.0279L24.3111 27.0885L26.4324 24.9672L25.3717 23.9065L22.6735 21.2083L25.9336 17.9482L26.9942 16.8875L24.8729 14.7662L23.8123 15.8269L20.5522 19.087L17.5936 16.1284L16.5329 15.0677L14.4116 17.189L15.4723 18.2497L18.4308 21.2083L15.327 24.3121L14.2663 25.3728L16.3876 27.4941L17.4483 26.4335L20.5522 23.3296L23.2504 26.0279Z"
+      fill="black"
+      fillOpacity="0.2"
+    />
+  </svg>
+);
 
 function GoodsItem({
   className,
@@ -19,11 +30,14 @@ function GoodsItem({
   goodsDescription,
   size,
   cost,
+  setLocalCart,
   setLocalFavorites,
-  favorites,
+  localFavorites,
 }) {
+  //state for counter
+  const [counter, setCounter] = React.useState(1);
   const [isFavorite, setIsFavorite] = React.useState(
-    favorites.find((item) => item.goodsTitle === goodsTitle),
+    localFavorites.find((item) => item.goodsTitle === goodsTitle),
   );
   const [checkSize, setCheckSize] = React.useState(1);
 
@@ -46,41 +60,71 @@ function GoodsItem({
     setIsFavorite(!isFavorite);
   }
 
+  function handleBuy() {
+    const cartItem = {
+      id: id,
+      image: image,
+      goodsTitle: goodsTitle,
+      goodsDescription: goodsDescription,
+      size: size,
+      cost: cost,
+    };
+    setLocalCart((prev) => [...prev, cartItem]);
+  }
+  //get actual items from localstorage(cart) then filter and send to App component for set new localstorage
+  function deleteFromCart(goodsTitle) {
+    setLocalCart(
+      JSON.parse(localStorage.getItem('cart')).filter((item) => item.goodsTitle !== goodsTitle),
+    );
+  }
+
   return (
-    <div className={className + ' unselectable'}>
-      <div
-        className={
-          !favorites.find((item) => item.goodsTitle === goodsTitle)
-            ? 'goods__favorite'
-            : 'goods__favorite-checked'
-        }
-        onClick={() => handleFavorite()}>
-        {favoriteSVG}
+    <div className="goods__itemBlock">
+      <div className={className + ' unselectable'}>
+        <div
+          className={
+            !localFavorites.find((item) => item.goodsTitle === goodsTitle)
+              ? 'goods__favorite'
+              : 'goods__favorite-checked'
+          }
+          onClick={() => handleFavorite()}>
+          {favoriteSVG}
+        </div>
+        <img src={image} alt="goods" />
+        <div className="goodsItem__description">
+          <div className="goods__name">
+            <h2>{goodsTitle}</h2>
+            <p>{goodsDescription}</p>
+          </div>
+          <div className="goods__size">
+            {size.map((obj, index) => (
+              <input
+                key={obj}
+                type="radio"
+                name={goodsTitle}
+                label={obj}
+                value={index}
+                onClick={(event) => setCheckSize(event.target.value)}
+                defaultChecked={index === checkSize ? true : false}
+              />
+            ))}
+          </div>
+          <div className="goods__cost unselectable">
+            <h3>{cost[checkSize]}</h3>
+            <button className="acceptButton" onClick={handleBuy}>
+              В кошик
+            </button>
+          </div>
+        </div>
       </div>
-      <img src={image} alt="goods" />
-      <div className="goodsItem__description">
-        <div className="goods__name">
-          <h2>{goodsTitle}</h2>
-          <p>{goodsDescription}</p>
+      <div className={className + '-counterBlock unselectable'}>
+        <div className="order__goodsDelete" onClick={() => deleteFromCart(goodsTitle)}>
+          {deleteSVG}
         </div>
-        <div className="goods__size">
-          {size.map((obj, index) => (
-            <input
-              key={obj}
-              type="radio"
-              name={goodsTitle}
-              label={obj}
-              value={index}
-              onClick={(event) => setCheckSize(event.target.value)}
-              defaultChecked={index === checkSize ? true : false}
-            />
-          ))}
-        </div>
-        <div className="goods__cost unselectable">
-          <h3>{cost[checkSize]}</h3>
-          <button className="acceptButton" onClick={() => console.log(goodsTitle, size[checkSize])}>
-            В кошик
-          </button>
+        <div className="order__goodsCounter">
+          <div onClick={() => setCounter((prev) => prev + 1)}>+</div>
+          <div>{counter}</div>
+          <div onClick={() => setCounter((prev) => (prev > 1 ? prev - 1 : 1))}>-</div>
         </div>
       </div>
     </div>

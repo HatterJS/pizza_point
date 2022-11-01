@@ -3,10 +3,10 @@ import GoodsItem from '../GoodsItem';
 import Loader from '../Loader';
 import './index.css';
 
-function Goods({ isLoading, goodsData, setLocalFavorites, favorites }) {
+function Goods({ isLoading, goodsData, setLocalFavorites, setLocalCart, localFavorites }) {
   return (
     <div className="goods">
-      <div className="goods__tittle">
+      <div className="goods__title">
         <div></div>
         <h1>Піцца</h1>
         <div></div>
@@ -18,8 +18,9 @@ function Goods({ isLoading, goodsData, setLocalFavorites, favorites }) {
                 key={obj.goodsTitle + obj.id}
                 className={'goods__item'}
                 {...obj}
+                setLocalCart={setLocalCart}
                 setLocalFavorites={setLocalFavorites}
-                favorites={favorites}
+                localFavorites={localFavorites}
               />
             ))
           : [...new Array(8)].map((_, index) => <Loader key={index} className={'goods__item'} />)}

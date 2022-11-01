@@ -11,9 +11,9 @@ body {
   min-width: 390px;
 }
 
-p, a, h1, h2, h3, h4, h5, label, select, button, ul, li {
+p, a, h1, h2, h3, h4, h5, label, select, button, ul, li, input {
   text-decoration: none;
-  color: rgb(64, 64, 64);
+  color: rgb(70, 70, 70);
   margin: 0;
   padding: 0;
 }

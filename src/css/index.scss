@@ -1,4 +1,4 @@
-$textColor: rgba(64, 64, 64);
+$textColor: rgba(70, 70, 70);
 $borderBar: 1px solid rgba(64, 64, 64, 0.2);
 $transition:  all 0.2s ease-in-out;
 
@@ -20,7 +20,7 @@ body {
     min-width: 390px;
 }
 
-p, a, h1, h2, h3, h4, h5, label, select, button, ul, li {
+p, a, h1, h2, h3, h4, h5, label, select, button, ul, li, input {
     text-decoration: none;
     color: $textColor;
     margin: 0;
