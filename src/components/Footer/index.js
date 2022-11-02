@@ -2,6 +2,7 @@ import './index.css';
 
 import instagramSvg from '../../assets/img/social/instagram.svg';
 import telegrammSvg from '../../assets/img/social/telegram.svg';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -11,16 +12,26 @@ function Footer() {
           <div className="footer__about unselectable">
             <ul>
               <h3>Pizza point</h3>
-              <li>Про нас</li>
-              <li>Доставка</li>
-              <li>Вакансії</li>
+              <Link to={'/common'}>
+                <li>Про нас</li>
+              </Link>
+              <Link to={'/common'}>
+                <li>Доставка</li>
+              </Link>
+              <Link to={'/common'}>
+                <li>Вакансії</li>
+              </Link>
             </ul>
           </div>
           <div className="footer__legal unselectable">
             <ul>
               <h3>Юридична інформація</h3>
-              <li>Публічна оферта</li>
-              <li>Політика конфіденційності</li>
+              <Link to={'/common'}>
+                <li>Публічна оферта</li>
+              </Link>
+              <Link to={'/common'}>
+                <li>Політика конфіденційності</li>
+              </Link>
             </ul>
           </div>
           <div className="footer__contacts">

@@ -16,7 +16,6 @@
   border-radius: 20px;
   margin: 10px;
   padding: 10px;
-  min-width: 300px;
   -webkit-box-shadow: 1px 1px 2px rgb(187, 187, 187);
           box-shadow: 1px 1px 2px rgb(187, 187, 187);
   -webkit-transition: all 0.2s ease-in-out;
@@ -68,6 +67,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  min-width: 300px;
 }
 .goods__item-favorite img, .goods__item-cart img {
   width: 40%;

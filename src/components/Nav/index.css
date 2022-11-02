@@ -1,11 +1,13 @@
 nav {
   position: sticky;
-  top: 0;
+  top: 0px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   border-top: 1px solid rgba(64, 64, 64, 0.2);
   border-bottom: 1px solid rgba(64, 64, 64, 0.2);
   height: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   z-index: 9;
 }
 nav .cover {
@@ -115,4 +117,16 @@ nav .nav_sort:hover {
 nav .nav_sort:hover ul {
   visibility: visible;
   opacity: 100;
+}
+
+@media (max-width: 970px) {
+  nav .nav__category li {
+    padding: 3px 8px;
+  }
+  nav .nav__category li img {
+    margin-right: 0;
+  }
+  nav .nav__category li h3 {
+    display: none;
+  }
 }

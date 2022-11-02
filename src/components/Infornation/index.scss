@@ -10,7 +10,8 @@ $maxWidth: 1200px;
     max-width: $maxWidth;
     margin: 0 auto;
     padding: 10px;
-    height: 80px;
+    height: 100px;
+    box-sizing: border-box;
     .information__logo {
         cursor: pointer;
         height: 100%;

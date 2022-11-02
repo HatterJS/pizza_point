@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Order from './pages/Order';
+import Common from './pages/Common';
 import NotFound from './pages/NonFound';
 import Header from './components/Header';
 import Information from './components/Infornation';
@@ -85,6 +86,7 @@ function App() {
             />
           }
         />
+        <Route path="/common" element={<Common />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {showFavorite && (

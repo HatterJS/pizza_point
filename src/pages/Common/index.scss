@@ -1,0 +1,21 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 50px;
+    text-align: center;
+    border-top: $borderBar;
+    img {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px;
+    }
+    button {
+        margin-top: 10px;
+        padding: 15px;
+    }
+}

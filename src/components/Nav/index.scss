@@ -6,12 +6,13 @@ $transition:  all 0.2s ease-in-out;
 //NAVIGATION BAR
 nav {
     position: sticky;
-    top: 0;
+    top: 0px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     border-top: $borderBar;
     border-bottom: $borderBar;
     height: 40px;
+    box-sizing: border-box;
     z-index: 9;
     .cover {
         display: flex;
@@ -93,6 +94,25 @@ nav {
             ul {
                 visibility: visible;
                 opacity: 100;
+            }
+        }
+    }
+}
+
+@media (max-width: 970px) {
+    nav {
+        .cover {
+            // flex-wrap: wrap;
+        }
+        .nav__category {
+            li {
+                padding: 3px 8px;
+                img {
+                    margin-right: 0;
+                }
+                h3 {
+                    display: none;
+                }
             }
         }
     }

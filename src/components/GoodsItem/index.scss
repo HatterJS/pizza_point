@@ -12,7 +12,6 @@ $transition:  all 0.2s ease-in-out;
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
-    min-width: 300px;
     box-shadow: 1px 1px 2px rgb(187, 187, 187);
     transition: $transition;
     &:hover {
@@ -48,6 +47,7 @@ $transition:  all 0.2s ease-in-out;
 }
 .goods__item-favorite, .goods__item-cart {
     flex-direction: row;
+    min-width: 300px;
     img {
         width: 40%;
     }
