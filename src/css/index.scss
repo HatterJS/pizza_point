@@ -2,11 +2,6 @@ $textColor: rgba(70, 70, 70);
 $borderBar: 1px solid rgba(64, 64, 64, 0.2);
 $transition:  all 0.2s ease-in-out;
 
-// address {
-//     font: inherit;
-//     margin: 0;
-// }
-
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +12,7 @@ $transition:  all 0.2s ease-in-out;
 body {
     margin: 0;
     padding: 0;
-    min-width: 390px;
+    min-width: 300px;
 }
 
 p, a, h1, h2, h3, h4, h5, label, select, button, ul, li, input {

@@ -17,6 +17,9 @@ nav {
     .cover {
         display: flex;
     }
+    h3 {
+        color: $textColorWhite;
+    }
     .nav__category {
         display: flex;
         flex: 1 1 auto;
@@ -32,9 +35,6 @@ nav {
             img {
                 height: 100%;
                 margin-right: 10px;
-            }
-            h3 {
-                color: $textColorWhite;
             }
             &:hover {
                 background-color: rgba(255, 170, 43, 0.2);
@@ -61,18 +61,19 @@ nav {
         display: flex;
         position: relative;
         align-items: center;
-        color: $textColorWhite;
-        font-weight: 600;
-        font-size: 1.2em;
         padding: 0 10px;
         cursor: pointer;
         z-index: 9;
+        svg {
+            margin-right: 10px;
+        }
         ul {
             position: absolute;
             top: calc(100% + 1px);
-            left: 0;
+            right: 0;
             background-color: rgba(0, 0, 0, 0.6);
             width: 100%;
+            min-width: max-content;
             border-radius: 0 0 10px 10px;
             overflow: hidden;
             opacity: 0;
@@ -99,20 +100,30 @@ nav {
     }
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1000px) {
     nav {
-        .cover {
-            // flex-wrap: wrap;
+        input {
+            margin: 3px;
+            min-width: 45px;
         }
         .nav__category {
             li {
-                padding: 3px 8px;
+                padding: 3px 5px;
                 img {
                     margin-right: 0;
                 }
                 h3 {
                     display: none;
                 }
+            }
+        }
+        .nav_sort {
+            padding: 0 5px;
+            h3 {
+                display: none;
+            }
+            svg {
+                margin: 0;
             }
         }
     }

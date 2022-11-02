@@ -13,26 +13,6 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
       </div>
       {localCart.length ? (
         <div className="order__content">
-          <div className="order__goodsBlock">
-            {/* <h2>Замовлення:</h2> */}
-            <div className="order__goods">
-              {localCart.map((obj) => (
-                <GoodsItem
-                  key={obj.goodsTitle + obj.id}
-                  className={'goods__item-cart'}
-                  {...obj}
-                  setLocalCart={setLocalCart}
-                  localFavorites={localFavorites}
-                  setLocalFavorites={setLocalFavorites}
-                />
-              ))}
-            </div>
-            <div className="order__totalPrice">
-              <h3>Загальна сума:</h3>
-              <h3>999 uah</h3>
-            </div>
-            <button className="acceptButton">Замовити</button>
-          </div>
           <div className="order__customerBlock">
             <div className="order__customerContactsBlock m-tb-20">
               <h3>Контакти:</h3>
@@ -70,10 +50,30 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                 <input type="email" placeholder="Квартира" />
               </div>
             </div>
-            <div className="order__pizzaPointAdress m-tb-20">
+            {/* <div className="order__pizzaPointAdress m-tb-20">
               <h3>Адреса магазину:</h3>
               <p>м.Київ, вул.Вокзальна 35, тел.+38(066)503-34-00</p>
+            </div> */}
+          </div>
+          <div className="order__goodsBlock">
+            {/* <h2>Замовлення:</h2> */}
+            <div className="order__goods">
+              {localCart.map((obj) => (
+                <GoodsItem
+                  key={obj.goodsTitle + obj.id}
+                  className={'goods__item-cart'}
+                  {...obj}
+                  setLocalCart={setLocalCart}
+                  localFavorites={localFavorites}
+                  setLocalFavorites={setLocalFavorites}
+                />
+              ))}
             </div>
+            <div className="order__totalPrice">
+              <h3>Загальна сума:</h3>
+              <h3>999 uah</h3>
+            </div>
+            <button className="acceptButton">Замовити</button>
           </div>
         </div>
       ) : (

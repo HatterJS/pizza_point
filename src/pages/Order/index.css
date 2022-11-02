@@ -34,11 +34,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 10px;
 }
 .order .order__content .order__goodsBlock {
   width: 40%;
-  min-width: 350px;
-  margin-right: 40px;
+  min-width: 440px;
 }
 .order .order__content .order__goodsBlock .order__goods {
   display: -webkit-box;
@@ -50,9 +50,14 @@
           flex-direction: column;
   max-height: 800px;
   margin-top: 10px;
-  padding: 10px;
   border-bottom: 1px solid rgba(64, 64, 64, 0.2);
   overflow: auto;
+}
+.order .order__content .order__goodsBlock img {
+  width: 40%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .order .order__content .order__goodsBlock .order__totalPrice {
   display: -webkit-box;
@@ -67,7 +72,10 @@
   width: 100%;
 }
 .order .order__content .order__customerBlock {
-  width: 60%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-right: 20px;
 }
 .order .order__content .order__customerBlock input {
   border: 1px solid rgba(64, 64, 64, 0.2);
@@ -96,7 +104,7 @@
   color: rgb(180, 180, 180);
 }
 .order .order__content .order__customerBlock .m-tb-20 {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 .order .order__content .order__customerBlock .order__customerContacts, .order .order__content .order__customerBlock .order__customerAdress {
   display: -webkit-box;
@@ -147,4 +155,13 @@
 }
 .order .order__content .order__customerBlock .order__pizzaPointAdress p {
   margin: 10px;
+}
+
+@media (max-width: 700px) {
+  .order__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }

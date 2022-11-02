@@ -4,7 +4,7 @@ import './index.css';
 
 function Common({ setShowFavorite }) {
   return (
-    <div className="empty unselectable">
+    <div className="common unselectable">
       <h3>Ой-ой! Щось пішло не так!</h3>
       <img src="../img/wrongPath.png" alt="empty" />
       <p>Нажаль Ви трохи заблукали</p>

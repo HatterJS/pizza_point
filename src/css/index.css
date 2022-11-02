@@ -8,7 +8,7 @@
 body {
   margin: 0;
   padding: 0;
-  min-width: 390px;
+  min-width: 300px;
 }
 
 p, a, h1, h2, h3, h4, h5, label, select, button, ul, li, input {

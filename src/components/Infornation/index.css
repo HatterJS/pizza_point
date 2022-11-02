@@ -19,7 +19,6 @@
 }
 .information .information__logo img {
   height: 100%;
-  margin-right: 10px;
 }
 .information .information__contacts, .information .information__goodsChoice {
   display: -webkit-box;
@@ -95,4 +94,32 @@
 .information .information__goodsChoice .information__counter p {
   line-height: 1;
   font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .information .information__contacts .information__workTime {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .information .information__contacts .information__phones img {
+    display: none;
+  }
+  .information .information__contacts .information__phones ul li {
+    font-size: 14px;
+  }
+  .information .information__goodsChoice {
+    max-width: none;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .information .information__goodsChoice .information__favorite {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 380px) {
+  .information .information__logo {
+    display: none;
+  }
 }

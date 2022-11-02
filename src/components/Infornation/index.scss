@@ -17,7 +17,6 @@ $maxWidth: 1200px;
         height: 100%;
         img {
             height: 100%;
-            margin-right: 10px;
         }
     }
     .information__contacts, .information__goodsChoice {
@@ -69,6 +68,46 @@ $maxWidth: 1200px;
                 line-height: 1;
                 font-size: 12px;
             }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .information {
+        .information__contacts {
+            .information__workTime {
+                display: none;
+            }
+        }
+    }
+}
+@media (max-width: 480px) {
+    .information {
+        .information__contacts {
+            .information__phones {
+                img {
+                    display: none;
+                }
+                ul {
+                    li {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .information__goodsChoice {
+            max-width: none;
+            justify-content: space-evenly;
+            .information__favorite {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+@media (max-width: 380px) {
+    .information {
+        .information__logo {
+            display: none;
         }
     }
 }

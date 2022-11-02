@@ -36,3 +36,42 @@ header {
         }
     }
 }
+
+@media (max-width: 700px) {
+    header {
+        .header {
+            .header__social {
+                p {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 480px) {
+    header {
+        .header {
+            .header__about {
+                li {
+                    font-size: 14px;
+                }
+            }
+            .header__account {
+                p {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 350px) {
+    header {
+        .header {
+            .header__about {
+                li {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

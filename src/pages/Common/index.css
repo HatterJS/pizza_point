@@ -1,4 +1,4 @@
-.empty {
+.common {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,12 +19,12 @@
   text-align: center;
   border-top: 1px solid rgba(64, 64, 64, 0.2);
 }
-.empty img {
+.common img {
   width: 100%;
   max-width: 300px;
   margin: 10px;
 }
-.empty button {
+.common button {
   margin-top: 10px;
   padding: 15px;
 }

@@ -57,3 +57,15 @@ $maxWidth: 1200px;
         }
     }
 }
+
+@media (max-width: 610px) {
+    .goods {
+        box-sizing: border-box;
+        .goods__itemBlock {
+            display: flex;
+            flex-direction: column;
+            margin: 0 5px;
+            flex-wrap: nowrap;
+        }
+    }
+}

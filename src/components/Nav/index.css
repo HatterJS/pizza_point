@@ -15,6 +15,9 @@ nav .cover {
   display: -ms-flexbox;
   display: flex;
 }
+nav h3 {
+  color: rgb(240, 240, 240);
+}
 nav .nav__category {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,9 +51,6 @@ nav .nav__category li img {
   height: 100%;
   margin-right: 10px;
 }
-nav .nav__category li h3 {
-  color: rgb(240, 240, 240);
-}
 nav .nav__category li:hover {
   background-color: rgba(255, 170, 43, 0.2);
 }
@@ -80,19 +80,22 @@ nav .nav_sort {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: rgb(240, 240, 240);
-  font-weight: 600;
-  font-size: 1.2em;
   padding: 0 10px;
   cursor: pointer;
   z-index: 9;
 }
+nav .nav_sort svg {
+  margin-right: 10px;
+}
 nav .nav_sort ul {
   position: absolute;
   top: calc(100% + 1px);
-  left: 0;
+  right: 0;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
   opacity: 0;
@@ -119,14 +122,27 @@ nav .nav_sort:hover ul {
   opacity: 100;
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1000px) {
+  nav input {
+    margin: 3px;
+    min-width: 45px;
+  }
   nav .nav__category li {
-    padding: 3px 8px;
+    padding: 3px 5px;
   }
   nav .nav__category li img {
     margin-right: 0;
   }
   nav .nav__category li h3 {
     display: none;
+  }
+  nav .nav_sort {
+    padding: 0 5px;
+  }
+  nav .nav_sort h3 {
+    display: none;
+  }
+  nav .nav_sort svg {
+    margin: 0;
   }
 }
