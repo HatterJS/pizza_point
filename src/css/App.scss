@@ -16,9 +16,27 @@ $maxWidth: 1200px;
     flex-direction: column;
     height: 100vh;
 }
-.loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 auto;
+.bannerBlock {
+    max-width: $maxWidth;
+    margin: 0 auto;
+    padding-top: 10px;
+    .carousel {
+        margin: 0 10px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
 }
+@media (max-width: 800px) {
+    .carousel-indicators {
+        margin-bottom: 5px;
+    }
+    .carousel-indicators [data-bs-target] {
+        width: 15px;
+    }
+}
+// .loader {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex: 1 1 auto;
+// }
