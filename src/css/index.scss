@@ -8,11 +8,19 @@ $transition:  all 0.2s ease-in-out;
     font-style: none;
     font-family: 'Roboto';
 }
-
 body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    min-width: 300px;
+    min-width: 350px;
+}
+#root {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
 }
 
 p, a, h1, h2, h3, h4, h5, label, select, button, ul, li, input {

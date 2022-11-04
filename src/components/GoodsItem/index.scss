@@ -196,8 +196,18 @@ $transition:  all 0.2s ease-in-out;
 }
 
 @media (max-width: 450px) {
-    .goods__item {
+    .goods__item, .goods__item-favorite, .goods__item-cart {
         padding: 5px;
+        .goods__size {
+            flex-wrap: wrap;
+            input {
+                max-width: 60px;
+            }
+        }
+        &:hover {
+            transform: none;
+            box-shadow: none;
+        }
         .goodsItem__description {
             p {
                 font-size: 14px;
@@ -221,7 +231,7 @@ $transition:  all 0.2s ease-in-out;
     }
 }
 @media (max-width: 350px) {
-    .goods__item {
+    .goods__item, .goods__item-favorite {
         svg {
             left: 0;
         }

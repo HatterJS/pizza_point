@@ -14,7 +14,7 @@ $maxWidth: 1200px;
 .App {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
 }
 .bannerBlock {
     max-width: $maxWidth;

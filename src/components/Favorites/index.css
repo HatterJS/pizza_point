@@ -103,3 +103,12 @@
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
+.favorites .favorites__block .favorites__goods img {
+  width: 40%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}

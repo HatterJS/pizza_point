@@ -58,6 +58,9 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 .order .order__content .order__goodsBlock .order__totalPrice {
   display: -webkit-box;
@@ -158,10 +161,58 @@
 }
 
 @media (max-width: 700px) {
-  .order__content {
+  .order .order__content {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .order .order__content .order__goodsBlock {
+    width: 80%;
+  }
+  .order .order__content .order__goodsBlock .order__goods {
+    max-height: none;
+  }
+}
+@media (max-width: 455px) {
+  .order .order__content .order__goodsBlock {
+    width: 100%;
+    min-width: 200px;
+  }
+  .order .order__content .order__goodsBlock .order__goods {
+    min-width: 150px;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(64, 64, 64, 0.2);
+    overflow: visible;
+  }
+  .order .order__content .order__goodsBlock .order__goods .goods__item-cart {
+    width: 100%;
+    min-width: 150px;
+    margin: 5px 5px;
+  }
+  .order .order__content .order__goodsBlock .order__goods .goods__item-cart:hover {
+    -webkit-transform: none;
+            transform: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .order .order__content .order__goodsBlock .order__goods .goods__item-cart img {
+    width: 40%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    min-height: 58px;
+    min-width: 58px;
+  }
+  .order .order__content .order__goodsBlock .order__goods .goods__item-cart .goodsItem__description {
+    width: 60%;
+    min-width: 60px;
+  }
+  .order .order__content .order__goodsBlock .order__goods .goods__item-cart .goods__size {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .order .order__content .order__goodsBlock .order__goods .goods__item-cart svg {
+    left: 0;
   }
 }

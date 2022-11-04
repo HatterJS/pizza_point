@@ -268,25 +268,38 @@
   }
 }
 @media (max-width: 450px) {
-  .goods__item {
+  .goods__item, .goods__item-favorite, .goods__item-cart {
     padding: 5px;
   }
-  .goods__item .goodsItem__description p {
+  .goods__item .goods__size, .goods__item-favorite .goods__size, .goods__item-cart .goods__size {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .goods__item .goods__size input, .goods__item-favorite .goods__size input, .goods__item-cart .goods__size input {
+    max-width: 60px;
+  }
+  .goods__item:hover, .goods__item-favorite:hover, .goods__item-cart:hover {
+    -webkit-transform: none;
+            transform: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .goods__item .goodsItem__description p, .goods__item-favorite .goodsItem__description p, .goods__item-cart .goodsItem__description p {
     font-size: 14px;
   }
-  .goods__item .goodsItem__description .goods__size input {
+  .goods__item .goodsItem__description .goods__size input, .goods__item-favorite .goodsItem__description .goods__size input, .goods__item-cart .goodsItem__description .goods__size input {
     font-size: 12px;
     margin: 2px;
   }
-  .goods__item .goodsItem__description .goods__cost h3 {
+  .goods__item .goodsItem__description .goods__cost h3, .goods__item-favorite .goodsItem__description .goods__cost h3, .goods__item-cart .goodsItem__description .goods__cost h3 {
     min-width: 65px;
   }
-  .goods__item .goodsItem__description .goods__cost button {
+  .goods__item .goodsItem__description .goods__cost button, .goods__item-favorite .goodsItem__description .goods__cost button, .goods__item-cart .goodsItem__description .goods__cost button {
     font-size: 14px;
   }
 }
 @media (max-width: 350px) {
-  .goods__item svg {
+  .goods__item svg, .goods__item-favorite svg {
     left: 0;
   }
 }
