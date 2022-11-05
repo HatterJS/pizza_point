@@ -19,7 +19,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
               <div className="order__customerContacts">
                 <input type="text" placeholder="Ім`я" />
                 <input type="tel" placeholder="+38(0xx)xxx-xx-xx" />
-                <input type="email" placeholder="E-mail" />
+                <input type="email" placeholder="E-mail (для програми лояльності)" />
               </div>
             </div>
             <div className="order__customerDeliveryBlock m-tb-20">

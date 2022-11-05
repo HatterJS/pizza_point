@@ -135,10 +135,6 @@ $transition:  all 0.2s ease-in-out;
                         width: 100%;
                         min-width: 150px;
                         margin: 5px 5px;
-                        &:hover {
-                            transform: none;
-                            box-shadow: none;
-                        }
                         img {
                             width: 40%;
                             height: fit-content;
@@ -148,9 +144,6 @@ $transition:  all 0.2s ease-in-out;
                         .goodsItem__description {
                             width: 60%;
                             min-width: 60px;
-                        }
-                        .goods__size {
-                            flex-wrap: wrap;
                         }
                         svg {
                             left: 0;

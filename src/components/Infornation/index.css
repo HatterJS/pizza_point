@@ -118,8 +118,3 @@
     margin-right: 10px;
   }
 }
-@media (max-width: 380px) {
-  .information .information__logo {
-    display: none;
-  }
-}

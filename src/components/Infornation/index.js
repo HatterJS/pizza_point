@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import './index.css';
 
-import logoImg from '../../assets/img/logo.png';
+import logoImg from '../../assets/img/logo.jpg';
+import logoImgLight from '../../assets/img/logo-light.jpg';
 import phonesImg from '../../assets/img/phones_img.png';
 import timeImg from '../../assets/img/time_img.png';
 import favoriteSvg from '../../assets/img/favorite.svg';
@@ -11,9 +12,10 @@ function Information({ cartCounter, favoriteCounter, setShowFavorite }) {
   return (
     <div className="information">
       <Link className="information__logo-link" to={'/'}>
-        <div className="information__logo">
+        <picture className="information__logo">
+          <source media="(max-width: 380px)" srcSet={logoImgLight} />
           <img src={logoImg} alt="logo" />
-        </div>
+        </picture>
       </Link>
       <div className="information__contacts">
         <div className="information__phones">
