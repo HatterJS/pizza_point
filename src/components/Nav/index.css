@@ -18,7 +18,7 @@ nav .cover {
 nav h3 {
   color: rgb(240, 240, 240);
 }
-nav .nav__category {
+nav .nav__category, nav .nav__category-disabled {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,7 +29,7 @@ nav .nav__category {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-nav .nav__category li {
+nav .nav__category li, nav .nav__category-disabled li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,16 +47,25 @@ nav .nav__category li {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-nav .nav__category li img {
+nav .nav__category li img, nav .nav__category-disabled li img {
   height: 100%;
   margin-right: 10px;
 }
-nav .nav__category li:hover {
+nav .nav__category li:hover, nav .nav__category-disabled li:hover {
   background-color: rgba(255, 170, 43, 0.2);
 }
-nav .nav__category .nav__category-selected {
+nav .nav__category .nav__category-selected, nav .nav__category-disabled .nav__category-selected {
   border: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 170, 43, 0.2);
+}
+nav .nav__category-disabled li {
+  cursor: auto;
+}
+nav .nav__category-disabled li:hover {
+  background-color: inherit;
+}
+nav .nav__category-disabled li h3, nav .nav__category-disabled li img {
+  opacity: 0.3;
 }
 nav input {
   background: url(../../assets/img/lens.svg) no-repeat left white;

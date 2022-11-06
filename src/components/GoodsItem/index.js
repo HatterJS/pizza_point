@@ -39,7 +39,7 @@ function GoodsItem({
   const [isFavorite, setIsFavorite] = React.useState(
     localFavorites.find((item) => item.goodsTitle === goodsTitle),
   );
-  const [checkSize, setCheckSize] = React.useState(1);
+  const [checkSize, setCheckSize] = React.useState(0);
 
   function handleFavorite() {
     const favoriteItem = {

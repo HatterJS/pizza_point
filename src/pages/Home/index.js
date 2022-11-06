@@ -5,7 +5,8 @@ import Banner from '../../components/Banner';
 
 function Home({
   goodsData,
-  isLoading,
+  isLoadingFirst,
+  isLoadingGlobal,
   setLocalFavorites,
   setLocalCart,
   localFavorites,
@@ -17,6 +18,7 @@ function Home({
   return (
     <React.Fragment>
       <Nav
+        isLoadingGlobal={isLoadingGlobal}
         goodsCategory={goodsCategory}
         setGoodsCategory={setGoodsCategory}
         searchValue={searchValue}
@@ -26,7 +28,8 @@ function Home({
       <Banner />
       <Goods
         goodsData={goodsData}
-        isLoading={isLoading}
+        goodsCategory={goodsCategory}
+        isLoadingFirst={isLoadingFirst}
         setLocalCart={setLocalCart}
         setLocalFavorites={setLocalFavorites}
         localFavorites={localFavorites}

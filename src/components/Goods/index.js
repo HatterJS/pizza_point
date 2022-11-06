@@ -4,8 +4,9 @@ import Loader from '../Loader';
 import './index.css';
 
 function Goods({
-  isLoading,
+  isLoadingFirst,
   goodsData,
+  goodsCategory,
   setLocalFavorites,
   setLocalCart,
   localFavorites,
@@ -19,8 +20,8 @@ function Goods({
         <div></div>
       </div>
       <div className="goods__itemBlock">
-        {isLoading
-          ? goodsData
+        {isLoadingFirst
+          ? goodsData.current[goodsCategory]
               .filter((item) => item.goodsTitle.toLowerCase().includes(searchValue.toLowerCase()))
               .map((obj) => (
                 <GoodsItem

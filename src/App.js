@@ -13,10 +13,12 @@ import Favorites from './components/Favorites';
 import './css/App.css';
 
 function App() {
-  //loading indicator while getting data from backend
-  const [isLoading, setIsLoading] = React.useState(false);
+  //loading indicator while getting data from backend for main page
+  const [isLoadingFirst, setIsLoadingFirst] = React.useState(false);
+  //loading indicator while getting data from backend for others pages
+  const [isLoadingGlobal, setIsLoadingGlobal] = React.useState(false);
   //goods data from backend
-  const [goodsData, setGoodsData] = React.useState([]);
+  const goodsData = React.useRef;
   //get data from localstorage(favorites) or set empty array
   const [localFavorites, setLocalFavorites] = React.useState(
     JSON.parse(localStorage.getItem('favorites')) || [],
@@ -33,18 +35,30 @@ function App() {
   React.useEffect(() => {
     //for called once
     async function getData() {
+      goodsData.current = { pizzas: null, desserts: null, drinks: null, additionals: null };
       try {
         await axios
-          .get(`https://632db5102cfd5ccc2af512de.mockapi.io/${goodsCategory}`)
-          .then((res) => setGoodsData(res.data));
+          .get('https://632db5102cfd5ccc2af512de.mockapi.io/pizzas')
+          .then((res) => (goodsData.current.pizzas = res.data));
+        setIsLoadingFirst(true); //disable loading for main page
+        await axios
+          .get('https://632db5102cfd5ccc2af512de.mockapi.io/desserts')
+          .then((res) => (goodsData.current.desserts = res.data));
+        await axios
+          .get('https://632db5102cfd5ccc2af512de.mockapi.io/drinks')
+          .then((res) => (goodsData.current.drinks = res.data));
+        await axios
+          .get('https://632db5102cfd5ccc2af512de.mockapi.io/additionals')
+          .then((res) => (goodsData.current.additionals = res.data));
+        console.log(goodsData.current);
+        setIsLoadingGlobal(true); //disable loading for others pages
       } catch (error) {
         alert('контент ще в розробці');
-        setGoodsCategory('pizzas');
+        // setGoodsCategory('pizzas');
       }
-      setIsLoading(true);
     }
     getData();
-  }, [goodsCategory]);
+  }, [goodsData]);
   //set data at localstorage(favorites) when clicked on favorite button (heart)
   React.useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(localFavorites));
@@ -68,7 +82,8 @@ function App() {
           element={
             <Home
               goodsData={goodsData}
-              isLoading={isLoading}
+              isLoadingFirst={isLoadingFirst}
+              isLoadingGlobal={isLoadingGlobal}
               setLocalFavorites={setLocalFavorites}
               localFavorites={localFavorites}
               setLocalCart={setLocalCart}

@@ -20,7 +20,7 @@ nav {
     h3 {
         color: $textColorWhite;
     }
-    .nav__category {
+    .nav__category, .nav__category-disabled {
         display: flex;
         flex: 1 1 auto;
         justify-content: space-between;
@@ -43,6 +43,17 @@ nav {
         .nav__category-selected {
             border: 1px solid rgba(255, 255, 255, 0.4);
             background-color: rgba(255, 170, 43, 0.2);
+        }
+    }
+    .nav__category-disabled {
+        li {
+            cursor: auto;
+            &:hover {
+                background-color: inherit;
+            }
+            h3, img {
+                opacity: 0.3;
+            }
         }
     }
     input {
