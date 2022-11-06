@@ -25,7 +25,7 @@ footer .footer li {
 footer .footer li:hover {
   text-decoration: underline;
 }
-footer .footer .footer__socialImg img {
+footer .footer .footer__socialImg svg {
   margin-right: 10px;
   cursor: pointer;
 }

@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import './index.css';
 
-import instagramSvg from '../../assets/img/social/instagram.svg';
-import telegrammSvg from '../../assets/img/social/telegram.svg';
-import userSvg from '../../assets/img/userAvatar.png';
+import './index.css';
+import userImg from '../../assets/img/userAvatar.png';
+import { instagramSvg, telegramSvg } from '../SvgSprite';
 
 function Header() {
   return (
@@ -12,8 +11,8 @@ function Header() {
         <div className="header unselectable">
           <div className="header__social">
             <p>Приєднуйтесь</p>
-            <img src={instagramSvg} alt="instagram" />
-            <img src={telegrammSvg} alt="telegramm" />
+            {instagramSvg}
+            {telegramSvg}
           </div>
           <ul className="header__about">
             <Link to={'/common'}>
@@ -28,7 +27,7 @@ function Header() {
           </ul>
           <div className="header__account">
             <p>UserName</p>
-            <img src={userSvg} alt="user" />
+            <img src={userImg} alt="user" />
           </div>
         </div>
       </div>

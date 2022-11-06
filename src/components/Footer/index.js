@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom';
+
 import './index.css';
 
-import instagramSvg from '../../assets/img/social/instagram.svg';
-import telegrammSvg from '../../assets/img/social/telegram.svg';
-import { Link } from 'react-router-dom';
+import { instagramSvg, telegramSvg } from '../SvgSprite';
 
 function Footer() {
   return (
@@ -44,8 +44,8 @@ function Footer() {
           <div className="footer__social unselectable">
             <h3>Приєднуйтесь</h3>
             <div className="footer__socialImg">
-              <img src={instagramSvg} alt="instagram" />
-              <img src={telegrammSvg} alt="telegram" />
+              {instagramSvg}
+              {telegramSvg}
             </div>
           </div>
         </div>

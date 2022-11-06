@@ -29,7 +29,7 @@ header .header .header__social p, header .header .header__account p, header .hea
       -ms-grid-row-align: center;
       align-self: center;
 }
-header .header .header__social img, header .header .header__account img, header .header .header__about img {
+header .header .header__social svg, header .header .header__social img, header .header .header__account svg, header .header .header__account img, header .header .header__about svg, header .header .header__about img {
   height: 25px;
   margin: 0 5px;
   cursor: pointer;

@@ -5,8 +5,8 @@ import logoImg from '../../assets/img/logo.jpg';
 import logoImgLight from '../../assets/img/logo-light.jpg';
 import phonesImg from '../../assets/img/phones_img.png';
 import timeImg from '../../assets/img/time_img.png';
-import favoriteSvg from '../../assets/img/favorite.svg';
 import cartImg from '../../assets/img/cart.png';
+import { favoriteSvg } from '../SvgSprite';
 
 function Information({ cartCounter, favoriteCounter, setShowFavorite }) {
   return (
@@ -35,7 +35,7 @@ function Information({ cartCounter, favoriteCounter, setShowFavorite }) {
       </div>
       <div className="information__goodsChoice">
         <div className="information__favorite" onClick={() => setShowFavorite(true)}>
-          <img src={favoriteSvg} alt="favorite" />
+          {favoriteSvg}
           <div className="information__counter">
             <p>{favoriteCounter}</p>
           </div>
