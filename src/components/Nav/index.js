@@ -8,7 +8,7 @@ import additionalImg from '../../assets/img/nav/additional.png';
 import discountImg from '../../assets/img/nav/discount.png';
 import { menuSvg } from '../SvgSprite';
 
-function Nav({ goodsCategory, setGoodsCategory }) {
+function Nav({ goodsCategory, setGoodsCategory, searchValue, setSearchValue }) {
   const categories = [
     { title: 'Піцца', image: pizzaImg, link: 'pizzas' },
     { title: 'Напої', image: drinkImg, link: 'drinks' },
@@ -31,7 +31,12 @@ function Nav({ goodsCategory, setGoodsCategory }) {
             </li>
           ))}
         </ul>
-        <input type="search" placeholder="пошук" />
+        <input
+          type="search"
+          placeholder="пошук"
+          value={searchValue}
+          onChange={(event) => setSearchValue(event.target.value)}
+        />
         <div className="nav_sort">
           {menuSvg}
           <h3>Сортувати</h3>

@@ -3,7 +3,14 @@ import GoodsItem from '../GoodsItem';
 import Loader from '../Loader';
 import './index.css';
 
-function Goods({ isLoading, goodsData, setLocalFavorites, setLocalCart, localFavorites }) {
+function Goods({
+  isLoading,
+  goodsData,
+  setLocalFavorites,
+  setLocalCart,
+  localFavorites,
+  searchValue,
+}) {
   return (
     <div className="goods">
       <div className="goods__title">
@@ -13,16 +20,18 @@ function Goods({ isLoading, goodsData, setLocalFavorites, setLocalCart, localFav
       </div>
       <div className="goods__itemBlock">
         {isLoading
-          ? goodsData.map((obj) => (
-              <GoodsItem
-                key={obj.goodsTitle + obj.id}
-                className={'goods__item'}
-                {...obj}
-                setLocalCart={setLocalCart}
-                setLocalFavorites={setLocalFavorites}
-                localFavorites={localFavorites}
-              />
-            ))
+          ? goodsData
+              .filter((item) => item.goodsTitle.toLowerCase().includes(searchValue.toLowerCase()))
+              .map((obj) => (
+                <GoodsItem
+                  key={obj.goodsTitle + obj.id}
+                  className={'goods__item'}
+                  {...obj}
+                  setLocalCart={setLocalCart}
+                  setLocalFavorites={setLocalFavorites}
+                  localFavorites={localFavorites}
+                />
+              ))
           : [...new Array(8)].map((_, index) => <Loader key={index} className={'goods__item'} />)}
       </div>
       <div className="goods__pages">

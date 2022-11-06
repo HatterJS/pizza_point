@@ -27,6 +27,8 @@ function App() {
   const [showFavorite, setShowFavorite] = React.useState(false);
   //set goods category
   const [goodsCategory, setGoodsCategory] = React.useState('pizzas');
+  //change search value
+  const [searchValue, setSearchValue] = React.useState('');
   //get goods data from backend and set local goods data
   React.useEffect(() => {
     //for called once
@@ -72,6 +74,8 @@ function App() {
               setLocalCart={setLocalCart}
               goodsCategory={goodsCategory}
               setGoodsCategory={setGoodsCategory}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
             />
           }
         />

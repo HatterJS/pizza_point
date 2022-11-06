@@ -11,10 +11,17 @@ function Home({
   localFavorites,
   goodsCategory,
   setGoodsCategory,
+  searchValue,
+  setSearchValue,
 }) {
   return (
     <React.Fragment>
-      <Nav goodsCategory={goodsCategory} setGoodsCategory={setGoodsCategory} />
+      <Nav
+        goodsCategory={goodsCategory}
+        setGoodsCategory={setGoodsCategory}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       <div className="banner"></div>
       <Banner />
       <Goods
@@ -23,6 +30,7 @@ function Home({
         setLocalCart={setLocalCart}
         setLocalFavorites={setLocalFavorites}
         localFavorites={localFavorites}
+        searchValue={searchValue}
       />
     </React.Fragment>
   );
