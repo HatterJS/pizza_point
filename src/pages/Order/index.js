@@ -63,6 +63,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                   key={obj.goodsTitle + obj.id}
                   className={'goods__item-cart'}
                   {...obj}
+                  localCart={localCart}
                   setLocalCart={setLocalCart}
                   localFavorites={localFavorites}
                   setLocalFavorites={setLocalFavorites}

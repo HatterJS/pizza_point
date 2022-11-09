@@ -126,6 +126,33 @@ $transition:  all 0.2s ease-in-out;
         width: 100%;
         min-width: fit-content;
     }
+    .goods__goodsCounter {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        min-width: fit-content;
+        border: $borderBar;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        overflow: hidden;
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            color: rgb(120, 120, 120);
+        }
+        div:first-child, div:last-child {
+            background-color: rgb(245, 245, 245);
+            width: 30%;
+            cursor: pointer;
+            transition: $transition;
+            &:hover {
+                background-color: rgb(230, 230, 230);
+            }
+        }
+    }
 }
 .goods__item-favorite-counterBlock, .goods__item-counterBlock {
     display: none;
@@ -144,30 +171,6 @@ $transition:  all 0.2s ease-in-out;
             &:hover {
                 box-shadow: 1px 1px 1px gray;
                 transform: translateY(-2px);
-            }
-        }
-        .order__goodsCounter {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: $borderBar;
-            border-radius: 10px;
-            margin: 10px 0;
-            overflow: hidden;
-            height: 90px;
-            div {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: rgb(120, 120, 120);
-            }
-            div:first-child, div:last-child {
-                background-color: rgb(245, 245, 245);
-                height: 30%;
-                cursor: pointer;
-                &:hover {
-                    background-color: rgb(240, 240, 240);
-                }
             }
         }
     }

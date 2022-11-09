@@ -50,7 +50,6 @@ function App() {
         await axios
           .get('https://632db5102cfd5ccc2af512de.mockapi.io/additionals')
           .then((res) => (goodsData.current.additionals = res.data));
-        console.log(goodsData.current);
         setIsLoadingGlobal(true); //disable loading for others pages
       } catch (error) {
         alert('контент ще в розробці');
@@ -86,6 +85,7 @@ function App() {
               isLoadingGlobal={isLoadingGlobal}
               setLocalFavorites={setLocalFavorites}
               localFavorites={localFavorites}
+              localCart={localCart}
               setLocalCart={setLocalCart}
               goodsCategory={goodsCategory}
               setGoodsCategory={setGoodsCategory}

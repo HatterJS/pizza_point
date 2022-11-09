@@ -8,6 +8,7 @@ function Goods({
   goodsData,
   goodsCategory,
   setLocalFavorites,
+  localCart,
   setLocalCart,
   localFavorites,
   searchValue,
@@ -28,6 +29,7 @@ function Goods({
                   key={obj.goodsTitle + obj.id}
                   className={'goods__item'}
                   {...obj}
+                  localCart={localCart}
                   setLocalCart={setLocalCart}
                   setLocalFavorites={setLocalFavorites}
                   localFavorites={localFavorites}

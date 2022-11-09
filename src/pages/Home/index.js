@@ -8,6 +8,7 @@ function Home({
   isLoadingFirst,
   isLoadingGlobal,
   setLocalFavorites,
+  localCart,
   setLocalCart,
   localFavorites,
   goodsCategory,
@@ -30,6 +31,7 @@ function Home({
         goodsData={goodsData}
         goodsCategory={goodsCategory}
         isLoadingFirst={isLoadingFirst}
+        localCart={localCart}
         setLocalCart={setLocalCart}
         setLocalFavorites={setLocalFavorites}
         localFavorites={localFavorites}
