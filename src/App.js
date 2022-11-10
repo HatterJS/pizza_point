@@ -110,6 +110,7 @@ function App() {
       </Routes>
       {showFavorite && (
         <Favorites
+          localCart={localCart}
           setLocalCart={setLocalCart}
           setShowFavorite={setShowFavorite}
           localFavorites={localFavorites}

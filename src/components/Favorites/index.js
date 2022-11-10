@@ -14,7 +14,13 @@ const favoriteSVG = (
   </svg>
 );
 
-function Favorites({ setLocalCart, setShowFavorite, localFavorites, setLocalFavorites }) {
+function Favorites({
+  localCart,
+  setLocalCart,
+  setShowFavorite,
+  localFavorites,
+  setLocalFavorites,
+}) {
   return (
     <div className="favorites unselectable">
       <div className="favorites__shadow" onClick={() => setShowFavorite(false)}></div>
@@ -30,6 +36,7 @@ function Favorites({ setLocalCart, setShowFavorite, localFavorites, setLocalFavo
                 className="goods__item-favorite"
                 key={obj.goodsTitle + obj.id}
                 {...obj}
+                localCart={localCart}
                 setLocalCart={setLocalCart}
                 setLocalFavorites={setLocalFavorites}
                 localFavorites={localFavorites}

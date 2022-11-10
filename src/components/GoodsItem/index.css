@@ -105,6 +105,26 @@
   display: -ms-flexbox;
   display: flex;
 }
+.goods__size .goods__size-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+.goods__size .goods__size-wrapper .goods__size-counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid rgb(200, 140, 140);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  min-width: 20px;
+  height: 20px;
+}
 .goods__size input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -273,13 +293,6 @@
 @media (max-width: 450px) {
   .goods__item, .goods__item-favorite, .goods__item-cart {
     padding: 5px;
-  }
-  .goods__item .goods__size, .goods__item-favorite .goods__size, .goods__item-cart .goods__size {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .goods__item .goods__size input, .goods__item-favorite .goods__size input, .goods__item-cart .goods__size input {
-    max-width: 60px;
   }
   .goods__item:hover, .goods__item-favorite:hover, .goods__item-cart:hover {
     -webkit-transform: none;

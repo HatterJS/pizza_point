@@ -18,6 +18,8 @@ function GoodsItem({
 }) {
   //checked size of goods
   const [checkSize, setCheckSize] = React.useState(Number(checkedSize) || 0);
+  //amount of goods added to cart depends on size
+  const [sizeAmount, setSizeAmount] = React.useState([0, 1, 2]);
   //state for counter
   const [counter, setCounter] = React.useState(0);
   //get amount of goods from localstorage
@@ -26,7 +28,7 @@ function GoodsItem({
       (item) => item.goodsTitle + item.checkedSize === goodsTitle + checkSize,
     );
     setCounter(currentGoods.length ? currentGoods[0].amount : null);
-  }, [checkSize]);
+  }, [checkSize, goodsTitle]);
   //set mark of favorite goods
   const [isFavorite, setIsFavorite] = React.useState(
     localFavorites.find((item) => item.goodsTitle === goodsTitle),
@@ -67,7 +69,7 @@ function GoodsItem({
   }
   //increase amount of guds at cart (localstorage)
   function handleCounterPlus() {
-    setCounter((prev) => ++prev);
+    setCounter((prev) => prev + 1);
     setLocalCart(
       localCart.map((item) =>
         item.goodsTitle + item.checkedSize === goodsTitle + checkSize
@@ -75,7 +77,6 @@ function GoodsItem({
           : item,
       ),
     );
-    console.log(counter);
   }
   //decrease amount of guds at cart (localstorage)
   function handleCounterMinus() {
@@ -95,11 +96,25 @@ function GoodsItem({
       JSON.parse(localStorage.getItem('cart')).filter((item) => item.goodsTitle !== goodsTitle),
     );
   }
+  //set amount of goods added to cart depends on size
+  React.useEffect(() => {
+    setSizeAmount(
+      size.map((obj) => {
+        const filteredGoods = localCart.filter(
+          (item) => item.goodsTitle + item.size[item.checkedSize] === goodsTitle + obj,
+        );
+        if (filteredGoods.length) {
+          return filteredGoods[0].amount;
+        } else {
+          return 0;
+        }
+      }),
+    );
+  }, [localCart, goodsTitle, size]);
 
   return (
     <div className="goods__itemBlock">
       <div className={className + ' unselectable'}>
-        {/* <button onClick={test}>+++</button> */}
         <div
           className={
             !localFavorites.find((item) => item.goodsTitle === goodsTitle)
@@ -117,15 +132,19 @@ function GoodsItem({
           </div>
           <div className="goods__size">
             {size.map((obj, index) => (
-              <input
-                key={obj}
-                type="radio"
-                name={goodsTitle}
-                label={obj}
-                value={index}
-                onClick={(event) => setCheckSize(event.target.value)}
-                defaultChecked={index === checkSize ? true : false}
-              />
+              <div className="goods__size-wrapper" key={obj}>
+                <input
+                  type="radio"
+                  name={goodsTitle}
+                  label={obj}
+                  value={index}
+                  onClick={(event) => setCheckSize(event.target.value)}
+                  defaultChecked={index === checkSize ? true : false}
+                />
+                {sizeAmount.some((item) => !!item) && (
+                  <div className="goods__size-counter">{sizeAmount[index]}</div>
+                )}
+              </div>
             ))}
           </div>
           <div className="goods__cost unselectable">
