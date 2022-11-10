@@ -81,13 +81,6 @@
           align-items: center;
   min-width: 380px;
 }
-.goods__item-cart button {
-  display: none;
-}
-
-.goods__favorite svg {
-  fill: none;
-}
 
 .goods__favorite-checked svg {
   fill: rgb(255, 160, 160);
@@ -250,6 +243,7 @@
   margin: 10px 0;
 }
 .goods__itemBlock .goods__item-cart-counterBlock .order__goodsDelete {
+  margin-right: 2px;
   font-size: 0;
   border-radius: 10px;
   -webkit-transition: all 0.2s ease-in-out;

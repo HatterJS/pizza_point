@@ -4,6 +4,22 @@ import GoodsItem from '../../components/GoodsItem';
 import './index.css';
 
 function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
+  //state of total price
+  const [totalPrice, setTotalPrice] = React.useState(0);
+  //price change tracking
+  React.useEffect(() => {
+    //multiplying the cost and amount for each item from the cart => as a result multiple array
+    const costAmountArr = localCart.map((item) =>
+      item.cost.map((cost, index) => cost * item.sizeAmount[index]),
+    );
+    //multiplying all values => as a result total sum
+    setTotalPrice(
+      costAmountArr
+        .map((item) => item.reduce((sum, elem) => sum + elem, 0))
+        .reduce((sum, elem) => sum + elem, 0),
+    );
+  }, [localCart]);
+
   return (
     <div className="order">
       <div className="order__title">
@@ -72,7 +88,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
             </div>
             <div className="order__totalPrice">
               <h3>Загальна сума:</h3>
-              <h3>999 uah</h3>
+              <h3>{totalPrice} грн.</h3>
             </div>
             <button className="acceptButton">Замовити</button>
           </div>
