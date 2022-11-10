@@ -19,7 +19,7 @@ function GoodsItem({
   //checked size of goods
   const [checkSize, setCheckSize] = React.useState(Number(checkedSize) || 0);
   //amount of goods added to cart depends on size
-  const [sizeAmount, setSizeAmount] = React.useState([0, 1, 2]);
+  const [sizeAmount, setSizeAmount] = React.useState(Array(size.length).fill(0));
   //state for counter
   const [counter, setCounter] = React.useState(0);
   //get amount of goods from localstorage
@@ -63,32 +63,97 @@ function GoodsItem({
       cost: cost,
       checkedSize: checkSize,
       amount: 1,
+      sizeAmount: sizeAmount,
     };
-    setLocalCart((prev) => [...prev, cartItem]);
+    ++cartItem.sizeAmount[checkSize];
+    localCart.map((item) => item.goodsTitle).includes(goodsTitle)
+      ? setLocalCart((prev) =>
+          prev.map((item) =>
+            item.goodsTitle === goodsTitle
+              ? {
+                  ...item,
+                  sizeAmount: item.sizeAmount.map((item, index) =>
+                    index === Number(checkSize) ? ++item : item,
+                  ),
+                }
+              : item,
+          ),
+        )
+      : setLocalCart((prev) => [...prev, cartItem]);
+    console.log(cartItem.sizeAmount);
+    // setLocalCart(
+    //   localCart.map((item) =>
+    //     item.goodsTitle + item.checkedSize === goodsTitle + checkSize
+    //       ? { ...item, amount: item.amount - 1 }
+    //       : item,
+    //   ),
+    // );
+    // setSizeAmount(
+    //   size.map((obj) => {
+    //     const filteredGoods = localCart.filter(
+    //       (item) => item.goodsTitle + item.size[item.checkedSize] === goodsTitle + obj,
+    //     );
+    //     if (filteredGoods.length) {
+    //       return filteredGoods[0].amount;
+    //     } else {
+    //       return 0;
+    //     }
+    //   }),
+    // );
     setCounter(1);
   }
   //increase amount of guds at cart (localstorage)
   function handleCounterPlus() {
     setCounter((prev) => prev + 1);
+    // setLocalCart(
+    //   localCart.map((item) =>
+    //     item.goodsTitle + item.checkedSize === goodsTitle + checkSize
+    //       ? { ...item, amount: item.amount + 1 }
+    //       : item,
+    //   ),
+    // );
     setLocalCart(
       localCart.map((item) =>
-        item.goodsTitle + item.checkedSize === goodsTitle + checkSize
-          ? { ...item, amount: item.amount + 1 }
+        item.goodsTitle === goodsTitle
+          ? {
+              ...item,
+              sizeAmount: item.sizeAmount.map((item, index) =>
+                index === Number(checkSize) ? ++item : item,
+              ),
+            }
           : item,
       ),
     );
+    console.log(checkSize);
+    console.log(goodsTitle);
+    console.log(localCart);
   }
   //decrease amount of guds at cart (localstorage)
   function handleCounterMinus() {
-    counter > 1 && setCounter((prev) => --prev);
-    counter > 1 &&
+    sizeAmount[checkSize] > 0 && setCounter((prev) => --prev);
+    sizeAmount[checkSize] > 0 &&
+      // setLocalCart(
+      //   localCart.map((item) =>
+      //     item.goodsTitle + item.checkedSize === goodsTitle + checkSize
+      //       ? { ...item, amount: item.amount - 1 }
+      //       : item,
+      //   ),
+      // );
       setLocalCart(
         localCart.map((item) =>
-          item.goodsTitle + item.checkedSize === goodsTitle + checkSize
-            ? { ...item, amount: item.amount - 1 }
+          item.goodsTitle === goodsTitle
+            ? {
+                ...item,
+                sizeAmount: item.sizeAmount.map((item, index) =>
+                  index === Number(checkSize) ? --item : item,
+                ),
+              }
             : item,
         ),
       );
+    // localCart.forEach(
+    //   (item) => item.sizeAmount.every((elem) => elem === 0) && deleteFromCart(item.goodsTitle),
+    // );
   }
   //get actual items from localstorage(cart) then filter and send to App component for set new localstorage
   function deleteFromCart(goodsTitle) {
@@ -98,19 +163,23 @@ function GoodsItem({
   }
   //set amount of goods added to cart depends on size
   React.useEffect(() => {
-    setSizeAmount(
-      size.map((obj) => {
-        const filteredGoods = localCart.filter(
-          (item) => item.goodsTitle + item.size[item.checkedSize] === goodsTitle + obj,
-        );
-        if (filteredGoods.length) {
-          return filteredGoods[0].amount;
-        } else {
-          return 0;
-        }
-      }),
-    );
-  }, [localCart, goodsTitle, size]);
+    // setSizeAmount(
+    //   size.map((obj) => {
+    //     const filteredGoods = localCart.filter(
+    //       (item) => item.goodsTitle + item.size[item.checkedSize] === goodsTitle + obj,
+    //     );
+    //     if (filteredGoods.length) {
+    //       return filteredGoods[0].amount;
+    //     } else {
+    //       return 0;
+    //     }
+    //   }),
+    // );
+    const goodsAmount = localCart.map((item) => item.goodsTitle === goodsTitle && item.sizeAmount);
+    // console.log(goodsAmount);
+    goodsAmount.forEach((item) => item && setSizeAmount(item));
+  }, [localCart, goodsTitle]);
+  // console.log(sizeAmount);
 
   return (
     <div className="goods__itemBlock">
@@ -149,14 +218,20 @@ function GoodsItem({
           </div>
           <div className="goods__cost unselectable">
             <h3>{cost[checkSize]}</h3>
-            {localCart
-              .map((item) => item.goodsTitle + item.checkedSize)
-              .includes(goodsTitle + checkSize) ? (
+            {localCart.map((item) => item.goodsTitle).includes(goodsTitle) &&
+            sizeAmount.some((item) => !!item) ? (
               <div className="goods__goodsCounter">
                 <div onClick={() => handleCounterMinus()}>-</div>
-                <div>{counter}</div>
+                <div>{sizeAmount[checkSize]}</div>
                 <div onClick={() => handleCounterPlus()}>+</div>
               </div>
+            ) : localCart.map((item) => item.goodsTitle).includes(goodsTitle) ? (
+              <button
+                style={{ backgroundColor: 'rgb(255, 200, 200)' }}
+                className="acceptButton"
+                onClick={() => deleteFromCart(goodsTitle)}>
+                Видалити
+              </button>
             ) : (
               <button className="acceptButton" onClick={() => handleBuy()}>
                 В кошик
