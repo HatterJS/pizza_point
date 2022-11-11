@@ -13,12 +13,12 @@ import Favorites from './components/Favorites';
 import './css/App.css';
 
 function App() {
+  //goods data from backend
+  const goodsData = React.useRef;
   //loading indicator while getting data from backend for main page
   const [isLoadingFirst, setIsLoadingFirst] = React.useState(false);
   //loading indicator while getting data from backend for others pages
   const [isLoadingGlobal, setIsLoadingGlobal] = React.useState(false);
-  //goods data from backend
-  const goodsData = React.useRef;
   //get data from localstorage(favorites) or set empty array
   const [localFavorites, setLocalFavorites] = React.useState(
     JSON.parse(localStorage.getItem('favorites')) || [],
