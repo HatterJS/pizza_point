@@ -4,6 +4,8 @@ import GoodsItem from '../../components/GoodsItem';
 import './index.css';
 
 function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
+  //set adress depends on delivery type
+  const [deliveryType, setDeliveryType] = React.useState(0);
   //state of total price
   const [totalPrice, setTotalPrice] = React.useState(0);
   //price change tracking
@@ -45,31 +47,36 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                   className="selectDelivery"
                   type="radio"
                   name="delivery"
-                  value={'За адресою'}
+                  value={0}
+                  checked={deliveryType === 0 ? true : false}
+                  onChange={(event) => setDeliveryType(Number(event.target.value))}
                   label={'За адресою'}
-                  defaultChecked
                 />
                 <input
                   className="selectDelivery"
                   type="radio"
                   name="delivery"
-                  value={'Заберу сам'}
+                  value={1}
+                  checked={deliveryType === 1 ? true : false}
+                  onChange={(event) => setDeliveryType(Number(event.target.value))}
                   label={'Заберу сам'}
                 />
               </div>
             </div>
             <div className="order__customerAdressBlock m-tb-20">
               <h3>Адреса:</h3>
-              <div className="order__customerAdress">
-                <input type="text" placeholder="Вулиця" />
-                <input type="tel" placeholder="Будинок" />
-                <input type="email" placeholder="Квартира" />
-              </div>
+              {deliveryType === 0 ? (
+                <div className="order__customerAdress">
+                  <input type="text" placeholder="Вулиця" />
+                  <input type="tel" placeholder="Будинок" />
+                  <input type="email" placeholder="Квартира" />
+                </div>
+              ) : (
+                <div className="order__pizzaPointAdress">
+                  м.Київ, вул.Вокзальна 35, тел.+38(066)503-34-00
+                </div>
+              )}
             </div>
-            {/* <div className="order__pizzaPointAdress m-tb-20">
-              <h3>Адреса магазину:</h3>
-              <p>м.Київ, вул.Вокзальна 35, тел.+38(066)503-34-00</p>
-            </div> */}
           </div>
           <div className="order__goodsBlock">
             {/* <h2>Замовлення:</h2> */}

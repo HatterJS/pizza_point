@@ -15,8 +15,16 @@ function GoodsItem({
   localFavorites,
   setLocalFavorites,
 }) {
-  //state for checking selected size of goods
-  const [selectedSize, setSelectedSize] = React.useState(0);
+  //checking selected size of goods (default is max amount by cart)
+  const [selectedSize, setSelectedSize] = React.useState(
+    localCart.filter((item) => item.goodsTitle === goodsTitle).length
+      ? localCart
+          .filter((item) => item.goodsTitle === goodsTitle)[0]
+          .sizeAmount.indexOf(
+            Math.max(...localCart.filter((item) => item.goodsTitle === goodsTitle)[0].sizeAmount),
+          )
+      : 0,
+  );
   //amount of goods added to cart dependsing on the size
   const [sizeAmount, setSizeAmount] = React.useState(Array(size.length).fill(0));
   //set mark of favorite goods
@@ -106,7 +114,9 @@ function GoodsItem({
     );
     goodsAmount.forEach((item) => item && setSizeAmount(item));
   }, [localCart, goodsTitle]);
-
+  // console.log(
+  //   localCart.filter((item) => item.goodsTitle === goodsTitle)[0].sizeAmount[0] > 0 ? true : false,
+  // );
   return (
     <div className="goods__itemBlock">
       <div className={className + ' unselectable'}>
@@ -144,20 +154,20 @@ function GoodsItem({
           </div>
           <div className="goods__cost unselectable">
             <h3>{cost[selectedSize]} грн.</h3>
-            {localCart.map((item) => item.goodsTitle).includes(goodsTitle) &&
-            sizeAmount.some((item) => !!item) ? (
+            {localCart.map((item) => item.goodsTitle).includes(goodsTitle) ? (
               <div className="goods__goodsCounter">
-                <div onClick={() => handleCounterMinus()}>-</div>
+                {sizeAmount.some((item) => !!item) ? (
+                  <div onClick={() => handleCounterMinus()}>-</div>
+                ) : (
+                  <div
+                    onClick={() => deleteFromCart()}
+                    style={{ backgroundColor: 'rgb(255, 200, 200)' }}>
+                    x
+                  </div>
+                )}
                 <div>{sizeAmount[selectedSize]}</div>
                 <div onClick={() => handleCounterPlus()}>+</div>
               </div>
-            ) : localCart.map((item) => item.goodsTitle).includes(goodsTitle) ? (
-              <button
-                style={{ backgroundColor: 'rgb(255, 200, 200)' }}
-                className="acceptButton"
-                onClick={() => deleteFromCart()}>
-                Видалити
-              </button>
             ) : (
               <button className="acceptButton" onClick={() => handleBuy()}>
                 В кошик

@@ -15,6 +15,7 @@ function Goods({
 }) {
   //goods pagination
   const [pagination, setPagination] = React.useState(0);
+  const paginationIndex = 8;
   //set page checked
   const [pageChecked, setPageChecked] = React.useState(0);
   //set page when category changed
@@ -23,7 +24,7 @@ function Goods({
   }, [goodsCategory]);
   //change page
   function changePage(index) {
-    setPagination(index * 4);
+    setPagination(index * paginationIndex);
     setPageChecked(index);
   }
   return (
@@ -36,7 +37,7 @@ function Goods({
       <div className="goods__itemBlock">
         {isLoadingFirst
           ? goodsData.current[goodsCategory]
-              .slice(pagination, pagination + 4)
+              .slice(pagination, pagination + paginationIndex)
               .filter((item) => item.goodsTitle.toLowerCase().includes(searchValue.toLowerCase()))
               .map((obj) => (
                 <GoodsItem
@@ -49,18 +50,20 @@ function Goods({
                   localFavorites={localFavorites}
                 />
               ))
-          : [...new Array(8)].map((_, index) => <Loader key={index} className={'goods__item'} />)}
+          : [...new Array(paginationIndex)].map((_, index) => (
+              <Loader key={index} className={'goods__item'} />
+            ))}
       </div>
       <div className="goods__pages">
         {isLoadingFirst &&
-          Array(Math.ceil(goodsData.current[goodsCategory].length / 4))
+          Array(Math.ceil(goodsData.current[goodsCategory].length / 8))
             .fill(0)
             .map((item, index) => (
               <input
                 key={index}
                 type="radio"
                 name="page"
-                label={index}
+                label={index + 1}
                 checked={index === pageChecked ? true : false}
                 onChange={() => changePage(index)}
               />
