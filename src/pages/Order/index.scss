@@ -98,7 +98,15 @@ $transition:  all 0.2s ease-in-out;
                 }
             }
             .order__pizzaPointAdress {
-                margin: 0 10px;
+                .order__googleMap {
+                    width: 100%;
+                    border: $borderBar;
+                    border-radius: 20px;
+                    filter: grayscale(0.8);
+                    &:hover {
+                        filter: none;
+                    }
+                }
             }
         }
     }

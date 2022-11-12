@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './index.css';
 
 import logoImg from '../../assets/img/logo.jpg';
-import logoImgLight from '../../assets/img/logo-light.jpg';
+// import logoImgLight from '../../assets/img/logo-light.jpg';
 import phonesImg from '../../assets/img/phones_img.png';
 import timeImg from '../../assets/img/time_img.png';
 import cartImg from '../../assets/img/cart.png';
@@ -13,7 +13,7 @@ function Information({ cartCounter, favoriteCounter, setShowFavorite }) {
     <div className="information">
       <Link className="information__logo-link" to={'/'}>
         <picture className="information__logo">
-          <source media="(max-width: 380px)" srcSet={logoImgLight} />
+          {/* <source media="(max-width: 380px)" srcSet={logoImgLight} /> */}
           <img src={logoImg} alt="logo" />
         </picture>
       </Link>

@@ -156,8 +156,16 @@
   -webkit-box-shadow: 1px 1px 2px gray inset;
           box-shadow: 1px 1px 2px gray inset;
 }
-.order .order__content .order__customerBlock .order__pizzaPointAdress {
-  margin: 0 10px;
+.order .order__content .order__customerBlock .order__pizzaPointAdress .order__googleMap {
+  width: 100%;
+  border: 1px solid rgba(64, 64, 64, 0.2);
+  border-radius: 20px;
+  -webkit-filter: grayscale(0.8);
+          filter: grayscale(0.8);
+}
+.order .order__content .order__customerBlock .order__pizzaPointAdress .order__googleMap:hover {
+  -webkit-filter: none;
+          filter: none;
 }
 
 @media (max-width: 700px) {
