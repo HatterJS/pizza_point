@@ -1,11 +1,9 @@
-import React from 'react';
 import './index.css';
 
 import pizzaImg from '../../assets/img/nav/pizza.png';
 import drinkImg from '../../assets/img/nav/drink.png';
 import cakeImg from '../../assets/img/nav/cake.png';
 import additionalImg from '../../assets/img/nav/additional.png';
-// import discountImg from '../../assets/img/nav/discount.png';
 import { menuSvg } from '../SvgSprite';
 
 function Nav({
@@ -21,7 +19,6 @@ function Nav({
     { title: 'Напої', image: drinkImg, link: 'drinks' },
     { title: 'Десерти', image: cakeImg, link: 'desserts' },
     { title: 'Доповнення', image: additionalImg, link: 'additionals' },
-    // { title: 'Акції', image: discountImg, link: 'discounts' },
   ];
 
   return (

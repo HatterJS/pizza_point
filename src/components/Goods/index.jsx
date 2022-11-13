@@ -50,8 +50,8 @@ function Goods({
         {isLoadingFirst
           ? goodsData.current[goodsCategory]
               .sort((a, b) => sortByType(a, b))
-              .slice(pagination, pagination + paginationIndex)
               .filter((item) => item.goodsTitle.toLowerCase().includes(searchValue.toLowerCase()))
+              .slice(pagination, pagination + paginationIndex)
               .map((obj) => (
                 <GoodsItem
                   key={obj.goodsTitle + obj.id}

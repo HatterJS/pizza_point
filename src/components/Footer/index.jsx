@@ -12,13 +12,13 @@ function Footer() {
           <div className="footer__about unselectable">
             <ul>
               <h3>Pizza point</h3>
-              <Link to={'/common'}>
+              <Link to={'/common'} state={{ type: 'about' }}>
                 <li>Про нас</li>
               </Link>
-              <Link to={'/common'}>
+              <Link to={'/common'} state={{ type: 'delivery' }}>
                 <li>Доставка</li>
               </Link>
-              <Link to={'/common'}>
+              <Link to={'/common'} state={{ type: 'vacancy' }}>
                 <li>Вакансії</li>
               </Link>
             </ul>
@@ -26,10 +26,10 @@ function Footer() {
           <div className="footer__legal unselectable">
             <ul>
               <h3>Юридична інформація</h3>
-              <Link to={'/common'}>
+              <Link to={'/common'} state={{ type: 'legal' }}>
                 <li>Публічна оферта</li>
               </Link>
-              <Link to={'/common'}>
+              <Link to={'/common'} state={{ type: 'public' }}>
                 <li>Політика конфіденційності</li>
               </Link>
             </ul>

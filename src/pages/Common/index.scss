@@ -1,6 +1,62 @@
 $borderBar: 1px solid rgba(64, 64, 64, 0.2);
+$maxWidth: 1200px;
 
 .common {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: $maxWidth;
+    margin: 0 auto;
+    header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: inherit;
+        border: none;
+        padding: 0;
+        div {
+            width: 100%;
+            border-top: $borderBar;
+            margin: 0 10px;
+        }
+    }
+    article {
+        section {
+            display: flex;
+            padding: 10px 10px 0 10px;
+        }
+        .about__image {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 10px;
+            min-height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        p {
+            margin-top: 5px;
+        }
+        .about__goal, .about__ingredients {
+            flex-direction: column;
+            .about__image {
+                max-width: none;
+                margin: 0;
+                margin-top: 5px;
+                min-height: 300px;
+            }
+        }
+    }
+
+}
+.common__error {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,5 +73,27 @@ $borderBar: 1px solid rgba(64, 64, 64, 0.2);
     button {
         margin-top: 10px;
         padding: 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    .common {
+        article {
+            .about__cook {
+                flex-wrap: wrap;
+            }
+            .about__clean {
+                flex-wrap: wrap-reverse;
+            }
+            .about__image {
+                max-width: none;
+                margin-top: 10px;
+            }
+            .about__ingredients {
+                .about__image {
+                    min-height: 250px;
+                }
+            }
+        }
     }
 }

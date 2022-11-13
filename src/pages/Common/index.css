@@ -2,6 +2,76 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.common header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+}
+.common header div {
+  width: 100%;
+  border-top: 1px solid rgba(64, 64, 64, 0.2);
+  margin: 0 10px;
+}
+.common article section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 10px 0 10px;
+}
+.common article .about__image {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 10px;
+  min-height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.common article .about__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.common article p {
+  margin-top: 5px;
+}
+.common article .about__goal, .common article .about__ingredients {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.common article .about__goal .about__image, .common article .about__ingredients .about__image {
+  max-width: none;
+  margin: 0;
+  margin-top: 5px;
+  min-height: 300px;
+}
+
+.common__error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -19,12 +89,30 @@
   text-align: center;
   border-top: 1px solid rgba(64, 64, 64, 0.2);
 }
-.common img {
+.common__error img {
   width: 100%;
   max-width: 300px;
   margin: 10px;
 }
-.common button {
+.common__error button {
   margin-top: 10px;
   padding: 15px;
+}
+
+@media (max-width: 650px) {
+  .common article .about__cook {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .common article .about__clean {
+    -ms-flex-wrap: wrap-reverse;
+        flex-wrap: wrap-reverse;
+  }
+  .common article .about__image {
+    max-width: none;
+    margin-top: 10px;
+  }
+  .common article .about__ingredients .about__image {
+    min-height: 250px;
+  }
 }
