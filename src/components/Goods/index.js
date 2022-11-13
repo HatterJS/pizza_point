@@ -12,6 +12,7 @@ function Goods({
   setLocalCart,
   localFavorites,
   searchValue,
+  sortingType,
 }) {
   //goods pagination
   const [pagination, setPagination] = React.useState(0);
@@ -27,6 +28,17 @@ function Goods({
     setPagination(index * paginationIndex);
     setPageChecked(index);
   }
+  //sorting goods depends on sorting type
+  function sortByType(a, b) {
+    if (sortingType === 'rating') {
+      return b[sortingType] - a[sortingType];
+    } else if (sortingType === 'cost') {
+      return a[sortingType][0] - b[sortingType][0];
+    } else if (sortingType === 'goodsTitle') {
+      return a[sortingType] >= b[sortingType] ? 1 : -1;
+    }
+  }
+
   return (
     <div className="goods">
       <div className="goods__title">
@@ -37,6 +49,7 @@ function Goods({
       <div className="goods__itemBlock">
         {isLoadingFirst
           ? goodsData.current[goodsCategory]
+              .sort((a, b) => sortByType(a, b))
               .slice(pagination, pagination + paginationIndex)
               .filter((item) => item.goodsTitle.toLowerCase().includes(searchValue.toLowerCase()))
               .map((obj) => (

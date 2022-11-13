@@ -8,7 +8,14 @@ import additionalImg from '../../assets/img/nav/additional.png';
 // import discountImg from '../../assets/img/nav/discount.png';
 import { menuSvg } from '../SvgSprite';
 
-function Nav({ isLoadingGlobal, goodsCategory, setGoodsCategory, searchValue, setSearchValue }) {
+function Nav({
+  isLoadingGlobal,
+  goodsCategory,
+  setGoodsCategory,
+  searchValue,
+  setSearchValue,
+  setSortingType,
+}) {
   const categories = [
     { title: 'Піцца', image: pizzaImg, link: 'pizzas' },
     { title: 'Напої', image: drinkImg, link: 'drinks' },
@@ -40,13 +47,13 @@ function Nav({ isLoadingGlobal, goodsCategory, setGoodsCategory, searchValue, se
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
         />
-        <div className="nav_sort">
+        <div className="nav_sort unselectable">
           {menuSvg}
           <h3>Сортувати</h3>
           <ul>
-            <li>популярні</li>
-            <li>ціна</li>
-            <li>назва</li>
+            <li onClick={() => setSortingType('rating')}>популярні</li>
+            <li onClick={() => setSortingType('cost')}>ціна</li>
+            <li onClick={() => setSortingType('goodsTitle')}>назва</li>
           </ul>
         </div>
       </div>

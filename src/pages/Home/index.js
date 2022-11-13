@@ -15,6 +15,8 @@ function Home({
   setGoodsCategory,
   searchValue,
   setSearchValue,
+  sortingType,
+  setSortingType,
 }) {
   return (
     <React.Fragment>
@@ -24,6 +26,7 @@ function Home({
         setGoodsCategory={setGoodsCategory}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        setSortingType={setSortingType}
       />
       <div className="banner"></div>
       <Banner />
@@ -36,6 +39,7 @@ function Home({
         setLocalFavorites={setLocalFavorites}
         localFavorites={localFavorites}
         searchValue={searchValue}
+        sortingType={sortingType}
       />
     </React.Fragment>
   );

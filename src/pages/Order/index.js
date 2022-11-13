@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Empty from '../../components/Empty';
 import GoodsItem from '../../components/GoodsItem';
+import { chatId, URI_API } from '../../components/TelegrammBot';
 import './index.css';
 
 function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
@@ -51,9 +52,9 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
   // `<b>Спосіб оплати: </b>${paymentType}\n` +
   // (discontCode && `<b>Дисконт: </b>${discontCode}\n`) +
   // (message && `<b>Повідомлення: </b>${message}\n`);
-  const token = '5688263270:AAGV_0VzX7ie-wj_lSzpzlONAKite6DTEJQ';
-  const chatId = '-1001882394576';
-  const URI_API = `https://api.telegram.org/bot${token}/sendMessage`;
+  // const token = '5688263270:AAGV_0VzX7ie-wj_lSzpzlONAKite6DTEJQ';
+  // const chatId = '-1001882394576';
+  // const URI_API = `https://api.telegram.org/bot${token}/sendMessage`;
 
   async function acceptOrder() {
     try {
@@ -74,8 +75,8 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
     setApartment('');
     setLocalCart([]);
   }
-
   //Конец блока отправки информации в Telegram канал
+
   return (
     <div className="order">
       <div className="order__title">

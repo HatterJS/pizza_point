@@ -25,11 +25,13 @@ function App() {
   );
   //get data from localstorage(cart) or set empty array
   const [localCart, setLocalCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);
-  //change favorite state of items
+  //set favorite state of items
   const [showFavorite, setShowFavorite] = React.useState(false);
   //set goods category
   const [goodsCategory, setGoodsCategory] = React.useState('pizzas');
-  //change search value
+  //set sorting type
+  const [sortingType, setSortingType] = React.useState('rating');
+  //set search value
   const [searchValue, setSearchValue] = React.useState('');
   //get goods data from backend and set local goods data
   React.useEffect(() => {
@@ -91,6 +93,8 @@ function App() {
               setGoodsCategory={setGoodsCategory}
               searchValue={searchValue}
               setSearchValue={setSearchValue}
+              sortingType={sortingType}
+              setSortingType={setSortingType}
             />
           }
         />
