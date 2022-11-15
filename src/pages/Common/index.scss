@@ -26,7 +26,7 @@ $maxWidth: 1200px;
             display: flex;
             padding: 10px 10px 0 10px;
         }
-        .about__image {
+        .about__image, .delivery__image {
             position: relative;
             width: 100%;
             max-width: 400px;
@@ -79,10 +79,10 @@ $maxWidth: 1200px;
 @media (max-width: 650px) {
     .common {
         article {
-            .about__cook {
+            .about__cook, .delivery__hotPizza {
                 flex-wrap: wrap;
             }
-            .about__clean {
+            .about__clean, .delivery__deliveryman {
                 flex-wrap: wrap-reverse;
             }
             .about__image {

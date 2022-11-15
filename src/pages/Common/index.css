@@ -36,7 +36,7 @@
   display: flex;
   padding: 10px 10px 0 10px;
 }
-.common article .about__image {
+.common article .about__image, .common article .delivery__image {
   position: relative;
   width: 100%;
   max-width: 400px;
@@ -45,7 +45,7 @@
   border-radius: 20px;
   overflow: hidden;
 }
-.common article .about__image img {
+.common article .about__image img, .common article .delivery__image img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -100,11 +100,11 @@
 }
 
 @media (max-width: 650px) {
-  .common article .about__cook {
+  .common article .about__cook, .common article .delivery__hotPizza {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .common article .about__clean {
+  .common article .about__clean, .common article .delivery__deliveryman {
     -ms-flex-wrap: wrap-reverse;
         flex-wrap: wrap-reverse;
   }

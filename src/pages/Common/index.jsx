@@ -2,17 +2,24 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import About from './components/About';
+import Delivery from './components/Delivery';
+import Vacancies from './components/Vacancies';
 
 import './index.css';
 
 function Common({ setShowFavorite }) {
   //get link state
   const contentType = useLocation().state;
-  console.log(contentType.type);
   return (
     <div className="common">
       {contentType ? (
-        contentType.type === 'about' && <About />
+        contentType.type === 'about' ? (
+          <About />
+        ) : contentType.type === 'delivery' ? (
+          <Delivery />
+        ) : (
+          <Vacancies />
+        )
       ) : (
         <div className="common unselectable">
           <h3>Ой-ой! Щось пішло не так!</h3>

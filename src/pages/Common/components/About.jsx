@@ -2,7 +2,6 @@ import cook from '../../../assets/img/about/cook.webp';
 import clean from '../../../assets/img/about/clean.webp';
 import ingredients from '../../../assets/img/about/ingredients.webp';
 function About() {
-  console.log('hello');
   return (
     <div className="about">
       <header>
