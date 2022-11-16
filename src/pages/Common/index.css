@@ -12,6 +12,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 .common header {
   display: -webkit-box;
@@ -34,7 +35,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 10px 0 10px;
+  padding: 10px 0;
 }
 .common article .about__image, .common article .delivery__image {
   position: relative;
@@ -66,6 +67,55 @@
   margin: 0;
   margin-top: 5px;
   min-height: 300px;
+}
+.common .vacancies section {
+  border-bottom: 1px solid rgba(64, 64, 64, 0.2);
+}
+.common .vacancies section:last-child {
+  border-bottom: none;
+}
+.common .vacancies ul {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 10px;
+}
+.common .vacancies ul li {
+  list-style: circle;
+  margin-left: 20px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+.common .vacancies .vacancies__benefits {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.common .vacancies .vacancies__benefits .vacancies__about {
+  min-width: 300px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: justify;
+}
+.common .vacancies .vacancies__image {
+  width: 126px;
+  height: 200px;
+}
+.common .vacancies .vacancies__image img {
+  width: 100%;
+}
+.common .vacancies .vacancies__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-left: 10px;
+}
+.common .vacancies .vacancies__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
 }
 
 .common__error {
@@ -99,6 +149,14 @@
   padding: 15px;
 }
 
+@media (max-width: 890px) {
+  .vacancies__description {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 @media (max-width: 650px) {
   .common article .about__cook, .common article .delivery__hotPizza {
     -ms-flex-wrap: wrap;
@@ -114,5 +172,23 @@
   }
   .common article .about__ingredients .about__image {
     min-height: 250px;
+  }
+}
+@media (max-width: 500px) {
+  .common .vacancies .vacancies__benefits .vacancies__about {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
+  .common .vacancies .vacancies__image {
+    min-width: 25%;
+  }
+  .common .vacancies p {
+    font-size: 0.9em;
+  }
+  .common .vacancies ul li {
+    min-width: 75%;
+    line-height: 1.1;
+    font-size: 0.9em;
   }
 }

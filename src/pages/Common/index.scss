@@ -8,6 +8,7 @@ $maxWidth: 1200px;
     width: 100%;
     max-width: $maxWidth;
     margin: 0 auto;
+    padding: 0 10px;
     header {
         display: flex;
         align-items: center;
@@ -24,7 +25,7 @@ $maxWidth: 1200px;
     article {
         section {
             display: flex;
-            padding: 10px 10px 0 10px;
+            padding: 10px 0;
         }
         .about__image, .delivery__image {
             position: relative;
@@ -54,6 +55,46 @@ $maxWidth: 1200px;
             }
         }
     }
+    .vacancies {
+        section {
+            border-bottom: $borderBar;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        ul {
+            flex: 1;
+            margin-left: 10px;
+            li {
+                list-style: circle;
+                margin-left: 20px;
+                min-width: max-content;
+            }
+        }
+        .vacancies__benefits {
+            flex-wrap: wrap;
+            .vacancies__about {
+                min-width: 300px;
+                flex: 1;
+                text-align: justify;
+            }
+        }
+        .vacancies__image {
+            width: 126px;
+            height: 200px;
+            img {
+                width: 100%;
+            }
+        }
+        .vacancies__content {
+            flex: 1 1 auto;
+            margin-left: 10px;
+        }
+        .vacancies__description {
+            display: flex;
+            width: 100%;
+        }
+    }
 
 }
 .common__error {
@@ -76,6 +117,11 @@ $maxWidth: 1200px;
     }
 }
 
+@media (max-width: 890px) {
+    .vacancies__description {
+        flex-direction: column;
+    }
+}
 @media (max-width: 650px) {
     .common {
         article {
@@ -92,6 +138,30 @@ $maxWidth: 1200px;
             .about__ingredients {
                 .about__image {
                     min-height: 250px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    .common {
+        .vacancies {
+            .vacancies__benefits {
+                .vacancies__about {
+                    flex: 1 1 auto;
+                }
+            }
+            .vacancies__image {
+                min-width: 25%;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            ul {
+                li {
+                    min-width: 75%;
+                    line-height: 1.1;
+                    font-size: 0.9em;
                 }
             }
         }
