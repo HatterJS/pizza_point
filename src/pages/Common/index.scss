@@ -26,6 +26,10 @@ $maxWidth: 1200px;
         section {
             display: flex;
             padding: 10px 0;
+            border-top: $borderBar;
+            &:first-child {
+                border-top: none;
+            }
         }
         .about__image, .delivery__image {
             position: relative;
@@ -42,8 +46,15 @@ $maxWidth: 1200px;
                 object-fit: cover;
             }
         }
+        h2 {background: rgb(245,245,245);
+            background: linear-gradient(90deg, rgb(253, 242, 204) 0%, rgb(255,255,255) 100%);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
         p {
             margin-top: 5px;
+            text-align: justify;
+            text-indent: 1.5em;
         }
         .about__goal, .about__ingredients {
             flex-direction: column;
@@ -57,7 +68,6 @@ $maxWidth: 1200px;
     }
     .vacancies {
         section {
-            border-bottom: $borderBar;
             &:last-child {
                 border-bottom: none;
             }
@@ -73,10 +83,15 @@ $maxWidth: 1200px;
         }
         .vacancies__benefits {
             flex-wrap: wrap;
+            justify-content: space-evenly;
             .vacancies__about {
+                max-width: 50%;
                 min-width: 300px;
-                flex: 1;
-                text-align: justify;
+            }
+            ul {
+                margin-left: 20px;
+                flex: 0;
+                max-width: fit-content;
             }
         }
         .vacancies__image {
@@ -121,6 +136,17 @@ $maxWidth: 1200px;
     .vacancies__description {
         flex-direction: column;
     }
+    .common .vacancies .vacancies__benefits {
+        justify-content: flex-start;
+        .vacancies__about {
+            max-width: 100%;
+        }
+        ul {
+            margin-left: 0;
+            flex: 1;
+            max-width: 100%;
+        }
+    }
 }
 @media (max-width: 650px) {
     .common {
@@ -131,7 +157,7 @@ $maxWidth: 1200px;
             .about__clean, .delivery__deliveryman {
                 flex-wrap: wrap-reverse;
             }
-            .about__image {
+            .about__image, .delivery__image {
                 max-width: none;
                 margin-top: 10px;
             }
@@ -145,6 +171,9 @@ $maxWidth: 1200px;
 }
 @media (max-width: 500px) {
     .common {
+        p {
+            font-size: 0.9em;
+        }
         .vacancies {
             .vacancies__benefits {
                 .vacancies__about {
@@ -153,9 +182,6 @@ $maxWidth: 1200px;
             }
             .vacancies__image {
                 min-width: 25%;
-            }
-            p {
-                font-size: 0.9em;
             }
             ul {
                 li {

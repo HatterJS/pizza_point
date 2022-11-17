@@ -1,5 +1,7 @@
 import hotPizza from '../../../assets/img/delivery/hot.webp';
 import deliveryPizza from '../../../assets/img/delivery/delivery.webp';
+import pizzaBox from '../../../assets/img/delivery/pizza-box.webp';
+
 function Delivery() {
   return (
     <div className="delivery">
@@ -11,46 +13,62 @@ function Delivery() {
       <article>
         <section className="delivery__hotPizza">
           <div className="delivery__content">
-            <h2>Гаряча піца</h2>
+            <h2>Гаряча піца!</h2>
             <p>
-              Ми робимо все можливе, щоб Ви змогли відчути неповторний смак гарячої та запашної
-              піци, а також отримали незабутні відчуття.
+              Піца родом з Італії. І італійці кажуть, що найкращий в світі кухар - це голод. Коли
+              людина хоче їсти, то піца це найкраще блюдо на світі, навіть без будь-якого розігріву.
             </p>
             <p>
-              Ми робимо все можливе, щоб Ви змогли відчути неповторний смак гарячої та запашної
-              піци, а також отримали незабутні відчуття.
+              Але є й інша думка: "піцу слід подавати тільки гарячою, щоб сир обпікав ваші губи.
+              Опік піцою є найкращим способом ще кілька днів пам'ятати про те, що недавно ви
+              ласували смачнющою піцою."
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aliquid praesentium
-              modi voluptas omnis qui nihil velit magnam, unde error blanditiis inventore soluta,
-              maiores amet magni pariatur corporis, nulla veniam?
+              Саме тому ми робимо все можливе, щоб Ви мали вибір: відчути неповторний смак гарячої
+              та запашної піци, або трохи зачекати і скуштувати охолоджену страву. В будь-якому
+              випадку Ви отримаєте незабутні відчуття.
             </p>
           </div>
           <div className="delivery__image">
-            <img src={hotPizza} alt="cook" />
+            <img src={hotPizza} alt="hot-pizza" />
           </div>
         </section>
         <section className="delivery__deliveryman">
           <div className="delivery__image">
-            <img src={deliveryPizza} alt="clean" />
+            <img src={deliveryPizza} alt="deliveryman" />
           </div>
           <div className="delivery__content">
-            <h2>Естетика</h2>
+            <h2>Довіра</h2>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore eligendi inventore
-              aliquam amet mollitia maiores eum, quia harum quod nihil. Quidem obcaecati cupiditate
-              fugit vero nam veniam distinctio assumenda. Magni.
+              Одним з головних етапів нашої справи є доставка замовлених страв, і ми приділяєму цій
+              справі чимало зусиль.
             </p>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore eligendi inventore
-              aliquam amet mollitia maiores eum, quia harum quod nihil. Quidem obcaecati cupiditate
-              fugit vero nam veniam distinctio assumenda. Magni.
+              Кожен з наших кур'єрів чітко усвідомлює відповідальність за цілісність та
+              недоторканість Вашого замовлення. Охайність, ввічлевість та поважне ставлення до
+              дорученої справи - є основними вимогами до кур'єрів з якими ми співпрацюємо.
+            </p>
+          </div>
+        </section>
+        <section className="delivery__hotPizza">
+          <div className="delivery__content">
+            <h2>Зустрічають по обгортці</h2>
+            <p>
+              Кожна, замовлена Вами страва пакується таким чином, щоб зберегти не тільки смакові
+              якості але й вигляд гідний своєї назви.
             </p>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore eligendi inventore
-              aliquam amet mollitia maiores eum, quia harum quod nihil. Quidem obcaecati cupiditate
-              fugit vero nam veniam distinctio assumenda. Magni.
+              В кожному пакунку Ви обов'язково знайдете все необхідне: серветки, столове приладдя,
+              додаткові компоненти (соус, джем, цукор та інше).
             </p>
+            <p>
+              Також запевняємо тих, хто не байдужий до навколишнього середовища, що наші пакувальні
+              матеріали виготовлено з переробленої та очищеної сировини вищого гатунку. Саме тому Ви
+              можете не перейматись за довкілля під час утилізації упаковки.
+            </p>
+          </div>
+          <div className="delivery__image">
+            <img src={pizzaBox} alt="pizza-box" />
           </div>
         </section>
       </article>

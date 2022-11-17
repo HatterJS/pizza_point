@@ -26,10 +26,10 @@ function Footer() {
           <div className="footer__legal unselectable">
             <ul>
               <h3>Юридична інформація</h3>
-              <Link to={'/common'} state={{ type: 'legal' }}>
+              <Link to={'/none'} state={{ type: 'legal' }}>
                 <li>Публічна оферта</li>
               </Link>
-              <Link to={'/common'} state={{ type: 'public' }}>
+              <Link to={'/none'} state={{ type: 'public' }}>
                 <li>Політика конфіденційності</li>
               </Link>
             </ul>

@@ -36,6 +36,10 @@
   display: -ms-flexbox;
   display: flex;
   padding: 10px 0;
+  border-top: 1px solid rgba(64, 64, 64, 0.2);
+}
+.common article section:first-child {
+  border-top: none;
 }
 .common article .about__image, .common article .delivery__image {
   position: relative;
@@ -53,8 +57,17 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.common article h2 {
+  background: rgb(245, 245, 245);
+  background: -webkit-gradient(linear, left top, right top, from(rgb(253, 242, 204)), to(rgb(255, 255, 255)));
+  background: linear-gradient(90deg, rgb(253, 242, 204) 0%, rgb(255, 255, 255) 100%);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 .common article p {
   margin-top: 5px;
+  text-align: justify;
+  text-indent: 1.5em;
 }
 .common article .about__goal, .common article .about__ingredients {
   -webkit-box-orient: vertical;
@@ -67,9 +80,6 @@
   margin: 0;
   margin-top: 5px;
   min-height: 300px;
-}
-.common .vacancies section {
-  border-bottom: 1px solid rgba(64, 64, 64, 0.2);
 }
 .common .vacancies section:last-child {
   border-bottom: none;
@@ -90,13 +100,22 @@
 .common .vacancies .vacancies__benefits {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 .common .vacancies .vacancies__benefits .vacancies__about {
+  max-width: 50%;
   min-width: 300px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  text-align: justify;
+}
+.common .vacancies .vacancies__benefits ul {
+  margin-left: 20px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 .common .vacancies .vacancies__image {
   width: 126px;
@@ -156,6 +175,21 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .common .vacancies .vacancies__benefits {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .common .vacancies .vacancies__benefits .vacancies__about {
+    max-width: 100%;
+  }
+  .common .vacancies .vacancies__benefits ul {
+    margin-left: 0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 100%;
+  }
 }
 @media (max-width: 650px) {
   .common article .about__cook, .common article .delivery__hotPizza {
@@ -166,7 +200,7 @@
     -ms-flex-wrap: wrap-reverse;
         flex-wrap: wrap-reverse;
   }
-  .common article .about__image {
+  .common article .about__image, .common article .delivery__image {
     max-width: none;
     margin-top: 10px;
   }
@@ -175,6 +209,9 @@
   }
 }
 @media (max-width: 500px) {
+  .common p {
+    font-size: 0.9em;
+  }
   .common .vacancies .vacancies__benefits .vacancies__about {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
@@ -182,9 +219,6 @@
   }
   .common .vacancies .vacancies__image {
     min-width: 25%;
-  }
-  .common .vacancies p {
-    font-size: 0.9em;
   }
   .common .vacancies ul li {
     min-width: 75%;
