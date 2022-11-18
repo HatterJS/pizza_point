@@ -21,13 +21,13 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
   React.useEffect(() => {
     //multiplying the cost and amount for each item from the cart => as a result multiple array
     const costAmountArr = localCart.map((item) =>
-      item.cost.map((cost, index) => cost * item.sizeAmount[index]),
+      item.cost.map((cost, index) => cost * item.sizeAmount[index])
     );
     //multiplying all values => as a result total sum
     setTotalPrice(
       costAmountArr
         .map((item) => item.reduce((sum, elem) => sum + elem, 0))
-        .reduce((sum, elem) => sum + elem, 0),
+        .reduce((sum, elem) => sum + elem, 0)
     );
   }, [localCart]);
   //Начало блока отправки информации в Telegram канал
@@ -39,7 +39,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
         `<b>Назва товару: </b>${obj.goodsTitle} <b>x ${obj.sizeAmount}</b>\n` +
         `<b>Розмір: </b>${obj.size} \n` +
         `<b>Ціна: </b>${obj.cost} грн.\n` +
-        `\n`,
+        `\n`
     ) +
     `<b>Загальна сума: </b>${totalPrice} грн.\n` +
     `<b>_______________________________</b>\n` +
@@ -61,7 +61,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
       await axios.post(URI_API, {
         chat_id: chatId,
         parse_mode: 'html',
-        text: messageToTelegram,
+        text: messageToTelegram
       });
     } catch (error) {
       alert('Помилочка ;( Скористайтесь, будь ласка, телефоном для замовлення.');
@@ -118,7 +118,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                   type="radio"
                   name="delivery"
                   value={'За адресою'}
-                  checked={deliveryType === 'За адресою' ? true : false}
+                  checked={deliveryType === 'За адресою'}
                   onChange={(event) => setDeliveryType(event.target.value)}
                   label={'За адресою'}
                 />
@@ -127,7 +127,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                   type="radio"
                   name="delivery"
                   value={'Заберу сам'}
-                  checked={deliveryType === 'Заберу сам' ? true : false}
+                  checked={deliveryType === 'Заберу сам'}
                   onChange={(event) => setDeliveryType(event.target.value)}
                   label={'Заберу сам'}
                 />

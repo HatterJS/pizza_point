@@ -13,7 +13,7 @@ function GoodsItem({
   localCart,
   setLocalCart,
   localFavorites,
-  setLocalFavorites,
+  setLocalFavorites
 }) {
   //checking selected size of goods (default is max amount by cart)
   const [selectedSize, setSelectedSize] = React.useState(
@@ -21,15 +21,15 @@ function GoodsItem({
       ? localCart
           .filter((item) => item.goodsTitle === goodsTitle)[0]
           .sizeAmount.indexOf(
-            Math.max(...localCart.filter((item) => item.goodsTitle === goodsTitle)[0].sizeAmount),
+            Math.max(...localCart.filter((item) => item.goodsTitle === goodsTitle)[0].sizeAmount)
           )
-      : 0,
+      : 0
   );
   //amount of goods added to cart dependsing on the size
   const [sizeAmount, setSizeAmount] = React.useState(Array(size.length).fill(0));
   //set mark of favorite goods
   const [isFavorite, setIsFavorite] = React.useState(
-    localFavorites.find((item) => item.goodsTitle === goodsTitle),
+    localFavorites.find((item) => item.goodsTitle === goodsTitle)
   );
   //base model of goods for adding to cart/favorite
   const addedItem = {
@@ -39,7 +39,7 @@ function GoodsItem({
     goodsDescription: goodsDescription,
     size: size,
     cost: cost,
-    sizeAmount: sizeAmount,
+    sizeAmount: sizeAmount
   };
   //add/remove from favorite
   function handleFavorite() {
@@ -47,8 +47,8 @@ function GoodsItem({
       ? setLocalFavorites((prev) => [...prev, addedItem])
       : setLocalFavorites(
           JSON.parse(localStorage.getItem('favorites')).filter(
-            (item) => item.goodsTitle !== goodsTitle,
-          ),
+            (item) => item.goodsTitle !== goodsTitle
+          )
         );
     setIsFavorite(!isFavorite);
   }
@@ -62,11 +62,11 @@ function GoodsItem({
               ? {
                   ...item,
                   sizeAmount: item.sizeAmount.map((item, index) =>
-                    index === Number(selectedSize) ? ++item : item,
-                  ),
+                    index === Number(selectedSize) ? ++item : item
+                  )
                 }
-              : item,
-          ),
+              : item
+          )
         )
       : setLocalCart((prev) => [...prev, addedItem]);
   }
@@ -78,11 +78,11 @@ function GoodsItem({
           ? {
               ...item,
               sizeAmount: item.sizeAmount.map((item, index) =>
-                index === selectedSize ? ++item : item,
-              ),
+                index === selectedSize ? ++item : item
+              )
             }
-          : item,
-      ),
+          : item
+      )
     );
   }
   //decrease amount of guds at cart (localStorage)
@@ -94,23 +94,23 @@ function GoodsItem({
             ? {
                 ...item,
                 sizeAmount: item.sizeAmount.map((item, index) =>
-                  index === selectedSize ? --item : item,
-                ),
+                  index === selectedSize ? --item : item
+                )
               }
-            : item,
-        ),
+            : item
+        )
       );
   }
   //get actual items from cart (localStorage) then filter and send to App component for set new localStorage
   function deleteFromCart() {
     setLocalCart(
-      JSON.parse(localStorage.getItem('cart')).filter((item) => item.goodsTitle !== goodsTitle),
+      JSON.parse(localStorage.getItem('cart')).filter((item) => item.goodsTitle !== goodsTitle)
     );
   }
   //set amount of goods added to cart depends on size
   React.useEffect(() => {
     const goodsAmount = localCart.map((item) =>
-      item.goodsTitle === goodsTitle ? item.sizeAmount : null,
+      item.goodsTitle === goodsTitle ? item.sizeAmount : null
     );
     goodsAmount.forEach((item) => item && setSizeAmount(item));
   }, [localCart, goodsTitle]);
@@ -144,7 +144,7 @@ function GoodsItem({
                   label={obj}
                   value={index}
                   onClick={(event) => setSelectedSize(Number(event.target.value))}
-                  defaultChecked={index === selectedSize ? true : false}
+                  defaultChecked={index === selectedSize}
                 />
                 {sizeAmount.some((item) => !!item) && (
                   <div className="goods__size-counter">{sizeAmount[index]}</div>

@@ -26,19 +26,19 @@ function About() {
           <div className="about__content">
             <h2>Вотвори мистецтва</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aliquid praesentium
-              modi voluptas omnis qui nihil velit magnam, unde error blanditiis inventore soluta,
-              maiores amet magni pariatur corporis, nulla veniam?
+              Pizza Point - це дивовижне поєднання справжньої пристрасті та поваги до культури
+              італійської кухні. Ми зібрали найкращих фахівців, які працюють в тандемі створюючи
+              справжні витвори мистецтва. Запорукою успіху є виготовлення якісних страв, які
+              задовольняють очікування найвибагливіших гурманів та суворе дотримання міжнародних
+              стандартів якості до харчової продукції.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aliquid praesentium
-              modi voluptas omnis qui nihil velit magnam, unde error blanditiis inventore soluta,
-              maiores amet magni pariatur corporis, nulla veniam?
+              Наші страви виготовлені на 90% з українських інгредієнтів. Постачальники з якими ми
+              співпрацюємо перевірені часом і гарантують найвищу якість постачаємої продукції.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aliquid praesentium
-              modi voluptas omnis qui nihil velit magnam, unde error blanditiis inventore soluta,
-              maiores amet magni pariatur corporis, nulla veniam?
+              Співпраця з українськими постачальниками гарантує завжди свіжі продукти та можливість
+              встановлювати приємні ціни.
             </p>
           </div>
           <div className="about__image">
@@ -52,33 +52,39 @@ function About() {
           <div className="about__content">
             <h2>Естетика</h2>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore eligendi inventore
-              aliquam amet mollitia maiores eum, quia harum quod nihil. Quidem obcaecati cupiditate
-              fugit vero nam veniam distinctio assumenda. Magni.
+              Ваша безпека - понад усе! Гарантія безпеки досягається суворим дотриманням українських
+              та міжнародних вимог, зокрема ми розробили додаткові вимоги виходячи з власного
+              досвіду.
             </p>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore eligendi inventore
-              aliquam amet mollitia maiores eum, quia harum quod nihil. Quidem obcaecati cupiditate
-              fugit vero nam veniam distinctio assumenda. Magni.
+              Наші працівники миють руки з антибактеріальним милом і змінюють рукавички щонайменше
+              раз на три години. До кухні допускаються тільки працівники, які мають санітарні книжки
+              й регулярно проходять медичний огляд. Жоден працівник не приступає до приготування їжі
+              доки не одягне повну уніформу (шапочка, маска, рукавички, фартух).
             </p>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore eligendi inventore
-              aliquam amet mollitia maiores eum, quia harum quod nihil. Quidem obcaecati cupiditate
-              fugit vero nam veniam distinctio assumenda. Magni.
+              На початку кожної зміни всі поверхні проходять санітарну обробку та перевіряються
+              шеф-кухарем. Тільки після позитивної відмітки в чек-аркуші кухарі приступають до
+              роботи. Після кожної зміни всі поверхні та обладнання щільно вимиваються і проводиться
+              генеральне прибирання.
+            </p>
+            <p>
+              Pizza point робить все, щоб ви були впевнені: ця піца не тільки смачна, свіжа та
+              якісна але й безпечна.
             </p>
           </div>
         </section>
         <section className="about__ingredients">
           <h2>Таємний інгредієнт</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, laudantium? Nobis,
-            ullam? Nobis nesciunt voluptates nisi modi ratione, aliquid recusandae animi accusantium
-            aperiam, eos enim eveniet. Debitis dolorem quisquam saepe.
+            Піцу ми починаємо готувати як тільки отримали Ваше замовлення і ніколи не використовуємо
+            напівфабрикати чи будь-яку іншу заморозку. Завдяки ретельному відбору тількі свіжі та
+            якісні овочі можуть потрапити до кухаря. Складові, які втратили термін придатності або
+            зіпсувались в процесі зберігання негайно списуються та утилізуються.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, laudantium? Nobis,
-            ullam? Nobis nesciunt voluptates nisi modi ratione, aliquid recusandae animi accusantium
-            aperiam, eos enim eveniet. Debitis dolorem quisquam saepe.
+            Наше тісто готується на заквасці без домішок і дріжджів, тільки натуральні інгредієнти і
+            щира турбота про Вас!
           </p>
           <div className="about__image">
             <img src={ingredients} alt="ingredients" />
