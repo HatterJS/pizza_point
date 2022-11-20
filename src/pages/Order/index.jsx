@@ -34,21 +34,31 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
   const messageToTelegram =
     `<b>НОВЕ ЗАМОВЛЕННЯ!</b>\n` +
     `<b>_______________________________</b>\n` +
-    localCart.map(
-      (obj) =>
-        `<b>Назва товару: </b>${obj.goodsTitle} <b>x ${obj.sizeAmount}</b>\n` +
-        `<b>Розмір: </b>${obj.size} \n` +
-        `<b>Ціна: </b>${obj.cost} грн.\n` +
-        `\n`
-    ) +
+    localCart.map((obj) => {
+      let arr = [];
+      for (let isBuy in obj.sizeAmount) {
+        if (obj.sizeAmount[isBuy] > 0) {
+          arr = [...arr, isBuy];
+        }
+      }
+      return arr.map(
+        (item) =>
+          `<b>Назва товару: </b>${obj.goodsTitle} \n` +
+          `<b>Розмір: </b>${obj.size[item]} <b>x ${obj.sizeAmount[item]}</b> \n` +
+          `<b>Ціна: </b>${obj.cost[item]} грн. \n` +
+          `\n`
+      );
+    }) +
     `<b>Загальна сума: </b>${totalPrice} грн.\n` +
     `<b>_______________________________</b>\n` +
     `\n` +
     `<b>Ім'я: </b>${clientName}\n` +
     `<b>Телефон: </b>${phoneNumber}\n` +
     `<b>E-mail: </b>${email}\n` +
-    `<b>Спосіб доставки: </b>${deliveryType}\n` +
-    `<b>Адреса: </b>вул.${street}, буд.${house}, кв.${apartment}\n`;
+    '<b>Доставка: </b>' +
+    (deliveryType === 'За адресою'
+      ? `вул.${street}, буд.${house}, кв.${apartment}\n`
+      : `${deliveryType}\n`);
   // `<b>Спосіб оплати: </b>${paymentType}\n` +
   // (discontCode && `<b>Дисконт: </b>${discontCode}\n`) +
   // (message && `<b>Повідомлення: </b>${message}\n`);
@@ -76,6 +86,23 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
     setLocalCart([]);
   }
   //Конец блока отправки информации в Telegram канал
+  function isValidData() {
+    return (
+      !(clientName && phoneNumber) ||
+      !(deliveryType === 'Заберу сам' || street || house || apartment)
+    );
+  }
+  function btnText() {
+    if (!clientName) {
+      return "Вкажіть ім'я";
+    } else if (!phoneNumber) {
+      return 'Вкажіть телефон';
+    } else if (deliveryType === 'За адресою' && !street && !house && !apartment) {
+      return 'Вкажіть адресу';
+    } else {
+      return 'Замовити';
+    }
+  }
 
   return (
     <div className="order">
@@ -104,7 +131,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                 />
                 <input
                   type="email"
-                  placeholder="E-mail (для програми лояльності)"
+                  placeholder="E-mail"
                   onChange={(event) => setEmail(event.target.value)}
                   value={email}
                 />
@@ -192,8 +219,8 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
               <h3>Загальна сума:</h3>
               <h3>{totalPrice} грн.</h3>
             </div>
-            <button className="acceptButton" onClick={() => acceptOrder()}>
-              Замовити
+            <button className="acceptButton" onClick={() => acceptOrder()} disabled={isValidData()}>
+              {btnText()}
             </button>
           </div>
         </div>
