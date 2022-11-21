@@ -21,7 +21,7 @@ function App() {
   const [isLoadingGlobal, setIsLoadingGlobal] = React.useState(false);
   //get data from localstorage(favorites) or set empty array
   const [localFavorites, setLocalFavorites] = React.useState(
-    JSON.parse(localStorage.getItem('favorites')) || [],
+    JSON.parse(localStorage.getItem('favorites')) || []
   );
   //get data from localstorage(cart) or set empty array
   const [localCart, setLocalCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);

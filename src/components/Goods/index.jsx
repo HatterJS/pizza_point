@@ -12,7 +12,7 @@ function Goods({
   setLocalCart,
   localFavorites,
   searchValue,
-  sortingType,
+  sortingType
 }) {
   //goods pagination
   const [pagination, setPagination] = React.useState(0);
@@ -77,7 +77,7 @@ function Goods({
                 type="radio"
                 name="page"
                 label={index + 1}
-                checked={index === pageChecked ? true : false}
+                checked={index === pageChecked}
                 onChange={() => changePage(index)}
               />
             ))}

@@ -6,6 +6,8 @@ import { chatId, URI_API } from '../../components/TelegrammBot';
 import './index.css';
 
 function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
+  //ref for input phone number
+  const phoneInput = React.useRef();
   //client data
   const [clientName, setClientName] = React.useState('');
   const [phoneNumber, setPhoneNumber] = React.useState('');
@@ -30,7 +32,8 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
         .reduce((sum, elem) => sum + elem, 0)
     );
   }, [localCart]);
-  //Начало блока отправки информации в Telegram канал
+
+  //send message to Telegram ------------>
   const messageToTelegram =
     `<b>НОВЕ ЗАМОВЛЕННЯ!</b>\n` +
     `<b>_______________________________</b>\n` +
@@ -62,9 +65,6 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
   // `<b>Спосіб оплати: </b>${paymentType}\n` +
   // (discontCode && `<b>Дисконт: </b>${discontCode}\n`) +
   // (message && `<b>Повідомлення: </b>${message}\n`);
-  // const token = '5688263270:AAGV_0VzX7ie-wj_lSzpzlONAKite6DTEJQ';
-  // const chatId = '-1001882394576';
-  // const URI_API = `https://api.telegram.org/bot${token}/sendMessage`;
 
   async function acceptOrder() {
     try {
@@ -85,13 +85,16 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
     setApartment('');
     setLocalCart([]);
   }
-  //Конец блока отправки информации в Telegram канал
+  //<------------ send message to Telegram
+
+  //client data validation
   function isValidData() {
     return (
       !(clientName && phoneNumber) ||
       !(deliveryType === 'Заберу сам' || street || house || apartment)
     );
   }
+  //text for accept button depends on client data
   function btnText() {
     if (!clientName) {
       return "Вкажіть ім'я";
@@ -103,6 +106,57 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
       return 'Замовити';
     }
   }
+
+  //phone number templating ------------>
+  function correctPhoneNumber(event, value) {
+    let start = event.target.selectionStart;
+    let end = event.target.selectionEnd;
+    let phonePattern = '+38(___)___-__-__';
+    if (value.length >= phoneNumber.length) {
+      //checking for add or remove digits
+      value
+        .match(/[\d]/g)
+        .join('')
+        .slice(value.length <= 2 ? 0 : 2)
+        .split('')
+        .forEach((item) => {
+          phonePattern = phonePattern.replace(/_/, item);
+        });
+      setPhoneNumber(phonePattern);
+      //set start/end values for input cursor
+      if (value.match(/[\d]/g).join('') === phoneNumber.match(/[\d]/g).join('')) {
+        --start;
+        --end;
+      } else {
+        //jumping over ) ( -
+        if ([3, 7, 11, 14].includes(start)) {
+          ++start;
+          ++end;
+        } else if (start < 3) {
+          start = 4 + value.length;
+          end = 4 + value.length;
+        }
+      }
+    } else {
+      setPhoneNumber(value);
+    }
+    //set position of input cursor
+    setTimeout(() => {
+      phoneInput.current.setSelectionRange(start, end);
+    }, 0);
+  }
+  //set template of phone number for input field on focus
+  function phoneInputFocus(value) {
+    console.log(value);
+    if (value.length === 0) {
+      setPhoneNumber('+38(___)___-__-__');
+      //set position of input cursor
+      setTimeout(() => {
+        phoneInput.current.setSelectionRange(4, 4);
+      }, 0);
+    }
+  }
+  //<------------ phone number templating
 
   return (
     <div className="order">
@@ -125,9 +179,11 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                 />
                 <input
                   type="tel"
-                  placeholder="+38(0xx)xxx-xx-xx"
-                  onChange={(event) => setPhoneNumber(event.target.value)}
+                  placeholder="+38(xxx)xxx-xx-xx"
+                  onChange={(event) => correctPhoneNumber(event, event.target.value)}
+                  onFocus={(event) => phoneInputFocus(event.target.value)}
                   value={phoneNumber}
+                  ref={phoneInput}
                 />
                 <input
                   type="email"

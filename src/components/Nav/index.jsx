@@ -12,13 +12,13 @@ function Nav({
   setGoodsCategory,
   searchValue,
   setSearchValue,
-  setSortingType,
+  setSortingType
 }) {
   const categories = [
     { title: 'Піцца', image: pizzaImg, link: 'pizzas' },
     { title: 'Напої', image: drinkImg, link: 'drinks' },
     { title: 'Десерти', image: cakeImg, link: 'desserts' },
-    { title: 'Доповнення', image: additionalImg, link: 'additionals' },
+    { title: 'Доповнення', image: additionalImg, link: 'additionals' }
   ];
 
   return (

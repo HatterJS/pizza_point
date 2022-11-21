@@ -16,7 +16,7 @@ function Home({
   searchValue,
   setSearchValue,
   sortingType,
-  setSortingType,
+  setSortingType
 }) {
   return (
     <React.Fragment>

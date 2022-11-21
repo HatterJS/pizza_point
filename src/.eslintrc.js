@@ -40,6 +40,7 @@ module.exports = {
     'no-prototype-builtins': 'off',
     'no-var': 'warn',
     'no-unused-vars': ['error', { vars: 'local' }],
-    'no-magic-numbers': ['warn', { ignore: [0, 1] }]
+    // 'no-magic-numbers': ['warn', { ignore: [0, 1] }]
+    'no-magic-numbers': 'off'
   }
 };

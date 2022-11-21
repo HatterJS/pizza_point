@@ -58,9 +58,9 @@
      object-fit: cover;
 }
 .common article h2 {
-  background: rgb(245, 245, 245);
-  background: -webkit-gradient(linear, left top, right top, from(rgb(253, 242, 204)), to(rgb(255, 255, 255)));
-  background: linear-gradient(90deg, rgb(253, 242, 204) 0%, rgb(255, 255, 255) 100%);
+  background: rgb(255, 255, 255);
+  background: -webkit-gradient(linear, left top, right top, from(rgb(230, 242, 255)), to(rgb(255, 255, 255)));
+  background: linear-gradient(90deg, rgb(230, 242, 255) 0%, rgb(255, 255, 255) 100%);
   padding: 5px 10px;
   border-radius: 5px;
 }
