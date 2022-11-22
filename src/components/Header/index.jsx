@@ -25,10 +25,12 @@ function Header() {
               <li>Вакансії</li>
             </Link>
           </ul>
-          <div className="header__account">
-            <p>UserName</p>
-            <img src={userImg} alt="user" />
-          </div>
+          <Link to={'/user'}>
+            <div className="header__account">
+              <p>UserName</p>
+              <img src={userImg} alt="user" />
+            </div>
+          </Link>
         </div>
       </div>
     </header>

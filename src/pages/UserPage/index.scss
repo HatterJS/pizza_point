@@ -1,0 +1,14 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 50px;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}

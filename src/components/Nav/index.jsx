@@ -15,7 +15,7 @@ function Nav({
   setSortingType
 }) {
   const categories = [
-    { title: 'Піцца', image: pizzaImg, link: 'pizzas' },
+    { title: 'Піца', image: pizzaImg, link: 'pizzas' },
     { title: 'Напої', image: drinkImg, link: 'drinks' },
     { title: 'Десерти', image: cakeImg, link: 'desserts' },
     { title: 'Доповнення', image: additionalImg, link: 'additionals' }

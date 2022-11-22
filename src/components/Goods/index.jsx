@@ -38,12 +38,18 @@ function Goods({
       return a[sortingType] >= b[sortingType] ? 1 : -1;
     }
   }
+  const categories = {
+    pizzas: 'Піца',
+    drinks: 'Напої',
+    desserts: 'Десерти',
+    additionals: 'Доповнення'
+  };
 
   return (
     <div className="goods">
       <div className="goods__title">
         <div></div>
-        <h1>Піцца</h1>
+        <h1>{categories[goodsCategory]}</h1>
         <div></div>
       </div>
       <div className="goods__itemBlock">
