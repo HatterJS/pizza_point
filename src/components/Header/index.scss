@@ -1,19 +1,17 @@
 $borderBar: 1px solid rgba(64, 64, 64, 0.2);
 
 //HEADER
-header {
+.header {
     width: 100%;
     background-color: rgb(250, 250, 250);
     border-top: $borderBar;
     border-bottom: $borderBar;
     padding: 10px;
     box-sizing: border-box;
-    // height: 40px;
-    .header {
+    .header__cover {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // height: 100%;
         .header__social, .header__account, .header__about {
             display: flex;
             p {

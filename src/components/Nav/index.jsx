@@ -22,7 +22,7 @@ function Nav({
   ];
 
   return (
-    <nav>
+    <nav className="nav__bar">
       <div className="cover">
         <ul
           className={`${

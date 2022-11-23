@@ -4,7 +4,7 @@ $textColorWhite: rgb(240, 240, 240);
 $transition:  all 0.2s ease-in-out;
 
 //NAVIGATION BAR
-nav {
+.nav__bar {
     position: sticky;
     top: 0px;
     width: 100%;
@@ -112,7 +112,7 @@ nav {
 }
 
 @media (max-width: 1000px) {
-    nav {
+    .nav__bar {
         input {
             margin: 3px;
             min-width: 45px;

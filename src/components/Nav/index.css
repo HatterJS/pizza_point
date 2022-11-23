@@ -1,4 +1,4 @@
-nav {
+.nav__bar {
   position: sticky;
   top: 0px;
   width: 100%;
@@ -10,15 +10,15 @@ nav {
           box-sizing: border-box;
   z-index: 9;
 }
-nav .cover {
+.nav__bar .cover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-nav h3 {
+.nav__bar h3 {
   color: rgb(240, 240, 240);
 }
-nav .nav__category, nav .nav__category-disabled {
+.nav__bar .nav__category, .nav__bar .nav__category-disabled {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,7 +29,7 @@ nav .nav__category, nav .nav__category-disabled {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-nav .nav__category li, nav .nav__category-disabled li {
+.nav__bar .nav__category li, .nav__bar .nav__category-disabled li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,27 +47,27 @@ nav .nav__category li, nav .nav__category-disabled li {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-nav .nav__category li img, nav .nav__category-disabled li img {
+.nav__bar .nav__category li img, .nav__bar .nav__category-disabled li img {
   height: 100%;
   margin-right: 10px;
 }
-nav .nav__category li:hover, nav .nav__category-disabled li:hover {
+.nav__bar .nav__category li:hover, .nav__bar .nav__category-disabled li:hover {
   background-color: rgba(255, 170, 43, 0.2);
 }
-nav .nav__category .nav__category-selected, nav .nav__category-disabled .nav__category-selected {
+.nav__bar .nav__category .nav__category-selected, .nav__bar .nav__category-disabled .nav__category-selected {
   border: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 170, 43, 0.2);
 }
-nav .nav__category-disabled li {
+.nav__bar .nav__category-disabled li {
   cursor: auto;
 }
-nav .nav__category-disabled li:hover {
+.nav__bar .nav__category-disabled li:hover {
   background-color: inherit;
 }
-nav .nav__category-disabled li h3, nav .nav__category-disabled li img {
+.nav__bar .nav__category-disabled li h3, .nav__bar .nav__category-disabled li img {
   opacity: 0.3;
 }
-nav input {
+.nav__bar input {
   background: url(../../assets/img/lens.svg) no-repeat left white;
   padding-left: 30px;
   padding-right: 10px;
@@ -81,7 +81,7 @@ nav input {
       align-self: center;
   margin: 0 10px;
 }
-nav .nav_sort {
+.nav__bar .nav_sort {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,10 +93,10 @@ nav .nav_sort {
   cursor: pointer;
   z-index: 9;
 }
-nav .nav_sort svg {
+.nav__bar .nav_sort svg {
   margin-right: 10px;
 }
-nav .nav_sort ul {
+.nav__bar .nav_sort ul {
   position: absolute;
   top: calc(100% + 1px);
   right: 0;
@@ -112,7 +112,7 @@ nav .nav_sort ul {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-nav .nav_sort ul li {
+.nav__bar .nav_sort ul li {
   color: rgb(240, 240, 240);
   font-weight: 400;
   padding: 10px;
@@ -120,38 +120,38 @@ nav .nav_sort ul li {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-nav .nav_sort ul li:hover {
+.nav__bar .nav_sort ul li:hover {
   background-color: rgba(255, 170, 43, 0.4);
 }
-nav .nav_sort:hover {
+.nav__bar .nav_sort:hover {
   background-color: rgba(255, 170, 43, 0.4);
 }
-nav .nav_sort:hover ul {
+.nav__bar .nav_sort:hover ul {
   visibility: visible;
   opacity: 100;
 }
 
 @media (max-width: 1000px) {
-  nav input {
+  .nav__bar input {
     margin: 3px;
     min-width: 45px;
   }
-  nav .nav__category li {
+  .nav__bar .nav__category li {
     padding: 3px 5px;
   }
-  nav .nav__category li img {
+  .nav__bar .nav__category li img {
     margin-right: 0;
   }
-  nav .nav__category li h3 {
+  .nav__bar .nav__category li h3 {
     display: none;
   }
-  nav .nav_sort {
+  .nav__bar .nav_sort {
     padding: 0 5px;
   }
-  nav .nav_sort h3 {
+  .nav__bar .nav_sort h3 {
     display: none;
   }
-  nav .nav_sort svg {
+  .nav__bar .nav_sort svg {
     margin: 0;
   }
 }

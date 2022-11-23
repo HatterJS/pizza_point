@@ -1,4 +1,4 @@
-header {
+.header {
   width: 100%;
   background-color: rgb(250, 250, 250);
   border-top: 1px solid rgba(64, 64, 64, 0.2);
@@ -7,7 +7,7 @@ header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-header .header {
+.header .header__cover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,23 +18,23 @@ header .header {
       -ms-flex-align: center;
           align-items: center;
 }
-header .header .header__social, header .header .header__account, header .header .header__about {
+.header .header__cover .header__social, .header .header__cover .header__account, .header .header__cover .header__about {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-header .header .header__social p, header .header .header__account p, header .header .header__about p {
+.header .header__cover .header__social p, .header .header__cover .header__account p, .header .header__cover .header__about p {
   margin-right: 5px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
-header .header .header__social svg, header .header .header__social img, header .header .header__account svg, header .header .header__account img, header .header .header__about svg, header .header .header__about img {
+.header .header__cover .header__social svg, .header .header__cover .header__social img, .header .header__cover .header__account svg, .header .header__cover .header__account img, .header .header__cover .header__about svg, .header .header__cover .header__about img {
   height: 25px;
   margin: 0 5px;
   cursor: pointer;
 }
-header .header ul {
+.header .header__cover ul {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -43,7 +43,7 @@ header .header ul {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
-header .header ul li {
+.header .header__cover ul li {
   cursor: pointer;
 }
 

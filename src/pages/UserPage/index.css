@@ -2,12 +2,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -15,9 +9,80 @@
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  padding: 50px;
-  text-align: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+.user .user__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.user .user__header div {
+  height: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.2);
+  margin: 0 20px;
+}
+.user .user__main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 10px;
+}
+.user .user__main .user__navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.user .user__main .user__navigation input {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid rgba(64, 64, 64, 0.2);
+  border-radius: 5px;
+  background-color: rgb(245, 245, 245);
+  text-align: center;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.user .user__main .user__navigation input:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-box-shadow: 1px 1px 2px rgb(71, 71, 71);
+          box-shadow: 1px 1px 2px rgb(71, 71, 71);
+}
+.user .user__main .user__navigation input:checked {
+  outline: none;
+  background-color: rgb(235, 255, 204);
+  -webkit-box-shadow: 1px 1px 2px rgb(71, 71, 71) inset;
+          box-shadow: 1px 1px 2px rgb(71, 71, 71) inset;
+}
+.user .user__main .user__navigation input::before {
+  content: attr(label);
+}
+.user .user__main .user__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-left: 20px;
 }
