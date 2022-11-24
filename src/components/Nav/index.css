@@ -136,13 +136,13 @@
     margin: 3px;
     min-width: 45px;
   }
-  .nav__bar .nav__category li {
+  .nav__bar .nav__category li, .nav__bar .nav__category-disabled li {
     padding: 3px 5px;
   }
-  .nav__bar .nav__category li img {
+  .nav__bar .nav__category li img, .nav__bar .nav__category-disabled li img {
     margin-right: 0;
   }
-  .nav__bar .nav__category li h3 {
+  .nav__bar .nav__category li h3, .nav__bar .nav__category-disabled li h3 {
     display: none;
   }
   .nav__bar .nav_sort {

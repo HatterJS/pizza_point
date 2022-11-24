@@ -37,7 +37,14 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 10px;
+  padding: 10px;
+}
+.user .user__main h2 {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(white), color-stop(50%, rgb(236, 236, 236)), to(white));
+  background: linear-gradient(90deg, white 0%, rgb(236, 236, 236) 50%, white 100%);
 }
 .user .user__main .user__navigation {
   display: -webkit-box;
@@ -47,42 +54,18 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-right: 10px;
 }
-.user .user__main .user__navigation input {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin-bottom: 5px;
-  padding: 10px;
-  border: 1px solid rgba(64, 64, 64, 0.2);
-  border-radius: 5px;
-  background-color: rgb(245, 245, 245);
-  text-align: center;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+.user .user__main .user__navigation a, .user .user__main .user__navigation button {
+  color: rgb(70, 70, 70);
+  font-weight: 500;
+  margin-left: 10px;
 }
-.user .user__main .user__navigation input:hover {
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
-  -webkit-box-shadow: 1px 1px 2px rgb(71, 71, 71);
-          box-shadow: 1px 1px 2px rgb(71, 71, 71);
+.user .user__main .user__navigation .user__menuItem, .user .user__main .user__navigation .user__logout {
+  margin: 5px 0;
 }
-.user .user__main .user__navigation input:checked {
-  outline: none;
-  background-color: rgb(235, 255, 204);
-  -webkit-box-shadow: 1px 1px 2px rgb(71, 71, 71) inset;
-          box-shadow: 1px 1px 2px rgb(71, 71, 71) inset;
-}
-.user .user__main .user__navigation input::before {
-  content: attr(label);
-}
-.user .user__main .user__content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  margin-left: 20px;
+.user .user__main .user__navigation .user__menuItem:hover, .user .user__main .user__navigation .user__logout:hover {
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
+  text-decoration: underline;
 }

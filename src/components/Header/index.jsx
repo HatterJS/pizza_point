@@ -24,7 +24,7 @@ function Header() {
             <li>Вакансії</li>
           </Link>
         </ul>
-        <Link to={'/user'}>
+        <Link to={'/user/main'}>
           <div className="header__account">
             <p>UserName</p>
             <img src={userImg} alt="user" />

@@ -1,0 +1,34 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+$transition:  all 0.2s ease-in-out;
+
+.userAdress {
+    flex: 1 1 auto;
+    height: fit-content;
+    margin-left: 20px;
+    .userAdress__section {
+        box-shadow: 1px 1px 2px gray;
+        padding: 10px;
+        border: $borderBar;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    h4 {
+        margin-bottom: 5px;
+    }
+    input {
+        width: 100%;
+        max-width: 200px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+    .userAdress__home, .userAdress__appartments {
+        max-width: 95px;
+    }
+    .userAdress__buttons {
+        display: flex;
+    }
+    button {
+        flex: 1 1 auto;
+        margin-left: 10px;
+    }
+}

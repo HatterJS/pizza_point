@@ -1,0 +1,44 @@
+.userContacts {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 20px;
+}
+.userContacts .userContacts__section {
+  -webkit-box-shadow: 1px 1px 2px gray;
+          box-shadow: 1px 1px 2px gray;
+  padding: 20px;
+  border: 1px solid rgba(64, 64, 64, 0.2);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.userContacts h4 {
+  margin-bottom: 5px;
+}
+.userContacts input {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.userContacts .userContacts__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.userContacts button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.userContacts button:last-child {
+  margin-left: 10px;
+}
+
+@media (max-width: 500px) {
+  .userContacts {
+    padding: 0 10px 10px;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,44 @@
+$borderBar: 1px solid rgba(64, 64, 64, 0.2);
+$transition:  all 0.2s ease-in-out;
+
+.UserMain {
+    flex: 1 1 auto;
+    height: fit-content;
+    margin-left: 20px;
+    .UserMain__section {
+        box-shadow: 1px 1px 2px gray;
+        padding: 20px;
+        border: $borderBar;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    h3 {
+        margin-top: 20px;
+    }
+    h4 {
+        margin-bottom: 5px;
+    }
+    input {
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+    .UserMain__buttons {
+        display: flex;
+    }
+    button {
+        flex: 1 1 auto;
+    }
+    button:last-child {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .UserMain {
+        padding: 0 10px 10px;
+        margin-left: 0;
+        .UserMain__section {
+            padding: 10px;
+        }
+    }
+}

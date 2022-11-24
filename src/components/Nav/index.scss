@@ -117,7 +117,7 @@ $transition:  all 0.2s ease-in-out;
             margin: 3px;
             min-width: 45px;
         }
-        .nav__category {
+        .nav__category, .nav__category-disabled {
             li {
                 padding: 3px 5px;
                 img {

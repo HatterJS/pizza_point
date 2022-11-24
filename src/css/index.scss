@@ -67,15 +67,6 @@ h3 {font-size: 1.2em;}
 h4 {font-size: 1em;}
 h5 {font-size: 0.8em;}
 
-@media (max-width: 500px) {
-    h1 {font-size: 1.4em;}
-    h2 {font-size: 1.2em;}
-    h3 {font-size: 1em;}
-    h4 {font-size: 0.8em;}
-    h5 {font-size: 0.6em;}
-    p, li {line-height: 1.1;}
-}
-
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -109,4 +100,14 @@ h5 {font-size: 0.8em;}
 }
 .cancelButton {
     background-color: rgb(240, 240, 240);
+}
+
+@media (max-width: 500px) {
+    h1 {font-size: 1.4em;}
+    h2 {font-size: 1.2em;}
+    h3 {font-size: 1em;}
+    h4 {font-size: 0.8em;}
+    h5 {font-size: 0.6em;}
+    p, li, a {line-height: 1.1; font-size: 0.9em;}
+    input, button, .acceptButton {font-size: 0.9em;}
 }

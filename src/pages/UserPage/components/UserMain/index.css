@@ -1,0 +1,50 @@
+.UserMain {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 20px;
+}
+.UserMain .UserMain__section {
+  -webkit-box-shadow: 1px 1px 2px gray;
+          box-shadow: 1px 1px 2px gray;
+  padding: 20px;
+  border: 1px solid rgba(64, 64, 64, 0.2);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.UserMain h3 {
+  margin-top: 20px;
+}
+.UserMain h4 {
+  margin-bottom: 5px;
+}
+.UserMain input {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.UserMain .UserMain__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.UserMain button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.UserMain button:last-child {
+  margin-left: 10px;
+}
+
+@media (max-width: 500px) {
+  .UserMain {
+    padding: 0 10px 10px;
+    margin-left: 0;
+  }
+  .UserMain .UserMain__section {
+    padding: 10px;
+  }
+}

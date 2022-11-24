@@ -4,7 +4,7 @@ import './index.css';
 
 import { googleSvg, instagramSvg, faceBookSvg } from '../../../../components/SvgSprite';
 
-function LoginForm() {
+function LoginForm({ setIsAuthorized }) {
   return (
     <section className="loginForm unselectable">
       <div className="loginForm__card">
@@ -17,7 +17,11 @@ function LoginForm() {
           <Link to={'/forgot'}>Забули пароль?</Link>
         </div>
 
-        <button className="loginForm__acceptButton acceptButton">Вхід</button>
+        <button
+          className="loginForm__acceptButton acceptButton"
+          onClick={() => setIsAuthorized(false)}>
+          Вхід
+        </button>
 
         <div className="loginForm__socialBlock">
           <Link to={'/social'}>{googleSvg}</Link>

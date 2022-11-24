@@ -110,7 +110,7 @@ function App() {
             />
           }
         />
-        <Route path="/user" element={<UserPage />} />
+        <Route path="/user/*" element={<UserPage />} />
         <Route path="/common" element={<Common />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
