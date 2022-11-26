@@ -1,3 +1,6 @@
+import React from 'react';
+import { SearchContext } from '../../pages/Home';
+
 import './index.css';
 
 import pizzaImg from '../../assets/img/nav/pizza.png';
@@ -6,20 +9,15 @@ import cakeImg from '../../assets/img/nav/cake.png';
 import additionalImg from '../../assets/img/nav/additional.png';
 import { menuSvg } from '../SvgSprite';
 
-function Nav({
-  isLoadingGlobal,
-  goodsCategory,
-  setGoodsCategory,
-  searchValue,
-  setSearchValue,
-  setSortingType
-}) {
+function Nav({ isLoadingGlobal, goodsCategory, setGoodsCategory, setSortingType }) {
   const categories = [
     { title: 'Піца', image: pizzaImg, link: 'pizzas' },
     { title: 'Напої', image: drinkImg, link: 'drinks' },
     { title: 'Десерти', image: cakeImg, link: 'desserts' },
     { title: 'Доповнення', image: additionalImg, link: 'additionals' }
   ];
+  //get searchValue and setSearchValue from SearchContext
+  const { searchValue, setSearchValue } = React.useContext(SearchContext);
 
   return (
     <nav className="nav__bar">

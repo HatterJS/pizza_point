@@ -32,8 +32,6 @@ function App() {
   const [goodsCategory, setGoodsCategory] = React.useState('pizzas');
   //set sorting type
   const [sortingType, setSortingType] = React.useState('rating');
-  //set search value
-  const [searchValue, setSearchValue] = React.useState('');
   //get goods data from backend and set local goods data
   React.useEffect(() => {
     //for called once
@@ -92,8 +90,6 @@ function App() {
               setLocalCart={setLocalCart}
               goodsCategory={goodsCategory}
               setGoodsCategory={setGoodsCategory}
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
               sortingType={sortingType}
               setSortingType={setSortingType}
             />

@@ -1,6 +1,7 @@
 import React from 'react';
 import GoodsItem from '../GoodsItem';
 import Loader from '../Loader';
+import { SearchContext } from '../../pages/Home';
 import './index.css';
 
 function Goods({
@@ -11,11 +12,13 @@ function Goods({
   localCart,
   setLocalCart,
   localFavorites,
-  searchValue,
   sortingType
 }) {
+  //get searchValue from SearchContext
+  const { searchValue } = React.useContext(SearchContext);
   //goods pagination
   const [pagination, setPagination] = React.useState(0);
+  //set amount of elements on a page
   const paginationIndex = 8;
   //set page checked
   const [pageChecked, setPageChecked] = React.useState(0);
