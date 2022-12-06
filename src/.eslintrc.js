@@ -6,7 +6,7 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
-    'no-extra-parens': ['warn', 'all', { ignoreJSX: 'all' }],
+    'no-extra-parens': ['warn', 'functions'],
     'array-callback-return': 'error',
     curly: 'error',
     'default-case': 'warn',

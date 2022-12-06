@@ -2,17 +2,16 @@ import React from 'react';
 import GoodsItem from '../GoodsItem';
 import Loader from '../Loader';
 import { SearchContext } from '../../pages/Home';
+import { useSelector } from 'react-redux';
 import './index.css';
 
 function Goods({
   isLoadingFirst,
   goodsData,
-  goodsCategory,
   setLocalFavorites,
   localCart,
   setLocalCart,
-  localFavorites,
-  sortingType
+  localFavorites
 }) {
   //get searchValue from SearchContext
   const { searchValue } = React.useContext(SearchContext);
@@ -22,6 +21,8 @@ function Goods({
   const paginationIndex = 8;
   //set page checked
   const [pageChecked, setPageChecked] = React.useState(0);
+  //get goods category and sorting type from redux store
+  const { goodsCategory, sortingType } = useSelector((state) => state.goodsFilter);
   //set page when category changed
   React.useEffect(() => {
     changePage(0);

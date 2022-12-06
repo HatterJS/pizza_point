@@ -1,5 +1,7 @@
 import React from 'react';
 import { SearchContext } from '../../pages/Home';
+import { useDispatch, useSelector } from 'react-redux';
+import { setGoodsCategory, setSortingType } from '../../redux/slices/goodsFilterSlice';
 
 import './index.css';
 
@@ -9,7 +11,7 @@ import cakeImg from '../../assets/img/nav/cake.png';
 import additionalImg from '../../assets/img/nav/additional.png';
 import { menuSvg } from '../SvgSprite';
 
-function Nav({ isLoadingGlobal, goodsCategory, setGoodsCategory, setSortingType }) {
+function Nav({ isLoadingGlobal }) {
   const categories = [
     { title: 'Піца', image: pizzaImg, link: 'pizzas' },
     { title: 'Напої', image: drinkImg, link: 'drinks' },
@@ -18,6 +20,10 @@ function Nav({ isLoadingGlobal, goodsCategory, setGoodsCategory, setSortingType 
   ];
   //get searchValue and setSearchValue from SearchContext
   const { searchValue, setSearchValue } = React.useContext(SearchContext);
+  //get goods category from redux store
+  const { goodsCategory } = useSelector((state) => state.goodsFilter);
+  //connect dispatch for redux
+  const dispatch = useDispatch();
 
   return (
     <nav className="nav__bar">
@@ -29,7 +35,7 @@ function Nav({ isLoadingGlobal, goodsCategory, setGoodsCategory, setSortingType 
           {categories.map((obj) => (
             <li
               className={obj.link === goodsCategory ? 'nav__category-selected' : ''}
-              onClick={isLoadingGlobal ? () => setGoodsCategory(obj.link) : null}
+              onClick={isLoadingGlobal ? () => dispatch(setGoodsCategory(obj.link)) : null}
               key={obj.title}>
               <img src={obj.image} alt="icon" />
               <h3>{obj.title}</h3>
@@ -46,9 +52,9 @@ function Nav({ isLoadingGlobal, goodsCategory, setGoodsCategory, setSortingType 
           {menuSvg}
           <h3>Сортувати</h3>
           <ul>
-            <li onClick={() => setSortingType('rating')}>популярні</li>
-            <li onClick={() => setSortingType('cost')}>ціна</li>
-            <li onClick={() => setSortingType('goodsTitle')}>назва</li>
+            <li onClick={() => dispatch(setSortingType('rating'))}>популярні</li>
+            <li onClick={() => dispatch(setSortingType('cost'))}>ціна</li>
+            <li onClick={() => dispatch(setSortingType('goodsTitle'))}>назва</li>
           </ul>
         </div>
       </div>

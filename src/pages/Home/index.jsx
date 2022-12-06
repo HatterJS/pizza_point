@@ -13,34 +13,24 @@ function Home({
   setLocalFavorites,
   localCart,
   setLocalCart,
-  localFavorites,
-  goodsCategory,
-  setGoodsCategory,
-  sortingType,
-  setSortingType
+  localFavorites
 }) {
   //set search value
   const [searchValue, setSearchValue] = React.useState('');
+
   return (
     <React.Fragment>
       <SearchContext.Provider value={{ searchValue, setSearchValue }}>
-        <Nav
-          isLoadingGlobal={isLoadingGlobal}
-          goodsCategory={goodsCategory}
-          setGoodsCategory={setGoodsCategory}
-          setSortingType={setSortingType}
-        />
+        <Nav isLoadingGlobal={isLoadingGlobal} />
         <div className="banner"></div>
         <Banner />
         <Goods
           goodsData={goodsData}
-          goodsCategory={goodsCategory}
           isLoadingFirst={isLoadingFirst}
           localCart={localCart}
           setLocalCart={setLocalCart}
           setLocalFavorites={setLocalFavorites}
           localFavorites={localFavorites}
-          sortingType={sortingType}
         />
       </SearchContext.Provider>
     </React.Fragment>

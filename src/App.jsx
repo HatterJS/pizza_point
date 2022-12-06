@@ -28,10 +28,6 @@ function App() {
   const [localCart, setLocalCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);
   //set favorite state of items
   const [showFavorite, setShowFavorite] = React.useState(false);
-  //set goods category
-  const [goodsCategory, setGoodsCategory] = React.useState('pizzas');
-  //set sorting type
-  const [sortingType, setSortingType] = React.useState('rating');
   //get goods data from backend and set local goods data
   React.useEffect(() => {
     //for called once
@@ -54,7 +50,6 @@ function App() {
         setIsLoadingGlobal(true); //disable loading for others pages
       } catch (error) {
         alert('контент ще в розробці');
-        // setGoodsCategory('pizzas');
       }
     }
     getData();
@@ -88,10 +83,6 @@ function App() {
               localFavorites={localFavorites}
               localCart={localCart}
               setLocalCart={setLocalCart}
-              goodsCategory={goodsCategory}
-              setGoodsCategory={setGoodsCategory}
-              sortingType={sortingType}
-              setSortingType={setSortingType}
             />
           }
         />
