@@ -1,7 +1,10 @@
 import React from 'react';
-import { SearchContext } from '../../pages/Home';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGoodsCategory, setSortingType } from '../../redux/slices/goodsFilterSlice';
+import {
+  setGoodsCategory,
+  setSortingType,
+  setSearchValue
+} from '../../redux/slices/goodsFilterSlice';
 
 import './index.css';
 
@@ -11,17 +14,16 @@ import cakeImg from '../../assets/img/nav/cake.png';
 import additionalImg from '../../assets/img/nav/additional.png';
 import { menuSvg } from '../SvgSprite';
 
+const categories = [
+  { title: 'Піца', image: pizzaImg, link: 'pizzas' },
+  { title: 'Напої', image: drinkImg, link: 'drinks' },
+  { title: 'Десерти', image: cakeImg, link: 'desserts' },
+  { title: 'Доповнення', image: additionalImg, link: 'additionals' }
+];
+
 function Nav({ isLoadingGlobal }) {
-  const categories = [
-    { title: 'Піца', image: pizzaImg, link: 'pizzas' },
-    { title: 'Напої', image: drinkImg, link: 'drinks' },
-    { title: 'Десерти', image: cakeImg, link: 'desserts' },
-    { title: 'Доповнення', image: additionalImg, link: 'additionals' }
-  ];
-  //get searchValue and setSearchValue from SearchContext
-  const { searchValue, setSearchValue } = React.useContext(SearchContext);
-  //get goods category from redux store
-  const { goodsCategory } = useSelector((state) => state.goodsFilter);
+  //get goods category and search value from redux store
+  const { goodsCategory, searchValue } = useSelector((state) => state.goodsFilter);
   //connect dispatch for redux
   const dispatch = useDispatch();
 
@@ -46,7 +48,7 @@ function Nav({ isLoadingGlobal }) {
           type="search"
           placeholder="пошук"
           value={searchValue}
-          onChange={(event) => setSearchValue(event.target.value)}
+          onChange={(event) => dispatch(setSearchValue(event.target.value))}
         />
         <div className="nav_sort unselectable">
           {menuSvg}

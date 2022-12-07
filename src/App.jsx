@@ -62,7 +62,6 @@ function App() {
   React.useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(localCart));
   }, [localCart]);
-
   return (
     <div className="App">
       <Header />
