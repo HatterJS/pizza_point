@@ -24,8 +24,6 @@ function App() {
   const [localFavorites, setLocalFavorites] = React.useState(
     JSON.parse(localStorage.getItem('favorites')) || []
   );
-  //get data from localstorage(cart) or set empty array
-  const [localCart, setLocalCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);
   //set favorite state of items
   const [showFavorite, setShowFavorite] = React.useState(false);
   //get goods data from backend and set local goods data
@@ -58,18 +56,11 @@ function App() {
   React.useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(localFavorites));
   }, [localFavorites]);
-  //set data at localstorage(cart) when clicked on buy button
-  React.useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(localCart));
-  }, [localCart]);
+
   return (
     <div className="App">
       <Header />
-      <Information
-        cartCounter={localCart.length}
-        favoriteCounter={localFavorites.length}
-        setShowFavorite={setShowFavorite}
-      />
+      <Information favoriteCounter={localFavorites.length} setShowFavorite={setShowFavorite} />
       <Routes>
         <Route
           path="/"
@@ -80,21 +71,12 @@ function App() {
               isLoadingGlobal={isLoadingGlobal}
               setLocalFavorites={setLocalFavorites}
               localFavorites={localFavorites}
-              localCart={localCart}
-              setLocalCart={setLocalCart}
             />
           }
         />
         <Route
           path="/order"
-          element={
-            <Order
-              localCart={localCart}
-              setLocalCart={setLocalCart}
-              localFavorites={localFavorites}
-              setLocalFavorites={setLocalFavorites}
-            />
-          }
+          element={<Order localFavorites={localFavorites} setLocalFavorites={setLocalFavorites} />}
         />
         <Route path="/user/*" element={<UserPage />} />
         <Route path="/common" element={<Common />} />
@@ -102,8 +84,6 @@ function App() {
       </Routes>
       {showFavorite && (
         <Favorites
-          localCart={localCart}
-          setLocalCart={setLocalCart}
           setShowFavorite={setShowFavorite}
           localFavorites={localFavorites}
           setLocalFavorites={setLocalFavorites}

@@ -3,15 +3,7 @@ import Nav from '../../components/Nav';
 import Goods from '../../components/Goods';
 import Banner from '../../components/Banner';
 
-function Home({
-  goodsData,
-  isLoadingFirst,
-  isLoadingGlobal,
-  setLocalFavorites,
-  localCart,
-  setLocalCart,
-  localFavorites
-}) {
+function Home({ goodsData, isLoadingFirst, isLoadingGlobal, setLocalFavorites, localFavorites }) {
   return (
     <React.Fragment>
       <Nav isLoadingGlobal={isLoadingGlobal} />
@@ -20,8 +12,6 @@ function Home({
       <Goods
         goodsData={goodsData}
         isLoadingFirst={isLoadingFirst}
-        localCart={localCart}
-        setLocalCart={setLocalCart}
         setLocalFavorites={setLocalFavorites}
         localFavorites={localFavorites}
       />

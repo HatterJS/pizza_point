@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './index.css';
 
 import logoImg from '../../assets/img/logo.jpg';
@@ -8,7 +9,8 @@ import timeImg from '../../assets/img/time_img.png';
 import cartImg from '../../assets/img/cart.png';
 import { favoriteSvg } from '../SvgSprite';
 
-function Information({ cartCounter, favoriteCounter, setShowFavorite }) {
+function Information({ favoriteCounter, setShowFavorite }) {
+  const { localCart } = useSelector((state) => state.localCart);
   return (
     <div className="information">
       <Link className="information__logo-link" to={'/'}>
@@ -44,7 +46,7 @@ function Information({ cartCounter, favoriteCounter, setShowFavorite }) {
           <div className="information__cart">
             <img src={cartImg} alt="cart" />
             <div className="information__counter">
-              <p>{cartCounter}</p>
+              <p>{localCart.length}</p>
             </div>
           </div>
         </Link>

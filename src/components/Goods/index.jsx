@@ -11,14 +11,7 @@ const categories = {
   additionals: 'Доповнення'
 };
 
-function Goods({
-  isLoadingFirst,
-  goodsData,
-  setLocalFavorites,
-  localCart,
-  setLocalCart,
-  localFavorites
-}) {
+function Goods({ isLoadingFirst, goodsData, setLocalFavorites, localFavorites }) {
   //goods pagination
   const [pagination, setPagination] = React.useState(0);
   //set amount of elements on a page
@@ -65,8 +58,6 @@ function Goods({
                   key={obj.goodsTitle + obj.id}
                   className={'goods__item'}
                   {...obj}
-                  localCart={localCart}
-                  setLocalCart={setLocalCart}
                   setLocalFavorites={setLocalFavorites}
                   localFavorites={localFavorites}
                 />

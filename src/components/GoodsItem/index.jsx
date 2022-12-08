@@ -1,6 +1,14 @@
 import React from 'react';
 import './index.css';
 import { heartSVG, deleteSVG } from '../SvgSprite';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  addToCart,
+  deleteFromCart,
+  increaseAmount,
+  decreaseAmount
+} from '../../redux/slices/localCartSlice';
 
 function GoodsItem({
   className,
@@ -10,11 +18,13 @@ function GoodsItem({
   goodsDescription,
   size,
   cost,
-  localCart,
-  setLocalCart,
   localFavorites,
   setLocalFavorites
 }) {
+  //connect dispatch for redux
+  const dispatch = useDispatch();
+  //get local cart items from redux store
+  const { localCart } = useSelector((state) => state.localCart);
   //checking selected size of goods (default is max amount by cart)
   const [selectedSize, setSelectedSize] = React.useState(
     localCart.filter((item) => item.goodsTitle === goodsTitle).length
@@ -54,58 +64,19 @@ function GoodsItem({
   }
   //add goods to cart (localStorage)
   function handleBuy() {
-    ++addedItem.sizeAmount[selectedSize];
-    localCart.map((item) => item.goodsTitle).includes(goodsTitle)
-      ? setLocalCart((prev) =>
-          prev.map((item) =>
-            item.goodsTitle === goodsTitle
-              ? {
-                  ...item,
-                  sizeAmount: item.sizeAmount.map((item, index) =>
-                    index === Number(selectedSize) ? ++item : item
-                  )
-                }
-              : item
-          )
-        )
-      : setLocalCart((prev) => [...prev, addedItem]);
+    dispatch(addToCart({ addedItem, selectedSize }));
+  }
+  //delete goods from cart (localStorage)
+  function handleRemove() {
+    dispatch(deleteFromCart(goodsTitle));
   }
   //increase amount of guds at cart (localStorage)
   function handleCounterPlus() {
-    setLocalCart(
-      localCart.map((item) =>
-        item.goodsTitle === goodsTitle
-          ? {
-              ...item,
-              sizeAmount: item.sizeAmount.map((item, index) =>
-                index === selectedSize ? ++item : item
-              )
-            }
-          : item
-      )
-    );
+    dispatch(increaseAmount({ goodsTitle, selectedSize }));
   }
   //decrease amount of guds at cart (localStorage)
   function handleCounterMinus() {
-    sizeAmount[selectedSize] > 0 &&
-      setLocalCart(
-        localCart.map((item) =>
-          item.goodsTitle === goodsTitle
-            ? {
-                ...item,
-                sizeAmount: item.sizeAmount.map((item, index) =>
-                  index === selectedSize ? --item : item
-                )
-              }
-            : item
-        )
-      );
-  }
-  //get actual items from cart (localStorage) then filter and send to App component for set new localStorage
-  function deleteFromCart() {
-    setLocalCart(
-      JSON.parse(localStorage.getItem('cart')).filter((item) => item.goodsTitle !== goodsTitle)
-    );
+    sizeAmount[selectedSize] > 0 && dispatch(decreaseAmount({ goodsTitle, selectedSize }));
   }
   //set amount of goods added to cart depends on size
   React.useEffect(() => {
@@ -114,9 +85,7 @@ function GoodsItem({
     );
     goodsAmount.forEach((item) => item && setSizeAmount(item));
   }, [localCart, goodsTitle]);
-  // console.log(
-  //   localCart.filter((item) => item.goodsTitle === goodsTitle)[0].sizeAmount[0] > 0 ? true : false,
-  // );
+
   return (
     <div className="goods__itemBlock">
       <div className={className + ' unselectable'}>
@@ -160,7 +129,7 @@ function GoodsItem({
                   <div onClick={() => handleCounterMinus()}>-</div>
                 ) : (
                   <div
-                    onClick={() => deleteFromCart()}
+                    onClick={() => handleRemove()}
                     style={{ backgroundColor: 'rgb(255, 200, 200)' }}>
                     x
                   </div>
@@ -177,7 +146,7 @@ function GoodsItem({
         </div>
       </div>
       <div className={className + '-counterBlock unselectable'}>
-        <div className="order__goodsDelete" onClick={() => deleteFromCart()}>
+        <div className="order__goodsDelete" onClick={() => handleRemove()}>
           {deleteSVG}
         </div>
       </div>

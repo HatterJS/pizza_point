@@ -3,13 +3,7 @@ import GoodsItem from '../GoodsItem';
 import './index.css';
 import { closeFavoriteSVG } from '../SvgSprite';
 
-function Favorites({
-  localCart,
-  setLocalCart,
-  setShowFavorite,
-  localFavorites,
-  setLocalFavorites
-}) {
+function Favorites({ setShowFavorite, localFavorites, setLocalFavorites }) {
   return (
     <div className="favorites unselectable">
       <div className="favorites__shadow" onClick={() => setShowFavorite(false)}></div>
@@ -25,8 +19,6 @@ function Favorites({
                 className="goods__item-favorite"
                 key={obj.goodsTitle + obj.id}
                 {...obj}
-                localCart={localCart}
-                setLocalCart={setLocalCart}
                 setLocalFavorites={setLocalFavorites}
                 localFavorites={localFavorites}
               />

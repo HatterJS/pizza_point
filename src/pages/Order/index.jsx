@@ -1,20 +1,27 @@
 import React from 'react';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../../redux/slices/localCartSlice';
 import Empty from '../../components/Empty';
 import GoodsItem from '../../components/GoodsItem';
 import { chatId, URI_API } from '../../components/TelegrammBot';
 import './index.css';
 
-function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
+function Order({ localFavorites, setLocalFavorites }) {
+  //connect dispatch for redux
+  const dispatch = useDispatch();
+  //get local cart items from redux store
+  const { localCart } = useSelector((state) => state.localCart);
   //ref for input phone number
   const phoneInput = React.useRef();
-  //client data
+  //client data ------------>
   const [clientName, setClientName] = React.useState('');
   const [phoneNumber, setPhoneNumber] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [street, setStreet] = React.useState('');
   const [house, setHouse] = React.useState('');
   const [apartment, setApartment] = React.useState('');
+  // <------------ client data
   //set adress depends on delivery type
   const [deliveryType, setDeliveryType] = React.useState('За адресою');
   //state of total price
@@ -83,7 +90,7 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
     setStreet('');
     setHouse('');
     setApartment('');
-    setLocalCart([]);
+    dispatch(clearCart());
   }
   //<------------ send message to Telegram
 
@@ -264,8 +271,6 @@ function Order({ localCart, setLocalCart, localFavorites, setLocalFavorites }) {
                   key={obj.goodsTitle + obj.id}
                   className={'goods__item-cart'}
                   {...obj}
-                  localCart={localCart}
-                  setLocalCart={setLocalCart}
                   localFavorites={localFavorites}
                   setLocalFavorites={setLocalFavorites}
                 />
