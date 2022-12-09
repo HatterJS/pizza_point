@@ -14,13 +14,13 @@ function Header() {
           {telegramSvg}
         </div>
         <ul className="header__about">
-          <Link to={'/common'} state={{ type: 'about' }}>
+          <Link to={'/common/about'}>
             <li>Про нас</li>
           </Link>
-          <Link to={'/common'} state={{ type: 'delivery' }}>
+          <Link to={'/common/delivery'}>
             <li>Доставка</li>
           </Link>
-          <Link to={'/common'} state={{ type: 'vacancy' }}>
+          <Link to={'/common/vacancy'}>
             <li>Вакансії</li>
           </Link>
         </ul>

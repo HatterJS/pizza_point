@@ -79,7 +79,7 @@ function App() {
           element={<Order localFavorites={localFavorites} setLocalFavorites={setLocalFavorites} />}
         />
         <Route path="/user/*" element={<UserPage />} />
-        <Route path="/common" element={<Common />} />
+        <Route path="/common/:type" element={<Common />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {showFavorite && (

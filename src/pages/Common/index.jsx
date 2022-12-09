@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import About from './components/About';
 import Delivery from './components/Delivery';
@@ -8,16 +8,16 @@ import Vacancies from './components/Vacancies';
 import './index.css';
 
 function Common({ setShowFavorite }) {
-  //get link state
-  const contentType = useLocation().state;
+  //get link params
+  const params = useParams();
 
   function defineContent() {
-    if (contentType) {
-      if (contentType.type === 'about') {
+    if (params) {
+      if (params.type === 'about') {
         return <About />;
-      } else if (contentType.type === 'delivery') {
+      } else if (params.type === 'delivery') {
         return <Delivery />;
-      } else {
+      } else if (params.type === 'vacancy') {
         return <Vacancies />;
       }
     } else {
