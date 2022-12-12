@@ -7,7 +7,7 @@ import GoodsItem from '../../components/GoodsItem';
 import { chatId, URI_API } from '../../components/TelegrammBot';
 import './index.css';
 
-function Order({ localFavorites, setLocalFavorites }) {
+function Order() {
   //connect dispatch for redux
   const dispatch = useDispatch();
   //get local cart items from redux store
@@ -267,13 +267,7 @@ function Order({ localFavorites, setLocalFavorites }) {
             {/* <h2>Замовлення:</h2> */}
             <div className="order__goods">
               {localCart.map((obj) => (
-                <GoodsItem
-                  key={obj.goodsTitle + obj.id}
-                  className={'goods__item-cart'}
-                  {...obj}
-                  localFavorites={localFavorites}
-                  setLocalFavorites={setLocalFavorites}
-                />
+                <GoodsItem key={obj.goodsTitle + obj.id} className={'goods__item-cart'} {...obj} />
               ))}
             </div>
             <div className="order__totalPrice">

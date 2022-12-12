@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { showFavorite } from '../../redux/slices/localFavoritesSlice';
 import './index.css';
 
 import logoImg from '../../assets/img/logo.jpg';
@@ -9,8 +10,14 @@ import timeImg from '../../assets/img/time_img.png';
 import cartImg from '../../assets/img/cart.png';
 import { favoriteSvg } from '../SvgSprite';
 
-function Information({ favoriteCounter, setShowFavorite }) {
+function Information() {
+  //connect dispatch for redux
+  const dispatch = useDispatch();
+  //get local cart items from redux
   const { localCart } = useSelector((state) => state.localCart);
+  //get local favorites from redux
+  const { localFavorites } = useSelector((state) => state.localFavorites);
+
   return (
     <div className="information">
       <Link className="information__logo-link" to={'/'}>
@@ -36,10 +43,10 @@ function Information({ favoriteCounter, setShowFavorite }) {
         </div>
       </div>
       <div className="information__goodsChoice">
-        <div className="information__favorite" onClick={() => setShowFavorite(true)}>
+        <div className="information__favorite" onClick={() => dispatch(showFavorite())}>
           {favoriteSvg}
           <div className="information__counter">
-            <p>{favoriteCounter}</p>
+            <p>{localFavorites.length}</p>
           </div>
         </div>
         <Link to={'/order'}>

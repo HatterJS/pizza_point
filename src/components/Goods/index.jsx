@@ -11,7 +11,7 @@ const categories = {
   additionals: 'Доповнення'
 };
 
-function Goods({ isLoadingFirst, goodsData, setLocalFavorites, localFavorites }) {
+function Goods({ isLoadingFirst, goodsData }) {
   //goods pagination
   const [pagination, setPagination] = React.useState(0);
   //set amount of elements on a page
@@ -54,13 +54,7 @@ function Goods({ isLoadingFirst, goodsData, setLocalFavorites, localFavorites })
               .filter((item) => item.goodsTitle.toLowerCase().includes(searchValue.toLowerCase()))
               .slice(pagination, pagination + paginationIndex)
               .map((obj) => (
-                <GoodsItem
-                  key={obj.goodsTitle + obj.id}
-                  className={'goods__item'}
-                  {...obj}
-                  setLocalFavorites={setLocalFavorites}
-                  localFavorites={localFavorites}
-                />
+                <GoodsItem key={obj.goodsTitle + obj.id} className={'goods__item'} {...obj} />
               ))
           : [...new Array(paginationIndex)].map((_, index) => (
               <Loader key={index} className={'goods__item'} />

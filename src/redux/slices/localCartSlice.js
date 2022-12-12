@@ -15,11 +15,11 @@ const localCartSlice = createSlice({
       const sizeAmount = [...addedItem.sizeAmount];
       ++sizeAmount[selectedSize];
       state.localCart.push({ ...addedItem, sizeAmount });
-      localStorage.setItem('cart', JSON.stringify(state.localCart));
+      setLocalCart(state.localCart);
     },
     deleteFromCart: (state, action) => {
       state.localCart = state.localCart.filter((item) => item.goodsTitle !== action.payload);
-      localStorage.setItem('cart', JSON.stringify(state.localCart));
+      setLocalCart(state.localCart);
     },
     increaseAmount: (state, action) => {
       state.localCart = state.localCart.map((item) =>
@@ -32,7 +32,7 @@ const localCartSlice = createSlice({
             }
           : item
       );
-      localStorage.setItem('cart', JSON.stringify(state.localCart));
+      setLocalCart(state.localCart);
     },
     decreaseAmount: (state, action) => {
       state.localCart = state.localCart.map((item) =>
@@ -45,14 +45,17 @@ const localCartSlice = createSlice({
             }
           : item
       );
-      localStorage.setItem('cart', JSON.stringify(state.localCart));
+      setLocalCart(state.localCart);
     },
     clearCart: (state) => {
       state.localCart = [];
-      localStorage.setItem('cart', JSON.stringify(state.localCart));
+      setLocalCart(state.localCart);
     }
   }
 });
+function setLocalCart(cart) {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 export const { addToCart, deleteFromCart, increaseAmount, decreaseAmount, clearCart } =
   localCartSlice.actions;

@@ -20,12 +20,6 @@ function App() {
   const [isLoadingFirst, setIsLoadingFirst] = React.useState(false);
   //loading indicator while getting data from backend for others pages
   const [isLoadingGlobal, setIsLoadingGlobal] = React.useState(false);
-  //get data from localstorage(favorites) or set empty array
-  const [localFavorites, setLocalFavorites] = React.useState(
-    JSON.parse(localStorage.getItem('favorites')) || []
-  );
-  //set favorite state of items
-  const [showFavorite, setShowFavorite] = React.useState(false);
   //get goods data from backend and set local goods data
   React.useEffect(() => {
     //for called once
@@ -52,15 +46,11 @@ function App() {
     }
     getData();
   }, [goodsData]);
-  //set data at localstorage(favorites) when clicked on favorite button (heart)
-  React.useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(localFavorites));
-  }, [localFavorites]);
 
   return (
     <div className="App">
       <Header />
-      <Information favoriteCounter={localFavorites.length} setShowFavorite={setShowFavorite} />
+      <Information />
       <Routes>
         <Route
           path="/"
@@ -69,26 +59,15 @@ function App() {
               goodsData={goodsData}
               isLoadingFirst={isLoadingFirst}
               isLoadingGlobal={isLoadingGlobal}
-              setLocalFavorites={setLocalFavorites}
-              localFavorites={localFavorites}
             />
           }
         />
-        <Route
-          path="/order"
-          element={<Order localFavorites={localFavorites} setLocalFavorites={setLocalFavorites} />}
-        />
+        <Route path="/order" element={<Order />} />
         <Route path="/user/*" element={<UserPage />} />
         <Route path="/common/:type" element={<Common />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {showFavorite && (
-        <Favorites
-          setShowFavorite={setShowFavorite}
-          localFavorites={localFavorites}
-          setLocalFavorites={setLocalFavorites}
-        />
-      )}
+      <Favorites />
       {/* <Popular /> */}
       <Footer />
     </div>

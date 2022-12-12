@@ -9,22 +9,15 @@ import {
   increaseAmount,
   decreaseAmount
 } from '../../redux/slices/localCartSlice';
+import { addToFavorites, deleteFromFavorites } from '../../redux/slices/localFavoritesSlice';
 
-function GoodsItem({
-  className,
-  id,
-  image,
-  goodsTitle,
-  goodsDescription,
-  size,
-  cost,
-  localFavorites,
-  setLocalFavorites
-}) {
+function GoodsItem({ className, id, image, goodsTitle, goodsDescription, size, cost }) {
   //connect dispatch for redux
   const dispatch = useDispatch();
-  //get local cart items from redux store
+  //get local cart items from redux
   const { localCart } = useSelector((state) => state.localCart);
+  //get localFavorites from redux
+  const { localFavorites } = useSelector((state) => state.localFavorites);
   //checking selected size of goods (default is max amount by cart)
   const [selectedSize, setSelectedSize] = React.useState(
     localCart.filter((item) => item.goodsTitle === goodsTitle).length
@@ -53,13 +46,7 @@ function GoodsItem({
   };
   //add/remove from favorite
   function handleFavorite() {
-    !isFavorite
-      ? setLocalFavorites((prev) => [...prev, addedItem])
-      : setLocalFavorites(
-          JSON.parse(localStorage.getItem('favorites')).filter(
-            (item) => item.goodsTitle !== goodsTitle
-          )
-        );
+    dispatch(isFavorite ? deleteFromFavorites(addedItem) : addToFavorites(addedItem));
     setIsFavorite(!isFavorite);
   }
   //add goods to cart (localStorage)
