@@ -11,7 +11,6 @@ function Favorites() {
   //get local favorites from redux
   const { localFavorites, isShowFavorites } = useSelector((state) => state.localFavorites);
 
-  console.log('favorites');
   return (
     <div
       className="favorites unselectable"

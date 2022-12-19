@@ -16,7 +16,7 @@ function GoodsItem({ className, id, image, goodsTitle, goodsDescription, size, c
   const dispatch = useDispatch();
   //get local cart items from redux
   const { localCart } = useSelector((state) => state.localCart);
-  //get localFavorites from redux
+  //get local favorites from redux
   const { localFavorites } = useSelector((state) => state.localFavorites);
   //checking selected size of goods (default is max amount by cart)
   const [selectedSize, setSelectedSize] = React.useState(
