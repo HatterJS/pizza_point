@@ -21,27 +21,51 @@ function App() {
   //loading indicator while getting data from backend for others pages
   const [isLoadingGlobal, setIsLoadingGlobal] = React.useState(false);
   //get goods data from backend and set local goods data
+  // React.useEffect(() => {
+  //   //for called once
+  //   async function getData() {
+  //     goodsData.current = { pizzas: null, desserts: null, drinks: null, additionals: null };
+  //     try {
+  //       await axios
+  //         .get('https://632db5102cfd5ccc2af512de.mockapi.io/pizzas')
+  //         .then((res) => (goodsData.current.pizzas = res.data));
+  //       setIsLoadingFirst(true); //disable loading for main page
+  //       await axios
+  //         .get('https://632db5102cfd5ccc2af512de.mockapi.io/desserts')
+  //         .then((res) => (goodsData.current.desserts = res.data));
+  //       await axios
+  //         .get('https://632db5102cfd5ccc2af512de.mockapi.io/drinks')
+  //         .then((res) => (goodsData.current.drinks = res.data));
+  //       await axios
+  //         .get('https://632db5102cfd5ccc2af512de.mockapi.io/additionals')
+  //         .then((res) => (goodsData.current.additionals = res.data));
+  //       setIsLoadingGlobal(true); //disable loading for others pages
+  //     } catch (error) {
+  //       alert('контент ще в розробці');
+  //     }
+  //   }
+  //   getData();
+  // }, [goodsData]);
   React.useEffect(() => {
-    //for called once
     async function getData() {
       goodsData.current = { pizzas: null, desserts: null, drinks: null, additionals: null };
       try {
         await axios
-          .get('https://632db5102cfd5ccc2af512de.mockapi.io/pizzas')
+          .get('http://localhost:8887/pizzas')
           .then((res) => (goodsData.current.pizzas = res.data));
         setIsLoadingFirst(true); //disable loading for main page
         await axios
-          .get('https://632db5102cfd5ccc2af512de.mockapi.io/desserts')
-          .then((res) => (goodsData.current.desserts = res.data));
-        await axios
-          .get('https://632db5102cfd5ccc2af512de.mockapi.io/drinks')
+          .get('http://localhost:8887/drinks')
           .then((res) => (goodsData.current.drinks = res.data));
         await axios
-          .get('https://632db5102cfd5ccc2af512de.mockapi.io/additionals')
+          .get('http://localhost:8887/desserts')
+          .then((res) => (goodsData.current.desserts = res.data));
+        await axios
+          .get('http://localhost:8887/additionals')
           .then((res) => (goodsData.current.additionals = res.data));
         setIsLoadingGlobal(true); //disable loading for others pages
       } catch (error) {
-        alert('контент ще в розробці');
+        alert('Something goes wrong...');
       }
     }
     getData();
