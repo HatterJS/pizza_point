@@ -56,3 +56,27 @@ app.get('/desserts', (req, res) => {
 app.get('/additionals', (req, res) => {
   getGoods(res, 'additionals');
 });
+
+app.get('/usersEmails', (req, res) => {
+  const emails = [];
+  db.collection('users')
+    .find()
+    .forEach((item) => emails.push(item.email))
+    .then(() => res.status(200).json(emails))
+    .catch((res) => res.status(500).json({ error: 'Something goes wrong...' }));
+});
+
+app.post('/users', (req, res) => {
+  let email = '';
+  db.collection('users')
+    .find({ email: req.body.email })
+    .forEach((item) => (email = item.email))
+    .then(() => {
+      if (email === req.body.email) {
+        res.status(200).json(true);
+      } else {
+        db.collection('users').insertOne(req.body);
+        res.status(200).json(false);
+      }
+    });
+});

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
-import LoginForm from './components/LoginForm';
+// import LoginForm from './components/LoginForm';
+// import RegistrationForm from './components/RegistrationForm';
 import UserMain from './components/UserMain';
 import UserContacts from './components/UserContacts';
 import UserAdress from './components/UserAdress';
@@ -11,7 +12,9 @@ import './index.css';
 import userImg from '../../assets/img/userAvatar.png';
 
 function UserPage() {
-  const [isAuthorised, setIsAuthorized] = React.useState(false);
+  // const [isAuthorised, setIsAuthorized] = React.useState(false);
+  // const [registration, setRegistration] = React.useState(true);
+
   const menu = [
     { title: 'Головна', image: userImg, route: '/user/main' },
     { title: 'Контакти', image: userImg, route: '/user/contacts' },
@@ -23,7 +26,8 @@ function UserPage() {
 
   return (
     <div className="user">
-      {isAuthorised && <LoginForm setIsAuthorized={setIsAuthorized} />}
+      {/* {isAuthorised && <LoginForm setIsAuthorized={setIsAuthorized} />}
+      {registration && <RegistrationForm setRegistration={setRegistration} />} */}
       <header className="user__header">
         <div></div>
         <h1 className="unselectable">ОСОБИСТА СТОРІНКА</h1>
@@ -39,7 +43,7 @@ function UserPage() {
           ))}
           <div className="user__logout">
             <img src={userImg} alt="exit" width={25} height={25} />
-            <button onClick={() => setIsAuthorized(true)}>Вихід</button>
+            {/* <button onClick={() => setIsAuthorized(true)}>Вихід</button> */}
           </div>
         </nav>
         <Routes>

@@ -2,11 +2,17 @@ import { Link } from 'react-router-dom';
 
 import './index.css';
 
-import { googleSvg, instagramSvg, faceBookSvg } from '../../../../components/SvgSprite';
+import { googleSvg, instagramSvg, faceBookSvg } from '../SvgSprite';
 
-function LoginForm({ setIsAuthorized }) {
+function LoginForm({ setIsAuthorized, setRegistration }) {
+  function handleRegistration() {
+    setIsAuthorized(false);
+    setRegistration(true);
+  }
+
   return (
     <section className="loginForm unselectable">
+      <div className="loginForm__shadow" onClick={() => setIsAuthorized(false)}></div>
       <div className="loginForm__card">
         <h2>Авторизація</h2>
         <p className="mb-3">для входу введіть E-mail та пароль</p>
@@ -30,7 +36,9 @@ function LoginForm({ setIsAuthorized }) {
         </div>
         <div className="loginForm__registration">
           Відсутній акаунт?
-          <Link to={'/signIn'}>Реєстрація</Link>
+          <Link to={'/'} onClick={handleRegistration}>
+            Реєстрація
+          </Link>
         </div>
       </div>
     </section>
