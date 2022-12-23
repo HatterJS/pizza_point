@@ -30,17 +30,7 @@ connectToDb((error) => {
   }
 });
 
-function getGoods(res, category) {
-  const goods = [];
-  db.collection('goods')
-    .find({ category: category })
-    .forEach((item) => goods.push(item))
-    .then(() => {
-      res.status(200).json(goods);
-    })
-    .catch((res) => res.status(500).json({ error: 'Something goes wrong...' }));
-}
-
+//get goods from mongoDB ----------------->
 app.get('/pizzas', (req, res) => {
   getGoods(res, 'pizzas');
 });
@@ -57,6 +47,19 @@ app.get('/additionals', (req, res) => {
   getGoods(res, 'additionals');
 });
 
+function getGoods(res, category) {
+  const goods = [];
+  db.collection('goods')
+    .find({ category: category })
+    .forEach((item) => goods.push(item))
+    .then(() => {
+      res.status(200).json(goods);
+    })
+    .catch((res) => res.status(500).json({ error: 'Something goes wrong...' }));
+}
+//<-----------------get goods from mongoDB
+
+//get users emails from mongoDB
 app.get('/usersEmails', (req, res) => {
   const emails = [];
   db.collection('users')
@@ -66,6 +69,18 @@ app.get('/usersEmails', (req, res) => {
     .catch((res) => res.status(500).json({ error: 'Something goes wrong...' }));
 });
 
+//user authorization
+app.post('/authorization', (req, res) => {
+  const userData = {};
+  db.collection('users')
+    .find({ email: req.body.email, password: req.body.password })
+    .forEach((item) => {
+      userData.name = item.name;
+    })
+    .then(() => res.status(200).json(userData));
+});
+
+//add user to mongoDB
 app.post('/users', (req, res) => {
   let email = '';
   db.collection('users')

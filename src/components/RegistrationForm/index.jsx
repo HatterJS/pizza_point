@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import './index.css';
 
-function RegistrationForm({ setRegistration }) {
+function RegistrationForm({ setShowRegistrationForm }) {
   const [registrationData, setRegistrationData] = React.useState({
     name: '',
     email: '',
@@ -43,7 +43,8 @@ function RegistrationForm({ setRegistration }) {
         if (res.data) {
           alert('Зазначений E-mail вже використовується');
         } else {
-          console.log('accept');
+          setShowRegistrationForm(false);
+          alert('Ви успішно зареєструвались');
         }
       });
     } catch (error) {
@@ -54,7 +55,9 @@ function RegistrationForm({ setRegistration }) {
 
   return (
     <section className="registrationForm unselectable">
-      <div className="registrationForm__shadow" onClick={() => setRegistration(false)}></div>
+      <div
+        className="registrationForm__shadow"
+        onClick={() => setShowRegistrationForm(false)}></div>
       <div className="registrationForm__card">
         <h2>Реєстрація</h2>
         <p className="mb-1">Введіть повне ім'я:</p>
