@@ -76,22 +76,30 @@ app.post('/authorization', (req, res) => {
     .find({ email: req.body.email, password: req.body.password })
     .forEach((item) => {
       userData.name = item.name;
+      userData.email = item.email;
     })
     .then(() => res.status(200).json(userData));
 });
 
-//add user to mongoDB
-app.post('/users', (req, res) => {
+//user registration
+app.post('/registration', (req, res) => {
   let email = '';
   db.collection('users')
     .find({ email: req.body.email })
     .forEach((item) => (email = item.email))
     .then(() => {
       if (email === req.body.email) {
-        res.status(200).json(true);
-      } else {
-        db.collection('users').insertOne(req.body);
         res.status(200).json(false);
+      } else {
+        const userData = {
+          ...req.body,
+          surname: '',
+          phone: '',
+          address1: { street: '', building: '', apartment: '' },
+          address2: { street: '', building: '', apartment: '' }
+        };
+        db.collection('users').insertOne(userData);
+        res.status(200).json(userData);
       }
     });
 });

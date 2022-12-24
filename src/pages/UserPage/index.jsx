@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
-// import LoginForm from './components/LoginForm';
-// import RegistrationForm from './components/RegistrationForm';
+import { useDispatch } from 'react-redux';
 import UserMain from './components/UserMain';
 import UserContacts from './components/UserContacts';
 import UserAdress from './components/UserAdress';
 import UserHistory from './components/UserHistory';
 import NotFound from '../NonFound';
+
+import { logOut } from '../../redux/slices/authorizedUserSlice';
+
 import './index.css';
 
 import userImg from '../../assets/img/userAvatar.png';
 
 function UserPage() {
-  // const [isAuthorised, setIsAuthorized] = React.useState(false);
-  // const [registration, setRegistration] = React.useState(true);
+  //create dispatch for Redux
+  const dispatch = useDispatch();
 
   const menu = [
     { title: 'Головна', image: userImg, route: '/user/main' },
@@ -22,12 +24,8 @@ function UserPage() {
     { title: 'Історія', image: userImg, route: '/user/history' }
   ];
 
-  // const [section, setSection] = React.useState('Головна');
-
   return (
     <div className="user">
-      {/* {isAuthorised && <LoginForm setIsAuthorized={setIsAuthorized} />}
-      {registration && <RegistrationForm setRegistration={setRegistration} />} */}
       <header className="user__header">
         <div></div>
         <h1 className="unselectable">ОСОБИСТА СТОРІНКА</h1>
@@ -36,15 +34,19 @@ function UserPage() {
       <div className="user__main">
         <nav className="user__navigation">
           {menu.map((obj) => (
-            <div key={obj.title} className="user__menuItem">
-              <img src={obj.image} alt="icon" width={25} height={25} />
-              <Link to={obj.route}>{obj.title}</Link>
-            </div>
+            <Link to={obj.route} key={obj.title}>
+              <div className="user__menuItem">
+                <img src={obj.image} alt="icon" width={25} height={25} />
+                <p>{obj.title}</p>
+              </div>
+            </Link>
           ))}
-          <div className="user__logout">
-            <img src={userImg} alt="exit" width={25} height={25} />
-            {/* <button onClick={() => setIsAuthorized(true)}>Вихід</button> */}
-          </div>
+          <Link to={'/'} onClick={() => dispatch(logOut())}>
+            <div className="user__menuItem">
+              <img src={userImg} alt="exit" width={25} height={25} />
+              <p>Вихід</p>
+            </div>
+          </Link>
         </nav>
         <Routes>
           <Route path="/main" element={<UserMain />} />

@@ -1,16 +1,23 @@
 import React from 'react';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 // import { Link } from 'react-router-dom';
+
+import { setUserData, showRegistrationForm } from '../../redux/slices/authorizedUserSlice';
 
 import './index.css';
 
-function RegistrationForm({ setShowRegistrationForm }) {
+function RegistrationForm() {
+  //create dispatch for Redux
+  const dispatch = useDispatch();
+
   const [registrationData, setRegistrationData] = React.useState({
     name: '',
     email: '',
     password: ''
   });
   const [confirmPassword, setConfirmPassword] = React.useState('');
+
   //registration forn verification
   function verificationForm() {
     const regex = { name: /.{3,}/, email: /^\S+@\S+\.\S+$/, password: /.{6,}/ };
@@ -39,12 +46,14 @@ function RegistrationForm({ setShowRegistrationForm }) {
   //send data to mongoDB
   function sendData() {
     try {
-      axios.post('http://localhost:8887/users', registrationData).then((res) => {
+      axios.post('http://localhost:8887/registration', registrationData).then((res) => {
         if (res.data) {
-          alert('Зазначений E-mail вже використовується');
+          console.log(res.data);
+          dispatch(showRegistrationForm(false));
+          dispatch(setUserData(res.data));
+          alert('Ви успішно зареєструвались і тепер можете користуватись особистим кабінетом.');
         } else {
-          setShowRegistrationForm(false);
-          alert('Ви успішно зареєструвались');
+          alert('Зазначений E-mail вже використовується');
         }
       });
     } catch (error) {
@@ -57,7 +66,7 @@ function RegistrationForm({ setShowRegistrationForm }) {
     <section className="registrationForm unselectable">
       <div
         className="registrationForm__shadow"
-        onClick={() => setShowRegistrationForm(false)}></div>
+        onClick={() => dispatch(showRegistrationForm(false))}></div>
       <div className="registrationForm__card">
         <h2>Реєстрація</h2>
         <p className="mb-1">Введіть повне ім'я:</p>

@@ -61,10 +61,16 @@
   font-weight: 500;
   margin-left: 10px;
 }
-.user .user__main .user__navigation .user__menuItem, .user .user__main .user__navigation .user__logout {
+.user .user__main .user__navigation .user__menuItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 5px 0;
 }
-.user .user__main .user__navigation .user__menuItem:hover, .user .user__main .user__navigation .user__logout:hover {
+.user .user__main .user__navigation .user__menuItem p {
+  margin-left: 5px;
+}
+.user .user__main .user__navigation .user__menuItem:hover {
   -webkit-filter: brightness(0.5);
           filter: brightness(0.5);
   text-decoration: underline;

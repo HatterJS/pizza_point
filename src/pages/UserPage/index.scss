@@ -33,15 +33,18 @@ $transition:  all 0.2s ease-in-out;
         .user__navigation {
             display: flex;
             flex-direction: column;
-            // border-right: $borderBar;
             padding-right: 10px;
             a, button {
                 color: $textColor;
                 font-weight: 500;
                 margin-left: 10px;
             }
-            .user__menuItem, .user__logout {
+            .user__menuItem {
+                display: flex;
                 margin: 5px 0;
+                p {
+                    margin-left: 5px;
+                }
                 &:hover {
                     filter: brightness(0.5);
                     text-decoration: underline;

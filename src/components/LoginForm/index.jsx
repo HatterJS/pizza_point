@@ -1,27 +1,36 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import {
+  setUserData,
+  showLoginForm,
+  showRegistrationForm
+} from '../../redux/slices/authorizedUserSlice';
 
 import './index.css';
 
 import { googleSvg, instagramSvg, faceBookSvg } from '../SvgSprite';
 
-function LoginForm({ setShowLoginForm, setShowRegistrationForm, setUserName }) {
+function LoginForm() {
+  //get dispatch for Redux
+  const dispatch = useDispatch();
   const [authoriationData, setAuthoriationData] = React.useState({
     email: '',
     password: ''
   });
 
   function handleRegistration() {
-    setShowLoginForm(false);
-    setShowRegistrationForm(true);
+    dispatch(showLoginForm(false));
+    dispatch(showRegistrationForm(true));
   }
 
   function handleAcceptButton() {
     axios.post('http://localhost:8887/authorization', authoriationData).then((res) => {
       if (res.data.name) {
-        setUserName(res.data.name);
-        setShowLoginForm(false);
+        dispatch(setUserData(res.data));
+        dispatch(showLoginForm(false));
       } else {
         alert('Не вірний логін або пароль');
       }
@@ -30,7 +39,7 @@ function LoginForm({ setShowLoginForm, setShowRegistrationForm, setUserName }) {
 
   return (
     <section className="loginForm unselectable">
-      <div className="loginForm__shadow" onClick={() => setShowLoginForm(false)}></div>
+      <div className="loginForm__shadow" onClick={() => dispatch(showLoginForm())}></div>
       <div className="loginForm__card">
         <h2>Авторизація</h2>
         <p className="mb-3">для входу введіть E-mail та пароль</p>
