@@ -2,8 +2,6 @@ import React from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import UserMain from './components/UserMain';
-import UserContacts from './components/UserContacts';
-import UserAdress from './components/UserAdress';
 import UserHistory from './components/UserHistory';
 import NotFound from '../NonFound';
 
@@ -19,8 +17,6 @@ function UserPage() {
 
   const menu = [
     { title: 'Головна', image: userImg, route: '/user/main' },
-    { title: 'Контакти', image: userImg, route: '/user/contacts' },
-    { title: 'Адреси', image: userImg, route: '/user/adress' },
     { title: 'Історія', image: userImg, route: '/user/history' }
   ];
 
@@ -50,8 +46,6 @@ function UserPage() {
         </nav>
         <Routes>
           <Route path="/main" element={<UserMain />} />
-          <Route path="/contacts" element={<UserContacts />} />
-          <Route path="/adress" element={<UserAdress />} />
           <Route path="/history" element={<UserHistory />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

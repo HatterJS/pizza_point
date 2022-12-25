@@ -28,7 +28,7 @@ function LoginForm() {
 
   function handleAcceptButton() {
     axios.post('http://localhost:8887/authorization', authoriationData).then((res) => {
-      if (res.data.name) {
+      if (res.data) {
         dispatch(setUserData(res.data));
         dispatch(showLoginForm(false));
       } else {
