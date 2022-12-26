@@ -8,19 +8,21 @@ import { chatId, URI_API } from '../../components/TelegrammBot';
 import './index.css';
 
 function Order() {
-  //connect dispatch for redux
+  //connect dispatch for Redux
   const dispatch = useDispatch();
-  //get local cart items from redux store
+  //get local cart items from Redux store
   const { localCart } = useSelector((state) => state.localCart);
+  //get user data from Redux
+  const { userData } = useSelector((state) => state.authorizedUser);
   //ref for input phone number
   const phoneInput = React.useRef();
   //client data ------------>
-  const [clientName, setClientName] = React.useState('');
-  const [phoneNumber, setPhoneNumber] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [street, setStreet] = React.useState('');
-  const [house, setHouse] = React.useState('');
-  const [apartment, setApartment] = React.useState('');
+  const [clientName, setClientName] = React.useState(userData.name);
+  const [phoneNumber, setPhoneNumber] = React.useState(userData.phone);
+  const [email, setEmail] = React.useState(userData.email);
+  const [street, setStreet] = React.useState(userData.address.street);
+  const [house, setHouse] = React.useState(userData.address.building);
+  const [apartment, setApartment] = React.useState(userData.address.apartment);
   // <------------ client data
   //set adress depends on delivery type
   const [deliveryType, setDeliveryType] = React.useState('За адресою');
@@ -69,27 +71,37 @@ function Order() {
     (deliveryType === 'За адресою'
       ? `вул.${street}, буд.${house}, кв.${apartment}\n`
       : `${deliveryType}\n`);
+
   // `<b>Спосіб оплати: </b>${paymentType}\n` +
   // (discontCode && `<b>Дисконт: </b>${discontCode}\n`) +
   // (message && `<b>Повідомлення: </b>${message}\n`);
 
   async function acceptOrder() {
+    const buyingDate = new Date();
     try {
       await axios.post(URI_API, {
         chat_id: chatId,
         parse_mode: 'html',
         text: messageToTelegram
       });
+      await axios.post('http://localhost:8887/order', {
+        email: userData.email,
+        goods: localCart,
+        totalPrice: totalPrice,
+        date: buyingDate
+      });
     } catch (error) {
       alert('Помилочка ;( Скористайтесь, будь ласка, телефоном для замовлення.');
     }
-    setClientName('');
-    setPhoneNumber('');
-    setEmail('');
-    setDeliveryType(0);
-    setStreet('');
-    setHouse('');
-    setApartment('');
+
+    // setClientName('');
+    // setPhoneNumber('');
+    // setEmail('');
+    // setDeliveryType(0);
+    // setStreet('');
+    // setHouse('');
+    // setApartment('');
+
     dispatch(clearCart());
   }
   //<------------ send message to Telegram

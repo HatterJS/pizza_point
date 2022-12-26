@@ -104,3 +104,20 @@ app.put('/changeData/:id', (req, res) => {
     .then(() => res.status(200).json(true))
     .catch((res) => res.status(500).json({ error: 'Something goes wrong...' }));
 });
+
+//add order to mongoDB
+app.post('/order', (req, res) => {
+  db.collection('orders')
+    .insertOne(req.body)
+    .then(() => res.status(200).json(true))
+    .catch((res) => res.status(500).json({ error: 'Something goes wrong...' }));
+});
+
+//get users order history
+app.get('/order/:email', (req, res) => {
+  const orders = [];
+  db.collection('orders')
+    .find({ email: req.params.email })
+    .forEach((item) => orders.push(item))
+    .then(() => res.status(200).json(orders));
+});

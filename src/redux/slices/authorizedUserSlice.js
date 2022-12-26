@@ -3,7 +3,14 @@ const { createSlice } = require('@reduxjs/toolkit');
 const initialState = {
   loginForm: false,
   registrationForm: false,
-  userData: JSON.parse(localStorage.getItem('user')) || {}
+  userData: JSON.parse(localStorage.getItem('user')) || {
+    _id: '',
+    name: '',
+    surname: '',
+    email: '',
+    phone: '',
+    address: { street: '', building: '', apartment: '' }
+  }
 };
 
 const authorizedUserSlice = createSlice({
