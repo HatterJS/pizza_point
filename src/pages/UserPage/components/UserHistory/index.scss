@@ -1,19 +1,67 @@
 $borderBar: 1px solid rgba(64, 64, 64, 0.2);
-$transition:  all 0.2s ease-in-out;
+$transition:  all 0.5s ease-in-out;
 
 .UserHistory {
     flex: 1 1 auto;
     height: fit-content;
     margin-left: 20px;
-    .UserHistory__section {
-        box-shadow: 1px 1px 2px gray;
-        padding: 20px;
-        border: $borderBar;
-        border-radius: 20px;
-        margin-bottom: 20px;
+    .historyItem {
+        margin-top: 20px;
+        .historyItem__header {
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 1px 1px 2px gray;
+            padding: 20px;
+            border: $borderBar;
+            cursor: pointer;
+        }
+        .historyItem__body {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(240, 240, 240);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 1px 1px 3px gray inset;
+            overflow: auto;
+            h2 {
+                background: inherit;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        h4 {
+            margin-bottom: 5px;
+        }
     }
-    h4 {
-        margin-bottom: 5px;
+    .historyItem-open {
+        .historyItem__header {
+            border-radius: 20px 20px 0 0;
+        }
+        .historyItem__body {
+            height: 300px;
+            opacity: 1;
+            visibility: visible;
+            transition: $transition;
+        }
+        .goods__item-history {
+            visibility: visible;
+            opacity: 1;
+            transition:  all 0.2s ease-in 0.5s;
+        }
+    }
+    .historyItem-close {
+        .historyItem__header {
+            border-radius: 20px;
+        }
+        .historyItem__body {
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            transition: $transition;
+        }
+        .goods__item-history {
+            visibility: hidden;
+            opacity: 0;
+        }
     }
 }
 

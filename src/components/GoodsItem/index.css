@@ -1,10 +1,11 @@
-.goods__item, .goods__item-favorite, .goods__item-cart {
+.goods__item, .goods__item-favorite, .goods__item-cart, .goods__item-history {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background-color: white;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -18,17 +19,17 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-.goods__item:hover, .goods__item-favorite:hover, .goods__item-cart:hover {
+.goods__item:hover, .goods__item-favorite:hover, .goods__item-cart:hover, .goods__item-history:hover {
   border: 1px solid rgba(64, 64, 64, 0.2);
   -webkit-box-shadow: 2px 2px 4px gray;
           box-shadow: 2px 2px 4px gray;
   -webkit-transform: translateY(-3px);
           transform: translateY(-3px);
 }
-.goods__item img, .goods__item-favorite img, .goods__item-cart img {
+.goods__item img, .goods__item-favorite img, .goods__item-cart img, .goods__item-history img {
   width: 100%;
 }
-.goods__item .goodsItem__description, .goods__item-favorite .goodsItem__description, .goods__item-cart .goodsItem__description {
+.goods__item .goodsItem__description, .goods__item-favorite .goodsItem__description, .goods__item-cart .goodsItem__description, .goods__item-history .goodsItem__description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,7 +38,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.goods__item svg, .goods__item-favorite svg, .goods__item-cart svg {
+.goods__item svg, .goods__item-favorite svg, .goods__item-cart svg, .goods__item-history svg {
   position: absolute;
   right: 0;
   top: 0;
@@ -59,17 +60,17 @@
   height: 100%;
 }
 
-.goods__item-favorite, .goods__item-cart {
+.goods__item-favorite, .goods__item-cart, .goods__item-history {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
   min-width: 300px;
 }
-.goods__item-favorite img, .goods__item-cart img {
+.goods__item-favorite img, .goods__item-cart img, .goods__item-history img {
   width: 40%;
 }
-.goods__item-favorite .goodsItem__description, .goods__item-cart .goodsItem__description {
+.goods__item-favorite .goodsItem__description, .goods__item-cart .goodsItem__description, .goods__item-history .goodsItem__description {
   width: 60%;
   min-width: 70px;
 }
@@ -80,6 +81,13 @@
       -ms-flex-align: center;
           align-items: center;
   min-width: 380px;
+}
+
+.goods__item-history {
+  max-width: 330px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .goods__favorite-checked svg {
@@ -223,7 +231,7 @@
   background-color: rgb(230, 230, 230);
 }
 
-.goods__item-favorite-counterBlock, .goods__item-counterBlock {
+.goods__item-favorite-counterBlock, .goods__item-counterBlock, .goods__item-history-counterBlock {
   display: none;
 }
 
@@ -285,26 +293,26 @@
   }
 }
 @media (max-width: 450px) {
-  .goods__item, .goods__item-favorite, .goods__item-cart {
+  .goods__item, .goods__item-favorite, .goods__item-cart, .goods__item-history {
     padding: 5px;
   }
-  .goods__item:hover, .goods__item-favorite:hover, .goods__item-cart:hover {
+  .goods__item:hover, .goods__item-favorite:hover, .goods__item-cart:hover, .goods__item-history:hover {
     -webkit-transform: none;
             transform: none;
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  .goods__item .goodsItem__description p, .goods__item-favorite .goodsItem__description p, .goods__item-cart .goodsItem__description p {
+  .goods__item .goodsItem__description p, .goods__item-favorite .goodsItem__description p, .goods__item-cart .goodsItem__description p, .goods__item-history .goodsItem__description p {
     font-size: 14px;
   }
-  .goods__item .goodsItem__description .goods__size input, .goods__item-favorite .goodsItem__description .goods__size input, .goods__item-cart .goodsItem__description .goods__size input {
+  .goods__item .goodsItem__description .goods__size input, .goods__item-favorite .goodsItem__description .goods__size input, .goods__item-cart .goodsItem__description .goods__size input, .goods__item-history .goodsItem__description .goods__size input {
     font-size: 12px;
     margin: 2px;
   }
-  .goods__item .goodsItem__description .goods__cost h3, .goods__item-favorite .goodsItem__description .goods__cost h3, .goods__item-cart .goodsItem__description .goods__cost h3 {
+  .goods__item .goodsItem__description .goods__cost h3, .goods__item-favorite .goodsItem__description .goods__cost h3, .goods__item-cart .goodsItem__description .goods__cost h3, .goods__item-history .goodsItem__description .goods__cost h3 {
     min-width: 65px;
   }
-  .goods__item .goodsItem__description .goods__cost button, .goods__item-favorite .goodsItem__description .goods__cost button, .goods__item-cart .goodsItem__description .goods__cost button {
+  .goods__item .goodsItem__description .goods__cost button, .goods__item-favorite .goodsItem__description .goods__cost button, .goods__item-cart .goodsItem__description .goods__cost button, .goods__item-history .goodsItem__description .goods__cost button {
     font-size: 14px;
   }
 }
